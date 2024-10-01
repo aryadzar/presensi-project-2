@@ -6,11 +6,11 @@
 
 <header class="bg-blue-500 text-white py-4 px-6 flex items-center justify-between">
     <!-- Left section (Logo and greeting) -->
-    <div class="flex items-center space-x-4">
+    <div class="flex items-center space-x-5">
       <!-- Logo -->
       <a href="#">
-          <div class="flex items-center">
-            <img src="{{ asset('/assets/logo_absensi/image.png') }}" alt="AttenDicus Logo" class=" w-[300px] ">
+          <div class="flex items-center ">
+            <img src="{{ asset('/assets/logo_absensi/image.png') }}" alt="AttenDicus Logo" class=" w-[200px]">
           </div>
         </a>
 
@@ -53,7 +53,7 @@
     <!-- Main Content -->
     <main class="flex-1 p-6 overflow-y-auto">
       <h1 class="text-2xl font-semibold"> <span class=" text-blue-500"><i class="fa-solid fa-house"></i>  Dashboard</span></h1>
-        
+
     </main>
   </div>
 

@@ -5,7 +5,7 @@
           <!-- Navigation Menu -->
           <nav class="space-y-4">
             <!-- Dashboard -->
-            <a href="{{ route("dashboard") }}" class="flex items-center space-x-2 p-3  {{ Route::currentRouteName() == 'dashboard' ? "bg-white rounded-lg text-blue-600 w-96" : "bg-white text-blue-500 rounded-lg hover:bg-gray-100" }} ">
+            <a href="{{ route("dashboard") }}" class="flex items-center space-x-2 p-3  {{ Route::currentRouteName() == 'dashboard' ? "bg-white rounded-lg text-blue-600 w-96" : "bg-white text-blue-500 rounded-lg hover:bg-gray-100 shadow-2xl" }} ">
               <i class="fas fa-home"></i>
               <span>Dashboard</span>
             </a>

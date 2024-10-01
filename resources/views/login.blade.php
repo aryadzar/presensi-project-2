@@ -18,12 +18,12 @@
       </div>
       <form action="" method="post">
         <div class="mb-4 flex items-center justify-center">
-          <a href="{{ route("dashboard") }}" class=" btn btn-warning text-lg"><i class="fa-solid fa-user"></i>Login Dengan SSO Unila</a>
+          <a href="{{ route("dashboard") }}" class=" btn btn-warning text-lg w-[300px]"><i class="fa-solid fa-user"></i>Login Dengan SSO Unila</a>
         </div>
       </form>
 
       <div class="flex items-center justify-center">
-          <a href="#" class=" text-center text-blue-700">Lupa password ? </a>
+          <a href="#" class="btn btn-error text-center w-[300px]"><i class="fa-solid fa-circle-info"></i>Lupa password </a>
       </div>
     </div>
 

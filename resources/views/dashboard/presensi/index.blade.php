@@ -1,6 +1,6 @@
 @extends('dashboard.dashboard-layout.index')
 
-@section('title', "Dashboard Pegawai")
+@section('title', "Presensi Pegawai")
 @section('nama_pegawai', 'Ahmad Januari')
 
 @section('content')

@@ -3,15 +3,15 @@
 @section('title', "Login Absensi")
 
 @section('content')
-<div class="min-h-screen flex items-center justify-center shadow-2xl bg-gray-50  md:px-8 ">
-  <div class="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-screen-lg">
+<div class="min-h-screen flex items-center justify-center shadow-2xl bg-gradient-to-br from-blue-500 to-blue-950    md:px-8 ">
+  <div class="flex flex-col md:flex-row bg-gradient-to-br from-blue-300 to-blue-800 shadow-lg rounded-lg overflow-hidden w-full max-w-screen-lg">
     <!-- Form Section -->
     <div class="w-full md:w-1/2 p-8 md:p-12">
       <div class="mb-4">
         <img src="{{ asset('/assets/logo_unila/unila.png') }}" alt="Logo" class="w-24 mx-auto md:mx-0">
       </div>
-      <h2 class="text-2xl font-semibold text-gray-700 mb-4 text-center md:text-left">Log In</h2>
-      <p class="text-gray-500 mb-6 text-center md:text-left">Selamat datang di web absensi</p>
+      <h2 class="text-2xl font-semibold mb-4 text-center md:text-left">Log In</h2>
+      <p class=" mb-6 text-center md:text-left">Selamat datang di web absensi</p>
       <div class="flex items-center justify-between mb-6">
         <hr class="w-full border-gray-300">
         <hr class="w-full border-gray-300">
@@ -35,4 +35,33 @@
   </div>
 </div>
 
+@endsection
+
+@section('script')
+<script>
+    // Mendapatkan elemen checkbox
+    const themeToggle = document.getElementById('theme-toggle');
+
+    // Cek localStorage untuk tema yang tersimpan
+    const savedTheme = localStorage.getItem('theme');
+
+    // Jika ada tema tersimpan, aktifkan tema tersebut
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      if (savedTheme === 'black') {
+        themeToggle.checked = true; // Jika mode black, checkbox harus tercentang
+      }
+    }
+
+    // Event listener untuk perubahan tema
+    themeToggle.addEventListener('change', function() {
+      if (this.checked) {
+        document.documentElement.setAttribute('data-theme', 'black'); // Set tema ke 'black'
+        localStorage.setItem('theme', 'black'); // Simpan pilihan tema di localStorage
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light'); // Set tema ke 'light'
+        localStorage.setItem('theme', 'light'); // Simpan pilihan tema di localStorage
+      }
+    });
+  </script>
 @endsection

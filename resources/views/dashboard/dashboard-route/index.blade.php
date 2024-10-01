@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<aside class="bg-gradient-to-b from-blue-500 to-blue-950 text-white w-64 flex flex-col justify-between p-4 overflow-y rounded-sm">
+<aside class="bg-gradient-to-b from-blue-500 to-blue-950 text-white w-64 flex flex-col justify-between p-4 overflow-y rounded-sm ">
         <!-- Top Section -->
         <div>
           <!-- Navigation Menu -->
@@ -26,7 +26,7 @@
         <div class="space-y-4">
           <!-- Dark Mode Toggle -->
           <div class="flex items-center justify-between p-3 rounded-lg">
-            <input type="checkbox" class="theme-controller" value="black" id="theme-toggle" />
+            <input type="checkbox" class="theme-controller" value="dark" id="theme-toggle" />
             <span>Dark Mode</span>
             <span class="bg-gray-600 px-2 py-1 text-xs rounded-full">Beta</span>
           </div>
@@ -62,16 +62,16 @@
     // Jika ada tema tersimpan, aktifkan tema tersebut
     if (savedTheme) {
       document.documentElement.setAttribute('data-theme', savedTheme);
-      if (savedTheme === 'black') {
-        themeToggle.checked = true; // Jika mode black, checkbox harus tercentang
+      if (savedTheme === 'dark') {
+        themeToggle.checked = true; // Jika mode dark, checkbox harus tercentang
       }
     }
 
     // Event listener untuk perubahan tema
     themeToggle.addEventListener('change', function() {
       if (this.checked) {
-        document.documentElement.setAttribute('data-theme', 'black'); // Set tema ke 'black'
-        localStorage.setItem('theme', 'black'); // Simpan pilihan tema di localStorage
+        document.documentElement.setAttribute('data-theme', 'dark'); // Set tema ke 'dark'
+        localStorage.setItem('theme', 'dark'); // Simpan pilihan tema di localStorage
       } else {
         document.documentElement.setAttribute('data-theme', 'light'); // Set tema ke 'light'
         localStorage.setItem('theme', 'light'); // Simpan pilihan tema di localStorage

@@ -23,7 +23,7 @@
       </form>
 
       <div class="flex items-center justify-center">
-          <a href="#" class="btn btn-error text-center w-[300px]"><i class="fa-solid fa-circle-info"></i>Lupa password </a>
+          <a href="https://apps.unila.ac.id/#lupa" class="btn btn-error text-center w-[300px]"><i class="fa-solid fa-circle-info"></i>Lupa password </a>
       </div>
     </div>
 

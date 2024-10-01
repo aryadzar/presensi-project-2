@@ -27,9 +27,9 @@ Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->name('dashboard');
 
-Route::get('dashboard/set_absen', function () {
-    return view('dashboard.set_absen.index');
-})->name("set_absen");
+Route::get('dashboard/presensi', function () {
+    return view('dashboard.presensi.index');
+})->name("presensi");
 
 Route::get('dashboard/history', function () {
     return view('dashboard.riwayat.index');

@@ -10,7 +10,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <header class="bg-blue-500 text-white py-4 px-6 flex items-center justify-between">
+    <header class="bg-blue-500 text-white py-4 px-6 flex items-center justify-between overflow-x-auto">
         <!-- Left section (Logo and greeting) -->
         <div class="flex items-center space-x-5">
           <!-- Logo -->

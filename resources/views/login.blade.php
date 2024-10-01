@@ -1,9 +1,9 @@
 @extends('login-layout.index')
 
-@section('title', "Halaman Login")
+@section('title', "Login Absensi")
 
 @section('content')
-<div class="min-h-screen flex items-center justify-center shadow-2xl bg-gray-50">
+<div class="min-h-screen flex items-center justify-center shadow-2xl bg-gray-50 md:px-8 ">
   <div class="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-screen-lg">
     <!-- Form Section -->
     <div class="w-full md:w-1/2 p-8 md:p-12">
@@ -18,7 +18,7 @@
       </div>
       <form action="" method="post">
         <div class="mb-4 flex items-center justify-center">
-          <a href="#" class=" btn btn-warning text-lg"><i class="fa-solid fa-user"></i>Login Dengan SSO Unila</a>
+          <a href="{{ route("dashboard") }}" class=" btn btn-warning text-lg"><i class="fa-solid fa-user"></i>Login Dengan SSO Unila</a>
         </div>
       </form>
 
@@ -36,5 +36,3 @@
 </div>
 
 @endsection
-
-

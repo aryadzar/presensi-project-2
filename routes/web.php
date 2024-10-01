@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', function () {
-    return view('login');
+Route::get('/', function (){
+    return redirect()->route('login');
 });
+
+Route::get('/login', function () {
+
+    return view('login');
+})->name('login');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->name('dashboard');
+

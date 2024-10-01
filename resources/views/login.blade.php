@@ -22,8 +22,8 @@
         </div>
       </form>
 
-      <div class="flex items-center">
-          <a href="" class=" text-center text-blue-700">Lupa password ? </a>
+      <div class="flex items-center justify-center">
+          <a href="#" class=" text-center text-blue-700">Lupa password ? </a>
       </div>
     </div>
 

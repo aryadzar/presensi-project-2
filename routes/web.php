@@ -27,3 +27,6 @@ Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->name('dashboard');
 
+Route::get('dashboard/set_absen', function () {
+
+})->name("set_absen");

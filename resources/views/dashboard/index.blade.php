@@ -11,9 +11,6 @@
       <a href="#">
           <div class="flex items-center">
             <img src="{{ asset('/assets/logo_absensi/image.png') }}" alt="AttenDicus Logo" class=" w-[300px] ">
-            <div class="ml-2">
-
-            </div>
           </div>
         </a>
 
@@ -50,6 +47,15 @@
       </div>
     </div>
   </header>
+
+  <div class="flex h-screen space-x-4">
+    @include('dashboard.dashboard-route.index')
+    <!-- Main Content -->
+    <main class="flex-1 p-6 overflow-y-auto">
+      <h1 class="text-2xl font-semibold"> <span class=" text-blue-500"><i class="fa-solid fa-house"></i>  Dashboard</span></h1>
+        
+    </main>
+  </div>
 
 
 @endsection

@@ -3,7 +3,7 @@
 @section('title', "Login Absensi")
 
 @section('content')
-<div class="min-h-screen flex items-center justify-center shadow-2xl bg-gray-50 md:px-8 ">
+<div class="min-h-screen flex items-center justify-center shadow-2xl bg-gray-50  md:px-8 ">
   <div class="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-screen-lg">
     <!-- Form Section -->
     <div class="w-full md:w-1/2 p-8 md:p-12">

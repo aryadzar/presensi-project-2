@@ -10,7 +10,7 @@
               <span>Dashboard</span>
             </a>
             <!-- Presensi -->
-            <a href="{{ route("presensi") }}" class="flex items-center space-x-2 p-5 {{ Route::currentRouteName() == 'presensi' ? "bg-white rounded-lg text-blue-600 w-96" : "bg-white text-blue-500 rounded-lg hover:bg-gray-100" }}  ">
+            <a href="{{ route("presensi") }}" class="flex  items-center space-x-2 p-5 {{ Route::currentRouteName() == 'presensi' ? "bg-white rounded-lg text-blue-600 w-96" : "bg-white text-blue-500 rounded-lg hover:bg-gray-100" }}  ">
               <i class="fas fa-fingerprint"></i>
               <span>Presensi</span>
             </a>
@@ -25,10 +25,11 @@
 
         <div class="space-y-4">
           <!-- Dark Mode Toggle -->
-          <a href="#" class="flex items-center justify-between p-3 rounded-lg">
+          <div class="flex items-center justify-between p-3 rounded-lg">
+            <input type="checkbox" class="theme-controller" value="black" id="theme-toggle" />
             <span>Dark Mode</span>
             <span class="bg-gray-600 px-2 py-1 text-xs rounded-full">Beta</span>
-          </a>
+          </div>
 
           <!-- Help -->
           <a href="#" class="flex items-center space-x-2 p-3 rounded-lg">
@@ -49,3 +50,32 @@
         </div>
         <!-- Bottom Section -->
 </aside>
+
+@section('script')
+<script>
+    // Mendapatkan elemen checkbox
+    const themeToggle = document.getElementById('theme-toggle');
+
+    // Cek localStorage untuk tema yang tersimpan
+    const savedTheme = localStorage.getItem('theme');
+
+    // Jika ada tema tersimpan, aktifkan tema tersebut
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      if (savedTheme === 'black') {
+        themeToggle.checked = true; // Jika mode black, checkbox harus tercentang
+      }
+    }
+
+    // Event listener untuk perubahan tema
+    themeToggle.addEventListener('change', function() {
+      if (this.checked) {
+        document.documentElement.setAttribute('data-theme', 'black'); // Set tema ke 'black'
+        localStorage.setItem('theme', 'black'); // Simpan pilihan tema di localStorage
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light'); // Set tema ke 'light'
+        localStorage.setItem('theme', 'light'); // Simpan pilihan tema di localStorage
+      }
+    });
+  </script>
+@endsection

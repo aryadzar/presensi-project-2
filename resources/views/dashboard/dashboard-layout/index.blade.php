@@ -45,7 +45,7 @@
               <i class="fas fa-user"></i>
             </div>
             <div>
-              <h3 class="font-bold">Ahmad Mauluddin</h3>
+              <h3 class="font-bold">@yield('nama_pegawai')</h3>
               <p class="text-sm">Pegawai</p>
             </div>
             <!-- Dropdown Icon -->
@@ -62,6 +62,7 @@
         </main>
       </div>
 
+      @yield('script')
 
 </body>
 </html>

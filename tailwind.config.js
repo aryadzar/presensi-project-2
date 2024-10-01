@@ -6,7 +6,7 @@ export default {
       "./resources/**/*.vue",
     ],
     daisyui: {
-        themes: ["light", ""],
+        themes: ["light", "black"],
     },
     plugins: [
         require('daisyui')

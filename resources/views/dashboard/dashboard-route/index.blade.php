@@ -10,12 +10,12 @@
               <span>Dashboard</span>
             </a>
             <!-- Presensi -->
-            <a href="#" class="flex items-center space-x-2 p-3 {{ Route::currentRouteName() == 'dashboard' ? "bg-white rounded-lg text-blue-600 w-96" : "bg-white text-blue-500 rounded-lg hover:bg-gray-100" }}  ">
+            <a href="{{ route("set_absen") }}" class="flex items-center space-x-2 p-3 {{ Route::currentRouteName() == 'set_absen' ? "bg-white rounded-lg text-blue-600 w-96" : "bg-white text-blue-500 rounded-lg hover:bg-gray-100" }}  ">
               <i class="fas fa-fingerprint"></i>
               <span>Presensi</span>
             </a>
             <!-- History -->
-            <a href="#" class="flex items-center space-x-2 p-3 bg-white text-blue-500 rounded-lg hover:bg-gray-100">
+            <a href="{{ route("riwayat") }}" class="flex items-center space-x-2 p-3 {{ Route::currentRouteName() == 'riwayat' ? "bg-white rounded-lg text-blue-600 w-96" : "bg-white text-blue-500 rounded-lg hover:bg-gray-100" }}">
               <i class="fas fa-history"></i>
               <span>History</span>
             </a>

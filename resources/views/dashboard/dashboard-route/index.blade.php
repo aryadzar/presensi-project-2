@@ -51,6 +51,7 @@
         <!-- Bottom Section -->
 </aside>
 
+
 @section('script')
 <script>
     // Mendapatkan elemen checkbox
@@ -78,4 +79,7 @@
       }
     });
   </script>
+
+<script src="//unpkg.com/alpinejs" defer></script>
+
 @endsection

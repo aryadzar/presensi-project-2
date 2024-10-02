@@ -1,7 +1,7 @@
 <!-- Sidebar -->
-<aside class="bg-gradient-to-b from-blue-500 to-blue-950 text-white w-64 flex flex-col justify-between p-4 overflow-y rounded-sm ">
+<aside class="bg-gradient-to-b from-blue-500 to-blue-950 text-white w-64 flex flex-col justify-between p-4  rounded-sm">
         <!-- Top Section -->
-        <div>
+        <div class=" flex-grow ">
           <!-- Navigation Menu -->
           <nav class="space-y-4">
             <!-- Dashboard -->
@@ -23,7 +23,7 @@
           </nav>
         </div>
 
-        <div class="space-y-4">
+        <div class="space-y-3">
           <!-- Dark Mode Toggle -->
           <div class="flex items-center justify-between p-3 rounded-lg">
             <input type="checkbox" class="theme-controller" value="dark" id="theme-toggle" />

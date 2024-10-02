@@ -40,13 +40,13 @@
           <div class="h-8 border-l border-white"></div>
 
           <!-- User Profile -->
-          <div class="flex items-center space-x-2">
+          <div class="flex items-center space-x-2 cursor-pointer">
             <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
               <i class="fas fa-user"></i>
             </div>
             <div>
               <h3 class="font-bold">@yield('nama_pegawai')</h3>
-              <p class="text-sm">Pegawai</p>
+              <p class="text-sm">@yield('role')</p>
             </div>
             <!-- Dropdown Icon -->
             <i class="fas fa-chevron-down"></i>

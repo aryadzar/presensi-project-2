@@ -3,15 +3,15 @@
 @section('title', "Login Absensi")
 
 @section('content')
-<div class="min-h-screen flex items-center justify-center shadow-2xl bg-gradient-to-br from-blue-500 to-blue-950    md:px-8 ">
-  <div class="flex flex-col md:flex-row bg-gradient-to-br from-blue-300 to-blue-800 shadow-lg rounded-lg overflow-hidden w-full max-w-screen-lg">
+<div class="min-h-screen flex items-center justify-center shadow-2xl animated-background bg-gradient-to-r from-blue-500 to-blue-900    md:px-8 ">
+  <div class="flex flex-col md:flex-row bg-gray-300 shadow-lg rounded-lg overflow-hidden w-full max-w-screen-lg">
     <!-- Form Section -->
     <div class="w-full md:w-1/2 p-8 md:p-12">
       <div class="mb-4">
         <img src="{{ asset('/assets/logo_unila/unila.png') }}" alt="Logo" class="w-24 mx-auto md:mx-0">
       </div>
       <h2 class="text-2xl font-semibold mb-4 text-center md:text-left">Log In</h2>
-      <p class=" mb-6 text-center md:text-left">Selamat datang di web absensi</p>
+      <p class=" mb-6 text-center md:text-left text-lg">Selamat datang di web absensi</p>
       <div class="flex items-center justify-between mb-6">
         <hr class="w-full border-gray-300">
         <hr class="w-full border-gray-300">
@@ -53,15 +53,5 @@
       }
     }
 
-    // Event listener untuk perubahan tema
-    themeToggle.addEventListener('change', function() {
-      if (this.checked) {
-        document.documentElement.setAttribute('data-theme', 'black'); // Set tema ke 'black'
-        localStorage.setItem('theme', 'black'); // Simpan pilihan tema di localStorage
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light'); // Set tema ke 'light'
-        localStorage.setItem('theme', 'light'); // Simpan pilihan tema di localStorage
-      }
-    });
   </script>
 @endsection

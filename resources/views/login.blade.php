@@ -18,7 +18,7 @@
       </div>
       <form action="" method="post">
         <div class="mb-4 flex items-center justify-center">
-          <a href="{{ route("dashboard") }}" class=" btn btn-warning text-lg w-[300px]"><i class="fa-solid fa-user"></i>Login Dengan SSO Unila</a>
+          <a href="{{ route("login.post") }}" class=" btn btn-warning text-lg w-[300px]"><i class="fa-solid fa-user"></i>Login Dengan SSO Unila</a>
         </div>
       </form>
 

@@ -38,7 +38,7 @@
           </a>
 
           <!-- Logout -->
-          <a href="{{ route("login") }}" class="flex items-center space-x-2 p-3 rounded-lg">
+          <a href="{{ route("logout") }}" class="flex items-center space-x-2 p-3 rounded-lg">
             <i class="fas fa-sign-out-alt"></i>
             <span>Logout</span>
           </a>

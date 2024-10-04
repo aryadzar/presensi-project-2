@@ -12,17 +12,15 @@
     @vite('resources/css/app.css')
 </head>
 <body>
+
     <header class="bg-blue-500 text-white py-4 px-6 flex items-center justify-between overflow-x-auto">
         <!-- Left section (Logo and greeting) -->
         <div class="flex items-center space-x-5">
-            <button @click="isSidebarOpen = !isSidebarOpen" class="lg:hidden text-white focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-          <!-- Logo -->
-          <a href="#">
-              <div class="flex items-center ">
-                <img src="{{ asset('/assets/logo_absensi/image.png') }}" alt="AttenDicus Logo" class=" w-[200px]">
-              </div>
+            <!-- Logo -->
+            <a href="#">
+                <div class="flex items-center ">
+                    <img src="{{ asset('/assets/logo_absensi/image.png') }}" alt="AttenDicus Logo" class=" w-[200px]">
+                </div>
             </a>
 
           <!-- Greeting text -->
@@ -57,7 +55,8 @@
             <i class="fas fa-chevron-down"></i>
           </div>
         </div>
-      </header>
+    </header>
+
 
       <div class="flex h-screen space-x-4">
         @include('dashboard.dashboard-route.index')

@@ -41,16 +41,35 @@ Route::get('/login/sso', function () {
 
 Route::get('/dashboard', function () {
 
-    return view('dashboard.index');
+    return view('dashboard_pegawai.index');
 })->name('dashboard');
 
-Route::get('dashboard/presensi', function () {
-    return view('dashboard.presensi.index');
-})->name("presensi");
+
+
+
+Route::get('dashboard/presensi/scan_barcode', function () {
+    return view('dashboard_pegawai.scan_barcode.index');
+})->name("presensi.barcode");
+
+Route::get('dashboard/presensi/set_izin', function () {
+    return view('dashboard_pegawai.surat_tugas.index');
+})->name("presensi.surat_tugas");
+
+Route::get('dashboard/presensi/set_cuti', function () {
+    return view('dashboard_pegawai.cuti.index');
+})->name("presensi.set_cuti");
 
 Route::get('dashboard/history', function () {
-    return view('dashboard.riwayat.index');
+    return view('dashboard_pegawai.riwayat.index');
 })->name("riwayat");
+
+
+
+
+
+
+
+
 
 Route::get('/logout', function () {
     if(SSO::check()) { //mengecek otentikasi pada aplikasi
@@ -64,5 +83,5 @@ Route::get('/logout', function () {
 })->name("logout");
 
 Route::get("/testing", function(){
-    return view('dashboard.testing');
+    return view('dashboard_pegawai.testing');
 })->name("testing");

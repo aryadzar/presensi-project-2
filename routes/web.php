@@ -62,3 +62,7 @@ Route::get('/logout', function () {
         return redirect('login'); //menampilkan halaman login
     }
 })->name("logout");
+
+Route::get("/testing", function(){
+    return view('dashboard.testing');
+})->name("testing");

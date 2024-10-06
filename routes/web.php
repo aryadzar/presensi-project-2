@@ -2,6 +2,7 @@
 
 use SSO\SSO;
 use App\Models\User;
+use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -40,8 +41,8 @@ Route::get('/login/sso', function () {
 
 
 Route::get('/dashboard', function () {
-
-    return view('dashboard_pegawai.index');
+    $breadcrumbs = Breadcrumbs::generate('Home');
+    return view('dashboard_pegawai.index', compact('breadcrumbs'));
 })->name('dashboard');
 
 
@@ -52,7 +53,8 @@ Route::get('dashboard/presensi/scan_barcode', function () {
 })->name("presensi.barcode");
 
 Route::get('dashboard/presensi/set_izin', function () {
-    return view('dashboard_pegawai.surat_tugas.index');
+    $breadcrumbs = Breadcrumbs::generate('Surat Tugas');
+    return view('dashboard_pegawai.surat_tugas.index', compact("breadcrumbs"));
 })->name("presensi.surat_tugas");
 
 Route::get('dashboard/presensi/set_cuti', function () {

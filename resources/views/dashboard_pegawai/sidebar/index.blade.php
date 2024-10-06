@@ -49,17 +49,17 @@
                         <!-- Dropdown Menu Start -->
                         <div class="translate transform overflow-hidden"
                             :class="(selected === 'Presensi') ? 'block' : 'hidden'">
-                            <ul class="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
+                            <ul class="mb-5.5 mt-4 flex flex-col gap-5 pl-6">
                                 <!-- Scan Barcode submenu -->
                                 <li>
-                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 text-white font-semibold duration-300 ease-in-out hover:bg-blue-400 hover:text-white {{ Route::currentRouteName() === 'presensi.barcode' ? 'bg-blue-500 text-white' : '' }}"
+                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 text-white font-semibold duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'presensi.barcode' ? ' text-white' : '' }}"
                                         href="{{ route('presensi.barcode') }}">
                                         Scan Barcode
                                     </a>
                                 </li>
                                 <!-- Surat Tugas submenu -->
                                 <li>
-                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-semibold text-white duration-300 ease-in-out hover:bg-blue-400 hover:text-white {{ Route::currentRouteName() === 'presensi.surat_tugas' ? 'bg-blue-500 text-white' : '' }}"
+                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-semibold text-white duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'presensi.surat_tugas' ? ' text-white' : '' }}"
                                         href="{{ route('presensi.surat_tugas') }}">
 
                                         @if (Route::currentRouteName() === 'presensi.surat_tugas')
@@ -71,7 +71,7 @@
                                 </li>
                                 <!-- Keterangan Cuti submenu -->
                                 <li>
-                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:bg-blue-400 hover:text-white {{ Route::currentRouteName() === 'presensi.set_cuti' ? 'bg-blue-500 text-white' : '' }}"
+                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'presensi.set_cuti' ? 'bg-blue-500 text-white' : '' }}"
                                         href="{{ route('presensi.set_cuti') }}">
                                         Keterangan Cuti
                                     </a>

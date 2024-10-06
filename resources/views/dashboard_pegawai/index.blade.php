@@ -11,6 +11,7 @@
 
 </div> --}}
     <div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        @include('dashboard_pegawai.breadcrumbs.index')
 
         <!-- Absence Warning Box -->
         <div class="col-span-3 bg-yellow-100 p-4 rounded-lg shadow-md flex items-center">

@@ -1,5 +1,5 @@
 <aside :class="sidebarToggle ? 'translate-x-0' : '-translate-x-full'"
-    class="absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-blue-500 duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0"
+    class="absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden from-blue-500 to-blue-600 duration-300 ease-linear bg-gradient-to-b dark:from-blue-800 dark:to-blue-950 lg:static lg:translate-x-0"
     @click.outside="sidebarToggle = false">
     <!-- SIDEBAR HEADER -->
     <div class="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
@@ -31,7 +31,7 @@
                         </a>
 
                     </li>
-                    <li x-data="{ selected: '{{ in_array(Route::currentRouteName(), ['presensi.barcode', 'presensi.surat_tugas', 'presensi_cuti']) ? 'Presensi' : '' }}' }">
+                    <li x-data="{ selected: '{{ in_array(Route::currentRouteName(), ['presensi.barcode', 'presensi.surat_tugas', 'presensi.set_cuti']) ? 'Presensi' : '' }}' }">
                         <!-- Trigger for dropdown -->
                         <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ in_array(Route::currentRouteName(), ['presensi', 'presensi.barcode', 'presensi.surat_tugas', 'presensi.set_cuti']) ? 'bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
                             href="#" @click.prevent="selected = (selected === 'Presensi' ? '' : 'Presensi')">
@@ -87,7 +87,7 @@
                     <li>
                         <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ Route::currentRouteName() == 'riwayat' ? ' bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
                             href="{{ route('riwayat') }}">
-                            <i class="fa-solid fa-house"></i>
+                            <i class="fa-solid fa-clock-rotate-left"></i>
                             History
                         </a>
 

@@ -16,17 +16,21 @@
         <div class="flex space-x-6 lg:py-[10px]">
             <div>
                 <label class="text-gray-700">Dari Tanggal:</label>
-                <input type="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                <input type="date"
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
             </div>
             <div>
                 <label class="text-gray-700">Sampai Tanggal:</label>
-                <input type="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                <input type="date"
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
             </div>
             <!-- Search Bar -->
             <div class="lg:pl-[500px]">
-                <input type="text" id="searchInput" placeholder="Search..." class="w-full md:w-48 lg:w-64 rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50">
+                <input type="text" id="searchInput" placeholder="Search..."
+                    class="w-full md:w-48 lg:w-64 rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50">
                 <!-- Add Button -->
-                <button onclick="tambahData()" class="bg-blue-500 text-white rounded-md px-4 py-2 shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                <button onclick="tambahData()"
+                    class="bg-blue-500 text-white rounded-md px-4 py-2 shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                     Tambah +
                 </button>
             </div>
@@ -55,7 +59,9 @@
                         <td class="p-2 text-gray-700">16.10 WIB</td>
                         <td class="p-2 text-gray-700">Absensi Barcode</td>
                         <td class="p-2 text-left">
-                            <button onclick="viewDetails('01-10-2024', '07.40 WIB', '16.10 WIB', 'Absensi Barcode', 'Hadir')" class="bg-blue-500 rounded p-1 px-5">
+                            <button
+                                onclick="viewDetails('01-10-2024', '07.40 WIB', '16.10 WIB', 'Absensi Barcode', 'Hadir')"
+                                class="bg-blue-500 rounded p-1 px-5">
                                 <i class="fa-solid fa-eye text-white"></i>
                             </button>
                         </td>
@@ -65,39 +71,41 @@
             </table>
         </div>
     </div>
-</div>
+    </div>
 
-<script>
-// Function to handle viewing details
-function viewDetails(date, checkin, checkout, keterangan, status) {
-    alert(`Lihat Detail Absen:\nTanggal: ${date}\nJam Checkin: ${checkin}\nJam Checkout: ${checkout}\nKeterangan: ${keterangan}\nStatus: ${status}`);
-}
-
-
-
-// Search Function
-document.getElementById('searchInput').addEventListener('keyup', function() {
-    const searchValue = this.value.toLowerCase();
-    const table = document.querySelector('table');
-    const rows = table.getElementsByTagName('tr');
-
-    for (let i = 1; i < rows.length; i++) {
-        const cells = rows[i].getElementsByTagName('td');
-        let rowVisible = false;
-
-        for (let j = 0; j < cells.length; j++) {
-            const cell = cells[j];
-            if (cell) {
-                const txtValue = cell.textContent || cell.innerText;
-                if (txtValue.toLowerCase().indexOf(searchValue) > -1) {
-                    rowVisible = true; // jika salah satu sel cocok
-                    break;
-                }
-            }
+    <script>
+        // Function to handle viewing details
+        function viewDetails(date, checkin, checkout, keterangan, status) {
+            alert(
+                `Lihat Detail Absen:\nTanggal: ${date}\nJam Checkin: ${checkin}\nJam Checkout: ${checkout}\nKeterangan: ${keterangan}\nStatus: ${status}`
+            );
         }
 
-        rows[i].style.display = rowVisible ? "" : "none"; // tampilkan atau sembunyikan baris
-    }
-});
-</script>
+
+
+        // Search Function
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const searchValue = this.value.toLowerCase();
+            const table = document.querySelector('table');
+            const rows = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                let rowVisible = false;
+
+                for (let j = 0; j < cells.length; j++) {
+                    const cell = cells[j];
+                    if (cell) {
+                        const txtValue = cell.textContent || cell.innerText;
+                        if (txtValue.toLowerCase().indexOf(searchValue) > -1) {
+                            rowVisible = true; // jika salah satu sel cocok
+                            break;
+                        }
+                    }
+                }
+
+                rows[i].style.display = rowVisible ? "" : "none"; // tampilkan atau sembunyikan baris
+            }
+        });
+    </script>
 @endsection

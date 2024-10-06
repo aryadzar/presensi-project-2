@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="{{ asset('/assets/logo_unila/unila.png') }}" type="image/x-icon">
     <script src="https://kit.fontawesome.com/d931a8b882.js" crossorigin="anonymous"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
 
@@ -29,7 +29,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
             <!-- ===== Header Start ===== -->
             <header
-                class="sticky top-0 z-999 flex w-full bg-blue-500 drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none">
+                class="sticky top-0 z-999 flex w-full from-blue-500 to-blue-700 drop-shadow-1 bg-gradient-to-b dark:from-blue-800 dark:to-blue-950 dark:drop-shadow-none">
                 <div class="flex flex-grow items-center justify-between px-4 py-4 shadow-2 md:px-6 2xl:px-11">
                     <div class="flex items-center gap-2 sm:gap-4 lg:hidden">
                         <!-- Hamburger Toggle BTN -->
@@ -235,7 +235,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                         </a>
                                     </li>
                                 </ul>
-                                <button
+                                <a href="{{ route('logout') }}"
                                     class="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
                                     <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -247,7 +247,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                             fill="" />
                                     </svg>
                                     Log Out
-                                </button>
+                                </a>
                             </div>
                             <!-- Dropdown End -->
                         </div>
@@ -261,7 +261,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
             <main>
                 <!-- Hamburger Toggle BTN -->
                 <button
-                    class="z-99999 block rounded-sm border border-stroke bg-white p-2  w-full shadow-sm dark:border-strokedark dark:bg-boxdark lg:hidden"
+                    class="z-99999 block rounded-sm border border-stroke bg-white p-2  w-full shadow-sm bg-gradient-to-b dark:from-blue-800 dark:to-blue-950 dark:border-strokedark dark:bg-boxdark lg:hidden"
                     @click.stop="sidebarToggle = !sidebarToggle">
                     <span class="relative block h-5.5 w-5.5 cursor-pointer">
                         <span class="du-block absolute right-0 h-full w-full">

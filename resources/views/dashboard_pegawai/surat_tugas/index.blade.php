@@ -16,7 +16,7 @@
     <!-- Attendance Table -->
     <div class="bg-blue-100 dark:bg-slate-500 p-6 grid grid-cols-1 lg:grid-cols-2 mt-5 rounded-sm">
         <div class=" col-span-3 flex justify-end mb-5">
-            <button class="btn bg-blue-400 dark:bg-black text-white" onclick="tambah_izin_modal.showModal()">Tambah</button>
+            <button class="btn bg-blue-400 hover:bg-blue-300 dark:bg-black text-white" onclick="tambah_izin_modal.showModal()">Tambah</button>
         </div>
         <!-- Table -->
         <div class="col-span-3">
@@ -73,14 +73,15 @@
     </div>
     </div>
 
-    <dialog id="tambah_izin_modal" class="modal">
-        <div class="modal-box bg-blue-200 dark:bg-black">
+    <dialog id="tambah_izin_modal" class="modal ">
+        <div class="modal-box  bg-blue-200 dark:bg-black">
             <form method="dialog">
                 <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>
             <h3 class="text-lg font-bold">Hello!</h3>
             <p class="py-4">Press ESC key or click on ✕ button to close</p>
         </div>
+        <label class="modal-backdrop" for="tambah_izin_modal"></label>
     </dialog>
 
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>

@@ -70,9 +70,6 @@ Route::get('dashboard/history', function () {
 
 
 
-
-
-
 Route::get('/logout', function () {
     if(SSO::check()) { //mengecek otentikasi pada aplikasi
         SSO::logout(url('/'));

@@ -33,7 +33,7 @@
                     </li>
                     <li x-data="{ selected: '{{ in_array(Route::currentRouteName(), ['presensi.barcode', 'presensi.surat_tugas', 'presensi_cuti']) ? 'Presensi' : '' }}' }">
                         <!-- Trigger for dropdown -->
-                        <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ in_array(Route::currentRouteName(), ['presensi', 'presensi.barcode', 'presensi.surat_tugas', 'presensi.cuti']) ? 'bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
+                        <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ in_array(Route::currentRouteName(), ['presensi', 'presensi.barcode', 'presensi.surat_tugas', 'presensi.set_cuti']) ? 'bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
                             href="#" @click.prevent="selected = (selected === 'Presensi' ? '' : 'Presensi')">
                             <i class="fa-solid fa-fingerprint"></i>
                             Presensi
@@ -71,13 +71,26 @@
                                 </li>
                                 <!-- Keterangan Cuti submenu -->
                                 <li>
-                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'presensi.set_cuti' ? 'bg-blue-500 text-white' : '' }}"
+                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-semibold text-white duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'presensi.set_cuti' ? 'bg-blue-500 text-white' : '' }}"
                                         href="{{ route('presensi.set_cuti') }}">
+
+                                        @if (Route::currentRouteName() === 'presensi.set_cuti')
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                            <!-- Tanda panah hanya muncul pada rute aktif -->
+                                        @endif
                                         Keterangan Cuti
                                     </a>
                                 </li>
                             </ul>
                         </div>
+                    </li>
+                    <li>
+                        <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ Route::currentRouteName() == 'riwayat' ? ' bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
+                            href="{{ route('riwayat') }}">
+                            <i class="fa-solid fa-house"></i>
+                            History
+                        </a>
+
                     </li>
                 </ul>
 

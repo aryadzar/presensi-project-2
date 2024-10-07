@@ -74,7 +74,7 @@
     </div>
 
     <dialog id="tambah_izin_modal" class="modal ">
-        <div class="modal-box w-11/12 max-w-5xl  bg-gradient-to-t from-blue-900 to-blue-950">
+        <div class="modal-box w-11/12 max-w-5xl  bg-gradient-to-t bg-blue-300 dark:from-blue-900 dark:to-blue-950">
             <form method="dialog">
                 <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>

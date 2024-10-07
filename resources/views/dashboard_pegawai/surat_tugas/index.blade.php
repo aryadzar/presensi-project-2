@@ -78,8 +78,16 @@
             <form method="dialog">
                 <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>
-            <h3 class="text-lg font-bold">Hello!</h3>
-            <p class="py-4">Press ESC key or click on ✕ button to close</p>
+            <h3 class="text-lg text-black-2 font-bold">Form Izin Surat Tugas</h3>
+            <form action="" method="POST">
+                <div class="grid grid-cols-1 gap-2 ">
+                    <div class=" form-control col-span-2">
+                        <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-2xl">Tanggal Mulai</label>
+                        <input type="datetime-local" class=" input input-bordered bg-white" name="" id="tanggal" class="">
+
+                    </div>
+                </div>
+            </form>
         </div>
         <label class="modal-backdrop" for="tambah_izin_modal"></label>
     </dialog>

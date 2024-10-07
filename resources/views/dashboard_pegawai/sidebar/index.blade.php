@@ -54,6 +54,10 @@
                                 <li>
                                     <a class="group relative flex items-center gap-2.5 rounded-md px-4 text-white font-semibold duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'presensi.barcode' ? ' text-white' : '' }}"
                                         href="{{ route('presensi.barcode') }}">
+                                        @if (Route::currentRouteName() === 'presensi.barcode')
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                            <!-- Tanda panah hanya muncul pada rute aktif -->
+                                        @endif
                                         Scan Barcode
                                     </a>
                                 </li>

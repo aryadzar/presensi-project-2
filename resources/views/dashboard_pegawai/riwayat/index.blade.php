@@ -37,8 +37,7 @@
                         <td class="p-2 text-gray-700">Absensi Barcode</td>
                         <td class="p-2 text-left">
                             <button
-                                onclick="viewDetails('01-10-2024', '07.40 WIB', '16.10 WIB', 'Absensi Barcode', 'Hadir')"
-                                class="bg-blue-500 rounded p-1 px-5">
+                                class="btn bg-blue-500 rounded p-1 px-5" onclick="my_modal_8.showModal()">
                                 <i class="fa-solid fa-eye text-white"></i>
                             </button>
                         </td>
@@ -49,6 +48,18 @@
         </div>
     </div>
     </div>
+    <dialog id="my_modal_8" class="modal">
+        <div class="modal-box">
+            <h3 class="text-lg font-bold">Detail History Absen</h3>
+            <p class="py-4">
+                
+            </p>
+            <div class="modal-action">
+                <button onclick="document.getElementById('my_modal_8').close()" class="btn">Close</button>
+            </div>
+        </div>
+    </dialog>
+
 
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>
     <script>

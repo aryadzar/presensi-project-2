@@ -7,15 +7,12 @@
 @section('content')
     <div class="mb-3">
         <h1 class="text-2xl font-semibold mb-7"> <span class=" text-blue-500">
-            <i class="fa-solid fa-suitcase lg:pr-[10px]"></i>Keterangan Cuti</span>
+            <i class="fas fa-history lg:pr-[10px]"></i>History</span>
         </h1>
     </div>
 
     <!-- Attendance Table -->
     <div class="bg-blue-100 dark:bg-slate-500 p-6 grid grid-cols-1 lg:grid-cols-2 mt-5 rounded-sm">
-        <div class=" col-span-3 flex justify-end mb-5">
-            <button class="btn bg-blue-400 hover:bg-blue-300 dark:bg-black text-white" onclick="tambah_izin_modal.showModal()">Tambah</button>
-        </div>
         <!-- Table -->
         <div class="col-span-3">
             <table class="w-full bg-white rounded-md shadow-lg overflow-hidden" id="my-table">

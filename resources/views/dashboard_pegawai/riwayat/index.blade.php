@@ -48,17 +48,50 @@
         </div>
     </div>
     </div>
-    <dialog id="my_modal_8" class="modal">
-        <div class="modal-box">
-            <h3 class="text-lg font-bold">Detail History Absen</h3>
-            <p class="py-4">
-                
-            </p>
-            <div class="modal-action">
-                <button onclick="document.getElementById('my_modal_8').close()" class="btn">Close</button>
+    <dialog id="my_modal_8" class="modal-box w-11/12 max-w-xl bg-blue-100 p-6 rounded-lg shadow-lg dark:bg-blue-950 dark:text-white">
+        <h1 class="text-2xl font-semibold mb-7">
+          <span class="text-blue-500 dark:text-blue-300">
+            <i class="fa-solid fa-list-check lg:pr-[10px]"></i>Detail Absensi
+          </span>
+        </h1>
+        <div class="grid-rows-2">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-gray-700 dark:text-gray-200 font-semibold">Tanggal</label>
+              <input type="text" value="01-10-2024" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-white dark:text-black" readonly>
             </div>
+            <div>
+              <label class="block text-gray-700 dark:text-gray-200 font-semibold">Status</label>
+              <input type="text" value="Telat" class="w-full px-4 py-2 border rounded-lg bg-yellow-300 dark:bg-yellow-300 text-gray-800 dark:text-white font-semibold" readonly>
+            </div>
+            <div>
+              <label class="block text-gray-700 dark:text-gray-200 font-semibold">Check-In</label>
+              <input type="text" value="07.40" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-white dark:text-black" readonly>
+            </div>
+            <div>
+              <label class="block text-gray-700 dark:text-gray-200 font-semibold">Check-Out</label>
+              <input type="text" value="16.10" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-white dark:text-black" readonly>
+            </div>
+            <div>
+              <label class="block text-gray-700 dark:text-gray-200 font-semibold">Jam Kerja</label>
+              <input type="text" value="8 jam 40 menit" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-white dark:text-black" readonly>
+            </div>
+            <div>
+              <label class="block text-gray-700 dark:text-gray-200 font-semibold">Overtime</label>
+              <input type="text" value="0 jam" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-white dark:text-black" readonly>
+            </div>
+          </div>
+          <div class="py-5">
+            <label class="block text-gray-700 dark:text-gray-200 font-semibold">Keterangan</label>
+            <input type="text" value="Absensi Barcode" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-white dark:text-black" readonly>
+          </div>
+          <div class="modal-action flex justify-center items-center">
+            <button onclick="document.getElementById('my_modal_8').close()" class="btn px-10 text-white" style="background-color: #19213F;">OK</button>
+          </div>
         </div>
-    </dialog>
+      </dialog>
+
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>

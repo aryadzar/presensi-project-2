@@ -12,6 +12,10 @@
 
     </div>
 
+    <div>
+        <h3> Presensi Scan Barcode hanya dapat dilakukan dengan menggunakan Website pada Smartphone Anda</h3>
+    </div>
+
 
 
 @endsection

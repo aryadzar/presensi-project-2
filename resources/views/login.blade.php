@@ -35,6 +35,7 @@
                     <i class="fa-solid fa-circle-info"></i> Lupa password
                 </a>
             </div>
+            <P class="mt-5 text-black-2">Mac Adress : {{ request()->ip() }}</P>
         </div>
     </div>
 </div>

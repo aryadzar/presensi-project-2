@@ -74,18 +74,33 @@
     </div>
 
     <dialog id="tambah_izin_modal" class="modal ">
-        <div class="modal-box  bg-blue-200 dark:bg-black">
+        <div class="modal-box w-11/12 max-w-5xl  bg-blue-200 dark:bg-black">
             <form method="dialog">
                 <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>
-            <h3 class="text-lg text-black-2 font-bold">Form Izin Surat Tugas</h3>
+            <h3 class="text-lg text-black-2 dark:text-white font-bold">Form Izin Surat Tugas</h3>
             <form action="" method="POST">
-                <div class="grid grid-cols-1 gap-2 ">
-                    <div class=" form-control col-span-2">
-                        <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-2xl">Tanggal Mulai</label>
-                        <input type="datetime-local" class=" input input-bordered bg-white" name="" id="tanggal" class="">
-
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 ">
+                    <div class=" form-control col-span-2 lg:col-span-1">
+                        <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-lg dark:text-white ">Tanggal Mulai</label>
+                        <input type="datetime-local" class=" input input-bordered bg-white dark:text-black-2" name="" id="tanggal" class="">
                     </div>
+                    <div class=" form-control col-span-2">
+                        <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-lg dark:text-white ">Tanggal Selesai</label>
+                        <input type="datetime-local" class=" input input-bordered bg-white dark:text-black-2" name="" id="tanggal" class="">
+                    </div>
+                    <div class=" form-control col-span-2">
+                        <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-lg dark:text-white ">Nomor Surat</label>
+                        <input type="text" class=" input input-bordered bg-white dark:text-black-2" name="" id="tanggal" class="">
+                    </div>
+                    <div class=" form-control col-span-2">
+                        <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-lg dark:text-white ">Keterangan</label>
+                        <textarea name="" id=""></textarea>
+                    </div>
+                    <div class="flex items-center justify-center col-span-2 mt-5">
+                        <Button type="submit" class="btn bg-blue-400 hover:bg-blue-300 dark:bg-black text-white">Tambah</Button>
+                    </div>
+
                 </div>
             </form>
         </div>
@@ -101,5 +116,21 @@
             });
         }
     </script>
+
+<script src="{{ asset('assets/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    height : 600,
+    plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons accordion',
+    toolbar: 'undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat | charmap emoticons | code fullscreen preview | save print | pagebreak anchor codesample | ltr rtl',
+    setup: function (editor) {
+        editor.on('change', function () {
+            tinymce.triggerSave();
+        });
+    }
+  });
+     </script>
 
 @endsection

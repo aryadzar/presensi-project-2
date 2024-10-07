@@ -16,8 +16,13 @@
     <!-- Attendance Table -->
     <div class="bg-blue-100 dark:bg-slate-500 p-6 grid grid-cols-1 lg:grid-cols-2 mt-5 rounded-sm">
         <div class=" col-span-3 flex justify-end mb-5">
-            <button class="btn bg-blue-400 hover:bg-blue-300 dark:bg-black text-white" onclick="tambah_izin_modal.showModal()">Tambah</button>
-        </div>
+<!-- The button to open modal -->
+<label for="my_modal_7" class="btn">open modal</label>
+
+
+
+
+</div>
         <!-- Table -->
         <div class="col-span-3">
             <table class="w-full bg-white rounded-md shadow-lg overflow-hidden" id="my-table">
@@ -72,40 +77,39 @@
         </div>
     </div>
     </div>
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="my_modal_7" class="modal-toggle" />
+<div class="modal" role="dialog">
+  <div class="modal-box w-11/12 max-w-5xl  bg-gradient-to-t bg-blue-300 dark:from-blue-900 dark:to-blue-950">
+    <h3 class="text-lg text-black-2 dark:text-white font-bold">Form Izin Surat Tugas</h3>
+    <form action="" method="POST">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 ">
+            <div class=" form-control col-span-2 lg:col-span-1">
+                <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-lg dark:text-white ">Tanggal Mulai</label>
+                <input type="datetime-local" class=" input input-bordered bg-white dark:text-black-2" name="" id="tanggal" class="">
+            </div>
+            <div class=" form-control col-span-2">
+                <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-lg dark:text-white ">Tanggal Selesai</label>
+                <input type="datetime-local" class=" input input-bordered bg-white dark:text-black-2" name="" id="tanggal" class="">
+            </div>
+            <div class=" form-control col-span-2">
+                <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-lg dark:text-white ">Nomor Surat</label>
+                <input type="text" class=" input input-bordered bg-white dark:text-black-2" name="" id="tanggal" class="">
+            </div>
+            <div class=" form-control col-span-2">
+                <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-lg dark:text-white ">Keterangan</label>
+                <textarea name="" id=""></textarea>
+            </div>
+            <div class="flex items-center justify-center col-span-2 mt-5">
+                <Button type="submit" class="btn bg-blue-400 hover:bg-blue-300 dark:bg-black text-white">Tambah</Button>
+            </div>
 
-    <dialog id="tambah_izin_modal" class="modal ">
-        <div class="modal-box w-11/12 max-w-5xl  bg-gradient-to-t bg-blue-300 dark:from-blue-900 dark:to-blue-950">
-            <form method="dialog">
-                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-            </form>
-            <h3 class="text-lg text-black-2 dark:text-white font-bold">Form Izin Surat Tugas</h3>
-            <form action="" method="POST">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 ">
-                    <div class=" form-control col-span-2 lg:col-span-1">
-                        <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-lg dark:text-white ">Tanggal Mulai</label>
-                        <input type="datetime-local" class=" input input-bordered bg-white dark:text-black-2" name="" id="tanggal" class="">
-                    </div>
-                    <div class=" form-control col-span-2">
-                        <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-lg dark:text-white ">Tanggal Selesai</label>
-                        <input type="datetime-local" class=" input input-bordered bg-white dark:text-black-2" name="" id="tanggal" class="">
-                    </div>
-                    <div class=" form-control col-span-2">
-                        <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-lg dark:text-white ">Nomor Surat</label>
-                        <input type="text" class=" input input-bordered bg-white dark:text-black-2" name="" id="tanggal" class="">
-                    </div>
-                    <div class=" form-control col-span-2">
-                        <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-lg dark:text-white ">Keterangan</label>
-                        <textarea name="" id=""></textarea>
-                    </div>
-                    <div class="flex items-center justify-center col-span-2 mt-5">
-                        <Button type="submit" class="btn bg-blue-400 hover:bg-blue-300 dark:bg-black text-white">Tambah</Button>
-                    </div>
-
-                </div>
-            </form>
         </div>
-        <label class="modal-backdrop" for="tambah_izin_modal"></label>
-    </dialog>
+    </form>
+  </div>
+  <label class="modal-backdrop" for="my_modal_7">Close</label>
+</div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>
     <script>

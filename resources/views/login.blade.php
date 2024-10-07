@@ -3,41 +3,41 @@
 @section('title', 'Login Absensi')
 
 @section('content')
-    <div
-        class="min-h-screen flex items-center justify-center shadow-2xl animated-background bg-gradient-to-r from-blue-500 to-blue-900    md:px-8 ">
-        <div class="flex flex-col md:flex-row bg-gray-300 shadow-lg rounded-lg overflow-hidden w-full max-w-screen-lg">
-            <!-- Form Section -->
-            <div class="w-full md:w-1/2 p-8 md:p-12">
-                <div class="mb-4">
-                    <img src="{{ asset('/assets/logo_unila/unila.png') }}" alt="Logo" class="w-24 mx-auto md:mx-0">
-                </div>
-                <h2 class="text-2xl font-semibold mb-4 text-center md:text-left">Log In</h2>
-                <p class=" mb-6 text-center md:text-left text-lg">Selamat datang di web absensi</p>
-                <div class="flex items-center justify-between mb-6">
-                    <hr class="w-full border-gray-300">
-                    <hr class="w-full border-gray-300">
-                </div>
-                <form action="" method="post">
-                    <div class="mb-4 flex items-center justify-center">
-                        <a href="{{ route('login.post') }}" class=" btn btn-warning text-lg w-[300px]"><i
-                                class="fa-solid fa-user"></i>Login Dengan SSO Unila</a>
-                    </div>
-                </form>
+<div class="min-h-screen flex items-center justify-center shadow-2xl relative">
+    <!-- Background Video -->
+    <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
+        <source src="{{ asset('assets/video/video.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="absolute top-0 left-0 w-full h-full bg-black opacity-60 z-[-1]"></div>
 
-                <div class="flex items-center justify-center">
-                    <a href="https://apps.unila.ac.id/#lupa" class="btn btn-error text-center w-[300px]"><i
-                            class="fa-solid fa-circle-info"></i>Lupa password </a>
-                </div>
+    <!-- Container for Form and Content -->
+    <div class="flex flex-col justify-center items-center backdrop-blur-lg bg-white/30 border border-white/10 rounded-lg overflow-hidden relative z-10 max-w-md mx-auto p-8">
+        <!-- Form Section -->
+        <div class="w-full text-center">
+            <div class="mb-4">
+                <img src="{{ asset('/assets/logo_unila/unila.png') }}" alt="Logo" class="w-24 mx-auto">
             </div>
-
-            <!-- Image Section -->
-            <div class="w-full md:w-1/2 hidden md:flex items-center justify-center">
-                <div class="w-full h-full bg-cover bg-center"
-                    style="background-image: url('https://mamikos.com/info/wp-content/uploads/2018/10/18.-universitas-lampung-810x608.jpg');">
+            <h2 class="text-2xl font-semibold mb-4 text-black-2">Log In</h2>
+            <p class="mb-6 text-lg text-black-2">Selamat datang di web absensi</p>
+            <div class="flex items-center justify-center mb-6">
+                <hr class="w-full border-gray-300">
+            </div>
+            <form action="" method="post">
+                <div class="mb-4 flex items-center justify-center">
+                    <a href="{{ route('login.post') }}" class="btn btn-warning text-lg w-[300px]">
+                        <i class="fa-solid fa-user"></i> Login Dengan SSO Unila
+                    </a>
                 </div>
+            </form>
+            <div class="flex items-center justify-center">
+                <a href="https://apps.unila.ac.id/#lupa" class="btn btn-error text-center w-[300px]">
+                    <i class="fa-solid fa-circle-info"></i> Lupa password
+                </a>
             </div>
         </div>
     </div>
+</div>
 
 @endsection
 

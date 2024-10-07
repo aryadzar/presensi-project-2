@@ -97,6 +97,10 @@
                 <input type="text" class=" input input-bordered bg-white dark:text-black-2" name="" id="tanggal" class="">
             </div>
             <div class=" form-control col-span-2">
+                <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-lg dark:text-white ">Nomor Surat</label>
+                <input type="file" class="file-input file-input-bordered w-full max-w-xs" />
+            </div>
+            <div class=" form-control col-span-2">
                 <label for="tanggal" class=" text-black-2 mt-5 mb-5 text-lg dark:text-white ">Keterangan</label>
                 <textarea name="" id=""></textarea>
             </div>
@@ -121,7 +125,7 @@
         }
     </script>
 
-<script src="{{ asset('assets/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/tinymce/js/tinymce/tinymce.min.js') }}"></script>
 
 <script>
   tinymce.init({
@@ -135,6 +139,6 @@
         });
     }
   });
-     </script>
+     </script> --}}
 
 @endsection

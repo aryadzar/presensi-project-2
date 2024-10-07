@@ -49,7 +49,7 @@
     </div>
     </div>
     <dialog id="my_modal_8" class="modal-box w-11/12 max-w-xl bg-blue-100 p-6 rounded-lg shadow-lg dark:bg-blue-950 dark:text-white">
-        <h1 class="text-2xl font-semibold mb-7">
+        <h1 class="text-2xl font-semibold mb-7 ">
           <span class="text-blue-500 dark:text-blue-300">
             <i class="fa-solid fa-list-check lg:pr-[10px]"></i>Detail Absensi
           </span>

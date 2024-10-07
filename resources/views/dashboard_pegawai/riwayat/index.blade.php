@@ -5,40 +5,20 @@
 @section('role', 'Pegawai')
 
 @section('content')
-    <div class="flex justify-between">
-        <h1 class="text-2xl font-semibold mb-7">
-            <span class="text-blue-500"><i class="fa-solid fa-suitcase lg:pr-[10px]"></i>Keterangan Cuti</span>
+    <div class="mb-3">
+        <h1 class="text-2xl font-semibold mb-7"> <span class=" text-blue-500">
+            <i class="fa-solid fa-suitcase lg:pr-[10px]"></i>Keterangan Cuti</span>
         </h1>
     </div>
-    <!-- Attendance Table -->
-    <div class="bg-blue-100 p-6 mx-auto mt-5 rounded-lg shadow-lg inline-block">
-        <!-- Date Filters -->
-        <div class="flex space-x-6 lg:py-[10px]">
-            <div>
-                <label class="text-gray-700">Dari Tanggal:</label>
-                <input type="date"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-            </div>
-            <div>
-                <label class="text-gray-700">Sampai Tanggal:</label>
-                <input type="date"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-            </div>
-            <!-- Search Bar -->
-            <div class="lg:pl-[500px]">
-                <input type="text" id="searchInput" placeholder="Search..."
-                    class="w-full md:w-48 lg:w-64 rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50">
-                <!-- Add Button -->
-                <button onclick="tambahData()"
-                    class="bg-blue-500 text-white rounded-md px-4 py-2 shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                    Tambah +
-                </button>
-            </div>
-        </div>
 
+    <!-- Attendance Table -->
+    <div class="bg-blue-100 dark:bg-slate-500 p-6 grid grid-cols-1 lg:grid-cols-2 mt-5 rounded-sm">
+        <div class=" col-span-3 flex justify-end mb-5">
+            <button class="btn bg-blue-400 hover:bg-blue-300 dark:bg-black text-white" onclick="tambah_izin_modal.showModal()">Tambah</button>
+        </div>
         <!-- Table -->
-        <div class="overflow-x-auto">
-            <table class="w-full bg-white rounded-md shadow-lg overflow-hidden">
+        <div class="col-span-3">
+            <table class="w-full bg-white rounded-md shadow-lg overflow-hidden" id="my-table">
                 <thead class="bg-blue-500 text-white">
                     <tr>
                         <th class="p-2 text-left">Tanggal</th>
@@ -73,39 +53,13 @@
     </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>
     <script>
-        // Function to handle viewing details
-        function viewDetails(date, checkin, checkout, keterangan, status) {
-            alert(
-                `Lihat Detail Absen:\nTanggal: ${date}\nJam Checkin: ${checkin}\nJam Checkout: ${checkout}\nKeterangan: ${keterangan}\nStatus: ${status}`
-            );
+        if (document.getElementById("my-table") && typeof simpleDatatables.DataTable !== 'undefined') {
+            const dataTable = new simpleDatatables.DataTable("#my-table", {
+                searchable: true,
+                sortable: false
+            });
         }
-
-
-
-        // Search Function
-        document.getElementById('searchInput').addEventListener('keyup', function() {
-            const searchValue = this.value.toLowerCase();
-            const table = document.querySelector('table');
-            const rows = table.getElementsByTagName('tr');
-
-            for (let i = 1; i < rows.length; i++) {
-                const cells = rows[i].getElementsByTagName('td');
-                let rowVisible = false;
-
-                for (let j = 0; j < cells.length; j++) {
-                    const cell = cells[j];
-                    if (cell) {
-                        const txtValue = cell.textContent || cell.innerText;
-                        if (txtValue.toLowerCase().indexOf(searchValue) > -1) {
-                            rowVisible = true; // jika salah satu sel cocok
-                            break;
-                        }
-                    }
-                }
-
-                rows[i].style.display = rowVisible ? "" : "none"; // tampilkan atau sembunyikan baris
-            }
-        });
     </script>
 @endsection

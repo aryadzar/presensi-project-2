@@ -6,8 +6,8 @@
 @section('content')
 
     <div class="mb-3">
-        <h1 class="text-2xl font-semibold"><i class="fa-solid fa-qrcode text-blue-500 lg:pr-[10px]"></i><span
-                class=" text-blue-500">
+        <h1 class="text-2xl font-semibold"><i class="fa-solid fa-qrcode text-blue-500 lg:pr-[10px] dark:text-white"></i><span
+                class=" text-blue-500 dark:text-white">
                 Scan Barcode
             </span></h1>
 

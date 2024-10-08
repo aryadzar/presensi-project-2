@@ -1,7 +1,7 @@
 @extends('dashboard_pegawai.dashboard-layout.index')
 
 @section('title', 'Dashboard Pegawai')
-@section('nama_pegawai', 'Ahmad Januari')
+@section('nama_pegawai', Auth::user()->name)
 @section('role', 'Pegawai')
 @section('content')
 

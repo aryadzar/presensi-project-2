@@ -28,11 +28,21 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+
 Route::get('/login/sso', function () {
     if(SSO::authenticate()) //mengecek apakah user telah login atau belum
     {
+
         if(SSO::check()) {
-            return redirect()->route("dashboard");
+            $check = User::where('id_sso', SSO::getUser()->username)->first(); //mengecek apakah pengguna SSO memiliki username yang sama dengan database aplikasi
+            if(!is_null($check)) {
+                Auth::loginUsingId($check->id); //mengotentikasi pengguna aplikasi
+                return redirect()->route('dashboard');
+            } else {
+                SSO::logout("/");
+                return redirect()->route('login'); //mengarahkan ke halaman login jika pengguna gagal diotentikasi oleh aplikasi
+            }
+
         }
     } else {
         return redirect()->route('auth.logout'); //me-*redirect* user jika otentikasi SSO gagal, diarahkan untuk mengakhiri sesi login (jika ada)

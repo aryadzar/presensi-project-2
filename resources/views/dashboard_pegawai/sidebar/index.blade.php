@@ -73,18 +73,7 @@
                                         Surat Tugas
                                     </a>
                                 </li>
-                                <!-- Keterangan Cuti submenu -->
-                                <li>
-                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-semibold text-white duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'presensi.set_cuti' ? 'bg-blue-500 text-white' : '' }}"
-                                        href="{{ route('presensi.set_cuti') }}">
 
-                                        @if (Route::currentRouteName() === 'presensi.set_cuti')
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                            <!-- Tanda panah hanya muncul pada rute aktif -->
-                                        @endif
-                                        Keterangan Cuti
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </li>
@@ -103,4 +92,3 @@
     </div>
 
 </aside>
-

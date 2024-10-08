@@ -36,15 +36,15 @@
         <!-- Status Cards -->
         <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 col-span-3">
             <div class="bg-blue-500 text-white rounded shadow-md p-1">
-                <div class="flex items-center">
+                <div class="flex items-center justify-between">
                     <!-- Container untuk teks -->
-                    <div class="mr-4">
-                        <p class="text-3xl font-bold">45</p>
+                    <div class="">
+                        <p class="text-3xl font-bold mb-10">45</p>
                         <p class="text-xl font-bold">Hadir</p>
                         <p class="text-sm">*Jumlah dalam hari</p>
-                    </div>
-                    <!-- Container untuk ikon dengan posisi relatif -->
-                    <div class="relative ml-20">
+                        </div>
+                        
+                    <div class="relative ml-18">
                         <svg width="48" height="80" viewBox="0 0 48 80" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -59,23 +59,22 @@
                                 </linearGradient>
                             </defs>
                         </svg>
-                        <!-- Ikon kedua (centang) di tengah-tengah SVG -->
-                        <i
-                            class="fa-duotone fa-solid fa-check absolute inset-0 flex items-center justify-center fa-3x text-blue-500"></i>
+                        
+                        <i class="fa-duotone fa-solid fa-check absolute inset-0 flex items-center justify-center fa-3x text-blue-500"></i>
                     </div>
                 </div>
             </div>
 
             <div class="bg-blue-500 text-white rounded shadow-md p-1">
-                <div class="flex items-center">
+                <div class="flex items-center justify-between">
                     <!-- Container untuk teks -->
-                    <div class="mr-4">
-                        <p class="text-3xl font-bold">45</p>
-                        <p class="text-xl font-bold">Hadir</p>
+                    <div>
+                        <p class="text-3xl font-bold mb-10">45</p>
+                        <p class="text-xl font-bold">Telat</p>
                         <p class="text-sm">*Jumlah dalam hari</p>
                     </div>
                     <!-- Container untuk ikon dengan posisi relatif -->
-                    <div class="relative ml-20">
+                    <div class="relative ml-18 lg:ml-20">
                         <svg width="48" height="80" viewBox="0 0 48 80" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -91,21 +90,20 @@
                             </defs>
                         </svg>
                         <!-- Ikon kedua (centang) di tengah-tengah SVG -->
-                        <i
-                            class="fa-duotone fa-solid fa-check absolute inset-0 flex items-center justify-center fa-3x text-blue-500"></i>
+                        <i class="fa-duotone fa-solid fa-minus absolute inset-0 flex items-center justify-center fa-3x text-blue-500"></i>
                     </div>
                 </div>
             </div>
             <div class="bg-blue-500 text-white rounded shadow-md p-1">
                 <div class="flex items-center">
                     <!-- Container untuk teks -->
-                    <div class="mr-4">
-                        <p class="text-3xl font-bold">45</p>
-                        <p class="text-xl font-bold">Hadir</p>
+                    <div>
+                        <p class="text-3xl font-bold mb-10">45</p>
+                        <p class="text-xl font-bold">Tidak Hadir</p>
                         <p class="text-sm">*Jumlah dalam hari</p>
                     </div>
                     <!-- Container untuk ikon dengan posisi relatif -->
-                    <div class="relative ml-20">
+                    <div class="relative ml-18 lg:ml-20">
                         <svg width="48" height="80" viewBox="0 0 48 80" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -121,21 +119,20 @@
                             </defs>
                         </svg>
                         <!-- Ikon kedua (centang) di tengah-tengah SVG -->
-                        <i
-                            class="fa-duotone fa-solid fa-check absolute inset-0 flex items-center justify-center fa-3x text-blue-500"></i>
+                        <i class="fa-duotone fa-solid fa-xmark absolute inset-0 flex items-center justify-center fa-3x text-blue-500"></i>
                     </div>
                 </div>
             </div>
             <div class="bg-blue-500 text-white rounded shadow-md p-1">
                 <div class="flex items-center">
                     <!-- Container untuk teks -->
-                    <div class="mr-4">
-                        <p class="text-3xl font-bold">45</p>
-                        <p class="text-xl font-bold">Hadir</p>
+                    <div>
+                        <p class="text-3xl font-bold mb-10">45</p>
+                        <p class="text-xl font-bold">Cuti</p>
                         <p class="text-sm">*Jumlah dalam hari</p>
                     </div>
                     <!-- Container untuk ikon dengan posisi relatif -->
-                    <div class="relative ml-20">
+                    <div class="relative ml-18 lg:ml-20">
                         <svg width="48" height="80" viewBox="0 0 48 80" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -151,8 +148,7 @@
                             </defs>
                         </svg>
                         <!-- Ikon kedua (centang) di tengah-tengah SVG -->
-                        <i
-                            class="fa-duotone fa-solid fa-check absolute inset-0 flex items-center justify-center fa-3x text-blue-500"></i>
+                        <i class="fa-duotone fa-solid fa-clipboard-list absolute inset-0 flex items-center justify-center fa-3x text-blue-500"></i>
                     </div>
                 </div>
             </div>
@@ -160,8 +156,8 @@
         </div>
 
         <!-- Chart Section -->
-        <div class="col-span-3 bg-white p-4 rounded-lg shadow-md">
-            <p class="font-bold text-gray-700 mb-4">Status Absensi - 2024</p>
+        <div class="col-span-3 bg-blue-500 dark:bg-blue-800 p-4 rounded-lg shadow-md">
+            <p class="font-bold text-orange-400 mb-4">Status Absensi <span class="text-white">- 2024</span></p>
             <div class="h-64">
                 <!-- Chart placeholder (you can use a charting library like Chart.js here) -->
                 <canvas id="attendanceChart"></canvas>
@@ -169,11 +165,11 @@
         </div>
 
         <!-- Attendance Table -->
-        <div class="col-span-3 bg-white p-4 rounded-lg shadow-md">
-            <p class="font-bold text-gray-700 mb-4">Monitoring Absensi</p>
+        <div class="col-span-3 bg-blue-300 dark:bg-blue-800 p-4 rounded-lg shadow-md">
+            <p class="font-bold text-black dark:text-orange-400 mb-4">Monitoring Absensi <span class="text-white"> - 2024</span></p>
             <div class="overflow-x-auto">
-                <table class="min-w-full text-left text-sm text-gray-500">
-                    <thead class="border-b">
+                <table class="min-w-full text-left text-sm text-white ">
+                    <thead class="border-b bg-blue-500">
                         <tr>
                             <th class="p-2">Date</th>
                             <th class="p-2">Nama</th>

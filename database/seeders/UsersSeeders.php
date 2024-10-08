@@ -14,9 +14,14 @@ class UsersSeeders extends Seeder
     public function run(): void
     {
         $users = [
+            // [
+            //     "name" => "Nur Ainun",
+            //     "id_sso" => " ",
+            //     "password" => bcrypt("password")
+            // ],
             [
-                "name" => "Nur Ainun",
-                "id_sso" => "NUR.AINUN21",
+                "name" => "Adin",
+                "id_sso" => "2115061109",
                 "password" => bcrypt("password")
             ],
             // [

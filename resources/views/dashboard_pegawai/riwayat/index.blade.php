@@ -6,8 +6,8 @@
 
 @section('content')
     <div class="mb-3">
-        <h1 class="text-2xl font-semibold mb-7"> <span class=" text-blue-500">
-                <i class="fas fa-history lg:pr-[10px]"></i>History</span>
+        <h1 class="text-2xl font-semibold mb-7"> <span class="dark:text-white text-blue-500">
+                <i class="fas fa-history lg:pr-[10px] dark:text-white"></i>History</span>
         </h1>
     </div>
 

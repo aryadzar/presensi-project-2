@@ -15,6 +15,10 @@
     </h1>
 </div>
 
+@include('dashboard_pegawai.breadcrumbs.index')
+
+
+
 <!-- Barcode Scan Notice Container -->
 <div class="flex flex-col items-center justify-center h-[80vh] rounded-lg shadow-lg dark:text-white text-black-2 p-6">
 

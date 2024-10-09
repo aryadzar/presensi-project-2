@@ -59,7 +59,8 @@ Route::get('/dashboard', function () {
 
 
 Route::get('dashboard/presensi/scan_barcode', function () {
-    return view('dashboard_pegawai.scan_barcode.index');
+    $breadcrumbs = Breadcrumbs::generate('Scan Barcode');
+    return view('dashboard_pegawai.scan_barcode.index', compact('breadcrumbs'));
 })->name("presensi.barcode");
 
 Route::get('dashboard/presensi/set_izin', function () {

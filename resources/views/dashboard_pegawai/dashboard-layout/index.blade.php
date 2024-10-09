@@ -78,7 +78,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                             <!-- Notification Menu Area -->
                             <li class="relative" x-data="{ dropdownOpen: false, notifying: true }" @click.outside="dropdownOpen = false">
-                                <a class="relative flex h-8.5 w-8.5 items-center justify-center rounded-full border-[0.5px] border-stroke bg-gray hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
+                                <a class="relative flex h-8.5 w-8.5 items-center justify-center rounded-full border-[0.5px] border-stroke bg-gray hover:text-primary dark:bg-meta-4 dark:text-white"
                                     href="#" @click.prevent="dropdownOpen = ! dropdownOpen; notifying = false">
                                     <span :class="!notifying && 'hidden'"
                                         class="absolute -top-0.5 right-0 z-1 h-2 w-2 rounded-full bg-meta-1">
@@ -96,7 +96,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                                 <!-- Dropdown Start -->
                                 <div x-show="dropdownOpen"
-                                    class="absolute -right-27 mt-2.5 flex h-90 w-75 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark sm:right-0 sm:w-80">
+                                    class="absolute -right-27 mt-2.5 flex h-90 w-75 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-gradient-to-t from-blue-900 to-blue-950 from-blue-900 to-blue-950k sm:right-0 sm:w-80">
                                     <div class="px-4.5 py-3">
                                         <h5 class="text-sm font-medium text-bodydark2">Notification</h5>
                                     </div>
@@ -186,7 +186,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
                             <!-- Dropdown Start -->
                             <div x-show="dropdownOpen"
-                                class="absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+                                class="absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-gradient-to-t from-blue-900 to-blue-950">
                                 <ul
                                     class="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
                                     <li>

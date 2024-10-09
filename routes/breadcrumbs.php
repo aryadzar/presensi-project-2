@@ -21,9 +21,9 @@ Breadcrumbs::for('Presensi', function (BreadcrumbTrail $trail){
     $trail->push('Presensi');
 });
 
-Breadcrumbs::for('Surat Tugas', function (BreadcrumbTrail $trail){
-    $trail->parent("Presensi");
-    $trail->push('Surat Tugas', route('presensi.surat_tugas'));
+Breadcrumbs::for('Surat Izin', function ($trail) {
+    $trail->parent('Dashboard');
+    $trail->push('Surat Izin', route('presensi.surat_izin'));
 });
 
 Breadcrumbs::for('Scan Barcode', function (BreadcrumbTrail $trail){

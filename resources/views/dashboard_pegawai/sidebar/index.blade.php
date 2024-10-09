@@ -61,16 +61,16 @@
                                         Scan Barcode
                                     </a>
                                 </li>
-                                <!-- Surat Tugas submenu -->
+                                <!-- Surat Izin submenu -->
                                 <li>
                                     <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-semibold text-white duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'presensi.surat_tugas' ? ' text-white' : '' }}"
-                                        href="{{ route('presensi.surat_tugas') }}">
+                                        href="{{ route('presensi.surat_izin') }}">
 
-                                        @if (Route::currentRouteName() === 'presensi.surat_tugas')
+                                        @if (Route::currentRouteName() === 'presensi.surat_izin')
                                             <i class="fa-solid fa-chevron-right"></i>
                                             <!-- Tanda panah hanya muncul pada rute aktif -->
                                         @endif
-                                        Surat Tugas
+                                        Surat Izin
                                     </a>
                                 </li>
 

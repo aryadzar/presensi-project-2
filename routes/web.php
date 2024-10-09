@@ -64,9 +64,9 @@ Route::get('dashboard/presensi/scan_barcode', function () {
 })->name("presensi.barcode");
 
 Route::get('dashboard/presensi/set_izin', function () {
-    $breadcrumbs = Breadcrumbs::generate('Surat Tugas');
-    return view('dashboard_pegawai.surat_tugas.index', compact("breadcrumbs"));
-})->name("presensi.surat_tugas");
+    $breadcrumbs = Breadcrumbs::generate('Surat Izin');
+    return view('dashboard_pegawai.surat_izin.index', compact("breadcrumbs"));
+})->name("presensi.surat_izin");
 
 Route::get('dashboard/presensi/set_cuti', function () {
     return view('dashboard_pegawai.cuti.index');

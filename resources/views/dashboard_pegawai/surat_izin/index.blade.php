@@ -7,7 +7,7 @@
 
     <div class="mb-3">
         <h1 class="text-2xl font-semibold "><i class="fa fa-envelope text-blue-500 mr-2 dark:text-white"></i> <span class="dark:text-white text-blue-500">Surat
-                Tugas</span></h1>
+                izin</span></h1>
 
     </div>
 
@@ -44,7 +44,7 @@
                         </td>
                         <td class="p-2 text-gray-700">07.40 WIB</td>
                         <td class="p-2 text-gray-700">16.10 WIB</td>
-                        <td class="p-2 text-gray-700">Tugas Upacara</td>
+                        <td class="p-2 text-gray-700">izin Upacara</td>
                     </tr>
                     <tr class="border-b hover:bg-gray-100">
                         <td class="p-2 text-gray-700">01-10-2024</td>
@@ -55,7 +55,7 @@
                         </td>
                         <td class="p-2 text-gray-700">07.40 WIB</td>
                         <td class="p-2 text-gray-700">16.10 WIB</td>
-                        <td class="p-2 text-gray-700">Tugas Ngonser SVT</td>
+                        <td class="p-2 text-gray-700">izin Ngonser SVT</td>
                     </tr>
                     <tr class="border-b hover:bg-gray-100">
                         <td class="p-2 text-gray-700">01-10-2024</td>
@@ -66,7 +66,7 @@
                         </td>
                         <td class="p-2 text-gray-700">07.40 WIB</td>
                         <td class="p-2 text-gray-700">16.10 WIB</td>
-                        <td class="p-2 text-gray-700">Tugas Makan</td>
+                        <td class="p-2 text-gray-700">izin Makan</td>
                     </tr>
                 </tbody>
             </table>
@@ -77,7 +77,7 @@
     <input type="checkbox" id="my_modal_7" class="modal-toggle" />
     <div class="modal" role="dialog">
         <div class="modal-box dark:bg-gradient-to-b bg-blue-300  dark:from-blue-900 dark:to-blue-950">
-            <h3 class="text-lg text-black-2 dark:text-white font-bold">Form Izin Surat Tugas</h3>
+            <h3 class="text-lg text-black-2 dark:text-white font-bold">Form Surat izin</h3>
             <form action="" method="POST">
                 <div class="grid lg:grid-cols-1 grid-cols-2  gap-1 md:grid-cols-2">
                     <!-- Tanggal Mulai -->

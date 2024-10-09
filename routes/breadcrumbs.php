@@ -22,7 +22,7 @@ Breadcrumbs::for('Presensi', function (BreadcrumbTrail $trail){
 });
 
 Breadcrumbs::for('Surat Izin', function ($trail) {
-    $trail->parent('Dashboard');
+    $trail->parent('Presensi');
     $trail->push('Surat Izin', route('presensi.surat_izin'));
 });
 

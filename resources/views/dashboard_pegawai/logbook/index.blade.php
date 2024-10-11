@@ -1,5 +1,3 @@
-LOG BOOK
-___________________________________________
 @extends('dashboard_pegawai.dashboard-layout.index')
 
 @section('title', 'Dashboard Pegawai')
@@ -84,7 +82,7 @@ ___________________________________________
         <div class="py-5">
             <label class="block text-gray-700 dark:text-gray-200 font-semibold">Keterangan</label>
             <textarea readonly
-                class="w-full h-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-white dark:text-black h-32">
+                class="w-full h-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-white dark:text-black ">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero.
 
                 Fusce sed volutpat turpis, eget dapibus mauris. Cras vel orci quis tellus dapibus ullamcorper. Vivamus a massa vel nulla consequat suscipit. Integer in turpis risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.

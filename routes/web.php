@@ -72,6 +72,10 @@ Route::get('dashboard/presensi/set_cuti', function () {
     return view('dashboard_pegawai.cuti.index');
 })->name("presensi.set_cuti");
 
+Route::get('dashboard/presensi/log_book', function () {
+    return view('dashboard_pegawai.logbook.index');
+})->name("presensi.log_book");
+
 Route::get('dashboard/history', function () {
     return view('dashboard_pegawai.riwayat.index');
 })->name("riwayat");

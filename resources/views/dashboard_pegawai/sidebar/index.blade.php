@@ -73,6 +73,17 @@
                                         Surat Izin
                                     </a>
                                 </li>
+                                <li>
+                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-semibold text-white duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'presensi.surat_tugas' ? ' text-white' : '' }}"
+                                        href="{{ route('presensi.log_book') }}">
+
+                                        @if (Route::currentRouteName() === 'presensi.surat_izin')
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                            <!-- Tanda panah hanya muncul pada rute aktif -->
+                                        @endif
+                                        Log Book
+                                    </a>
+                                </li>
 
                             </ul>
                         </div>

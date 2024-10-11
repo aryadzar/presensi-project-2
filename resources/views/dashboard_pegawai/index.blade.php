@@ -1,7 +1,7 @@
 @extends('dashboard_pegawai.dashboard-layout.index')
 
 @section('title', 'Dashboard Pegawai')
-@section('nama_pegawai', Auth::user()->name )
+@section('nama_pegawai', Auth::user()->name)
 @section('role', 'Pegawai')
 @section('content')
     {{-- <div class=" flex justify-between">
@@ -39,13 +39,14 @@
                 <div class="flex items-center justify-between">
                     <!-- Container untuk teks -->
                     <div class="">
-                    <p class="text-2xl lg:text-3xl font-bold mb-2 sm:mb-4">45</p>
+                        <p class="text-2xl lg:text-3xl font-bold mb-2 sm:mb-4">45</p>
                         <p class="text-lg lg:text-xl font-bold">Hadir</p>
                         <p class="text-[10px] lg:text-sm">*Jumlah dalam hari</p>
-                        </div>
-                        
+                    </div>
+
                     <div class="relative ml-4 sm:ml-6 lg:ml-10">
-                        <svg class="w-8 h-auto lg:w-12" viewBox="0 0 48 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-8 h-auto lg:w-12" viewBox="0 0 48 80" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M0.083252 16.5C0.083252 10.7833 0.0832513 7.92499 1.01258 5.74041C1.83165 3.8186 3.13896 2.2562 4.747 1.27732C6.57492 0.166657 8.96659 0.166656 13.7499 0.166656H34.2499C39.0333 0.166656 41.4249 0.166657 43.2528 1.27732C44.8596 2.25689 46.1657 3.81922 46.9838 5.74041C47.9166 7.92499 47.9166 10.7833 47.9166 16.5V70.4327C47.9166 74.7447 47.9166 76.8966 47.1752 78.0113C46.857 78.49 46.453 78.8772 45.9929 79.1443C45.5329 79.4115 45.0285 79.5517 44.517 79.5548C43.3246 79.563 41.9067 78.2318 39.0743 75.5695L23.9999 61.4167L8.929 75.5695C6.09317 78.2318 4.67525 79.563 3.48284 79.5548C2.97135 79.5517 2.46696 79.4115 2.00689 79.1443C1.54682 78.8772 1.14281 78.49 0.824669 78.0113C0.083252 76.8966 0.083252 74.7447 0.083252 70.4327V16.5Z"
                                 fill="url(#paint0_linear_333_1047)" />
@@ -58,7 +59,8 @@
                                 </linearGradient>
                             </defs>
                         </svg>
-                        <i class="fa-duotone fa-solid fa-check absolute inset-0 flex items-center justify-center fa-2x lg:fa-3x text-blue-500"></i>
+                        <i
+                            class="fa-duotone fa-solid fa-check absolute inset-0 flex items-center justify-center fa-2x lg:fa-3x text-blue-500"></i>
                     </div>
                 </div>
             </div>
@@ -67,13 +69,14 @@
                 <div class="flex items-center justify-between">
                     <!-- Container untuk teks -->
                     <div>
-                    <p class="text-2xl lg:text-3xl font-bold mb-2 sm:mb-4">45</p>
+                        <p class="text-2xl lg:text-3xl font-bold mb-2 sm:mb-4">45</p>
                         <p class="text-lg lg:text-xl font-bold">Telat</p>
                         <p class="text-[10px] lg:text-sm">*Jumlah dalam hari</p>
                     </div>
                     <!-- Container untuk ikon dengan posisi relatif -->
                     <div class="relative ml-4 sm:ml-6 lg:ml-10">
-                        <svg class="w-8 h-auto lg:w-12" viewBox="0 0 48 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-8 h-auto lg:w-12" viewBox="0 0 48 80" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M0.083252 16.5C0.083252 10.7833 0.0832513 7.92499 1.01258 5.74041C1.83165 3.8186 3.13896 2.2562 4.747 1.27732C6.57492 0.166657 8.96659 0.166656 13.7499 0.166656H34.2499C39.0333 0.166656 41.4249 0.166657 43.2528 1.27732C44.8596 2.25689 46.1657 3.81922 46.9838 5.74041C47.9166 7.92499 47.9166 10.7833 47.9166 16.5V70.4327C47.9166 74.7447 47.9166 76.8966 47.1752 78.0113C46.857 78.49 46.453 78.8772 45.9929 79.1443C45.5329 79.4115 45.0285 79.5517 44.517 79.5548C43.3246 79.563 41.9067 78.2318 39.0743 75.5695L23.9999 61.4167L8.929 75.5695C6.09317 78.2318 4.67525 79.563 3.48284 79.5548C2.97135 79.5517 2.46696 79.4115 2.00689 79.1443C1.54682 78.8772 1.14281 78.49 0.824669 78.0113C0.083252 76.8966 0.083252 74.7447 0.083252 70.4327V16.5Z"
                                 fill="url(#paint0_linear_333_1047)" />
@@ -87,7 +90,8 @@
                             </defs>
                         </svg>
                         <!-- Ikon kedua (centang) di tengah-tengah SVG -->
-                        <i class="fa-duotone fa-solid fa-minus absolute inset-0 flex items-center justify-center fa-2x lg:fa-3x text-blue-500"></i>
+                        <i
+                            class="fa-duotone fa-solid fa-minus absolute inset-0 flex items-center justify-center fa-2x lg:fa-3x text-blue-500"></i>
                     </div>
                 </div>
             </div>
@@ -95,7 +99,7 @@
                 <div class="flex items-center justify-between">
                     <!-- Container untuk teks -->
                     <div>
-                    <p class="text-2xl lg:text-3xl font-bold mb-2 sm:mb-4">45</p>
+                        <p class="text-2xl lg:text-3xl font-bold mb-2 sm:mb-4">45</p>
                         <p class="text-lg lg:text-xl font-bold">Tidak Hadir</p>
                         <p class="text-[10px] lg:text-sm">*Jumlah dalam hari</p>
                     </div>
@@ -116,7 +120,8 @@
                             </defs>
                         </svg>
                         <!-- Ikon kedua (centang) di tengah-tengah SVG -->
-                        <i class="fa-duotone fa-solid fa-xmark absolute inset-0 flex items-center justify-center fa-2x lg:fa-3x text-blue-500"></i>
+                        <i
+                            class="fa-duotone fa-solid fa-xmark absolute inset-0 flex items-center justify-center fa-2x lg:fa-3x text-blue-500"></i>
                     </div>
                 </div>
             </div>
@@ -130,7 +135,8 @@
                     </div>
                     <!-- Container untuk ikon dengan posisi relatif -->
                     <div class="relative ml-4 sm:ml-6 lg:ml-10">
-                        <svg class="w-8 h-auto lg:w-12" viewBox="0 0 48 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-8 h-auto lg:w-12" viewBox="0 0 48 80" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M0.083252 16.5C0.083252 10.7833 0.0832513 7.92499 1.01258 5.74041C1.83165 3.8186 3.13896 2.2562 4.747 1.27732C6.57492 0.166657 8.96659 0.166656 13.7499 0.166656H34.2499C39.0333 0.166656 41.4249 0.166657 43.2528 1.27732C44.8596 2.25689 46.1657 3.81922 46.9838 5.74041C47.9166 7.92499 47.9166 10.7833 47.9166 16.5V70.4327C47.9166 74.7447 47.9166 76.8966 47.1752 78.0113C46.857 78.49 46.453 78.8772 45.9929 79.1443C45.5329 79.4115 45.0285 79.5517 44.517 79.5548C43.3246 79.563 41.9067 78.2318 39.0743 75.5695L23.9999 61.4167L8.929 75.5695C6.09317 78.2318 4.67525 79.563 3.48284 79.5548C2.97135 79.5517 2.46696 79.4115 2.00689 79.1443C1.54682 78.8772 1.14281 78.49 0.824669 78.0113C0.083252 76.8966 0.083252 74.7447 0.083252 70.4327V16.5Z"
                                 fill="url(#paint0_linear_333_1047)" />
@@ -144,7 +150,8 @@
                             </defs>
                         </svg>
                         <!-- Ikon kedua (centang) di tengah-tengah SVG -->
-                        <i class="fa-duotone fa-solid fa-clipboard-list absolute inset-0 flex items-center justify-center fa-2x lg:fa-3x text-blue-500"></i>
+                        <i
+                            class="fa-duotone fa-solid fa-clipboard-list absolute inset-0 flex items-center justify-center fa-2x lg:fa-3x text-blue-500"></i>
                     </div>
                 </div>
             </div>
@@ -162,7 +169,8 @@
 
         <!-- Attendance Table -->
         <div class="col-span-3 bg-blue-300 dark:bg-blue-800 p-4 rounded-lg shadow-md">
-            <p class="font-bold text-black dark:text-orange-400 mb-4">Monitoring Absensi <span class="text-white"> - 2024</span></p>
+            <p class="font-bold text-black dark:text-orange-400 mb-4">Monitoring Absensi <span class="text-white"> -
+                    2024</span></p>
             <div class="overflow-x-auto">
                 <table class="min-w-full text-left text-sm text-white ">
                     <thead class="border-b bg-blue-500">

@@ -20,8 +20,8 @@ class UsersSeeders extends Seeder
             //     "password" => bcrypt("password")
             // ],
             [
-                "name" => "Luthfi Aditya",
-                "id_sso" => "2217051062",
+                "name" => "Sutarto",
+                "id_sso" => "197207061995031002",
                 "password" => bcrypt("password")
             ],
             // [

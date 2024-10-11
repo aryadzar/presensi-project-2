@@ -6,7 +6,8 @@
 @section('content')
 
     <div class="mb-3">
-        <h1 class="text-2xl font-semibold "><i class="fa fa-envelope text-blue-500 mr-2 dark:text-white"></i> <span class="dark:text-white text-blue-500">Surat
+        <h1 class="text-2xl font-semibold "><i class="fa fa-envelope text-blue-500 mr-2 dark:text-white"></i> <span
+                class="dark:text-white text-blue-500">Surat
                 izin</span></h1>
 
     </div>
@@ -17,7 +18,8 @@
     <div class="bg-blue-100 dark:bg-slate-500 p-6 grid grid-cols-1 lg:grid-cols-2 mt-5 rounded-sm">
         <div class=" col-span-3 flex justify-end mb-5">
             <!-- The button to open modal -->
-            <label for="my_modal_7" class="btn bg-blue-300 hover:bg-blue-400 border-white hover:border-white dark:bg-blue-800 text-black-2 dark:text-white">Tambah</label>
+            <label for="my_modal_7"
+                class="btn bg-blue-300 hover:bg-blue-400 border-white hover:border-white dark:bg-blue-800 text-black-2 dark:text-white">Tambah</label>
 
         </div>
         <!-- Table -->
@@ -105,8 +107,11 @@
 
                     <!-- Upload File -->
                     <div class="form-control col-span-2">
-                        <label class="block mb-2 mt-5 text-lg font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gr dark:border-white dark:placeholder-white" id="file_input" type="file">
+                        <label class="block mb-2 mt-5 text-lg font-medium text-gray-900 dark:text-white"
+                            for="file_input">Upload file</label>
+                        <input
+                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gr dark:border-white dark:placeholder-white"
+                            id="file_input" type="file">
                     </div>
 
                     <!-- Keterangan -->

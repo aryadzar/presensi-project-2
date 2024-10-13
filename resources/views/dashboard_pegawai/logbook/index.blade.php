@@ -1,5 +1,3 @@
-LOG BOOK
-___________________________________________
 @extends('dashboard_pegawai.dashboard-layout.index')
 
 @section('title', 'Dashboard Pegawai')
@@ -10,6 +8,8 @@ ___________________________________________
 <div class="mb-3">
     <h1 class="text-2xl font-semibold"><i class="fa-solid fa-book text-blue-500 mr-2 dark:text-white"></i> <span class="dark:text-white text-blue-500">Log Book</span></h1>
 </div>
+
+
 
 <!-- Attendance Table -->
 <div class="bg-blue-100 dark:bg-slate-500 p-6 grid grid-cols-1 lg:grid-cols-2 mt-5 rounded-sm">

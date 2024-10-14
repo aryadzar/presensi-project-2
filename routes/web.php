@@ -64,6 +64,10 @@ Route::get('dashboard/history', function () {
     return view('dashboard_pegawai.riwayat.index');
 })->name("riwayat");
 
+Route::get('barcode', function () {
+    return view('barcode.index');
+})->name("barcode");
+
 
 Route::get('/logout', function () {
     if(SSO::check()) { //mengecek otentikasi pada aplikasi
@@ -92,7 +96,7 @@ Route::prefix('dashboard/administrasi')->group(function () {
     })->name('administratif.validasisurat');
 });
 
-Route::get('/dashboard/history', function () {
+Route::get('/dashboard/historypegawai', function () {
     $breadcrumbs = Breadcrumbs::generate('Riwayat Hadir Karyawan');
     return view('dashboard_admin.riwayat.index', compact('breadcrumbs'));
 })->name('riwayatadmin');

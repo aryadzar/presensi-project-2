@@ -1,13 +1,13 @@
 @extends('dashboard_admin.dashboard-layout.index')
 
 @section('title', 'Dashboard Admin')
-@section('nama_pegawai', "Coba")
+@section('nama_pegawai', 'Coba')
 @section('role', 'Pegawai')
 @section('content')
 
     <div class="mb-3">
-        <h1 class="text-2xl font-semibold "><i class="fa-solid fa-rectangle-list mr-2 dark:text-white text-blue-500"></i> <span
-                class="dark:text-white text-blue-500">Daftar Karyawan Magang / PKL</span></h1>
+        <h1 class="text-2xl font-semibold "><i class="fa-solid fa-rectangle-list mr-2 dark:text-white text-blue-500"></i>
+            <span class="dark:text-white text-blue-500">Daftar Karyawan Magang / PKL</span></h1>
 
     </div>
 

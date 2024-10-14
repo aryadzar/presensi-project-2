@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,7 +19,8 @@
             <!-- Bagian kanan: Gambar barcode yang lebih besar -->
             <div class="bg-blue-300 p-4 rounded-lg shadow-inner flex flex-col items-center justify-center">
                 <h2 class="text-lg font-semibold mb-4">Scan Barcode:</h2>
-                <img src="https://api.qrserver.com/v1/create-qr-code/?data=absen123&size=400x400" alt="Barcode" class="w-96 h-96 object-contain" id="barcode" />
+                <img src="https://api.qrserver.com/v1/create-qr-code/?data=absen123&size=400x400" alt="Barcode"
+                    class="w-96 h-96 object-contain" id="barcode" />
             </div>
 
             <!-- Bagian kiri: Daftar nama orang yang telah absen -->
@@ -56,4 +58,5 @@
         }, 5000);
     </script>
 </body>
+
 </html>

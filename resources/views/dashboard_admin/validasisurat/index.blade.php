@@ -1,12 +1,13 @@
 @extends('dashboard_admin.dashboard-layout.index')
 
 @section('title', 'Dashboard Admin')
-@section('nama_pegawai', "Coba")
+@section('nama_pegawai', 'Coba')
 @section('role', 'Admin')
 @section('content')
 
     <div class="mb-3">
-        <h1 class="text-2xl font-semibold "><i class="fa-solid fa-list-check text-blue-500 mr-2 dark:text-white text-blue-500"></i> <span
+        <h1 class="text-2xl font-semibold "><i
+                class="fa-solid fa-list-check text-blue-500 mr-2 dark:text-white text-blue-500"></i> <span
                 class="dark:text-white text-blue-500">Validasi Surat Izin</span></h1>
 
     </div>

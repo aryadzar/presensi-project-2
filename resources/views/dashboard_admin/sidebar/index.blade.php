@@ -34,7 +34,8 @@
                     <li x-data="{ selected: '{{ in_array(Route::currentRouteName(), ['administratif.validasisurat', 'administratif.daftarpegawai', 'administratif.set_cuti', 'administratif.log_book']) ? 'Administratif' : '' }}' }">
                         <!-- Trigger for dropdown -->
                         <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ in_array(Route::currentRouteName(), ['administratif', 'administratif.validasisurat', 'administratif.daftarpegawai', 'administratif.set_cuti']) ? 'bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
-                            href="#" @click.prevent="selected = (selected === 'Administratif' ? '' : 'Administratif')">
+                            href="#"
+                            @click.prevent="selected = (selected === 'Administratif' ? '' : 'Administratif')">
                             <i class="fa-solid fa-user"></i>
                             Administratif
                             <svg class="absolute right-4 top-1/2 -translate-y-1/2 fill-current"
@@ -73,7 +74,6 @@
                                         Validasi Surat Izin
                                     </a>
                                 </li>
-
 
                             </ul>
                         </div>

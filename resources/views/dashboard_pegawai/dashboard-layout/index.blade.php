@@ -220,8 +220,8 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                     <li>
                                         <a href="settings.html"
                                             class="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base pl-[3px]">
-                                                <i class="fa-regular fa-circle-question"></i>
-                                                Help
+                                            <i class="fa-regular fa-circle-question"></i>
+                                            Help
                                         </a>
 
                                     </li>

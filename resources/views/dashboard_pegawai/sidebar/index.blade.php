@@ -94,7 +94,6 @@
                             <i class="fa-solid fa-clock-rotate-left"></i>
                             History
                         </a>
-
                     </li>
                 </ul>
 

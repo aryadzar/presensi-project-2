@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use SSO\SSO;
 use App\Models\User;
 use Diglactic\Breadcrumbs\Breadcrumbs;
@@ -50,6 +51,18 @@ Route::get('/login/sso', function () {
 })->name('login.post');
 
 
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+
+
+
+
+
+
+
+
+
+
+
 Route::get('/dashboard', function () {
     $breadcrumbs = Breadcrumbs::generate('Home');
     return view('dashboard_pegawai.index', compact('breadcrumbs'));
@@ -72,6 +85,10 @@ Route::get('dashboard/presensi/set_cuti', function () {
     return view('dashboard_pegawai.cuti.index');
 })->name("presensi.set_cuti");
 
+Route::get('dashboard/presensi/log_book', function () {
+    return view('dashboard_pegawai.logbook.index');
+})->name("presensi.log_book");
+
 Route::get('dashboard/history', function () {
     return view('dashboard_pegawai.riwayat.index');
 })->name("riwayat");
@@ -92,6 +109,4 @@ Route::get('/logout', function () {
     }
 })->name("logout");
 
-Route::get("/testing", function(){
-    return view('dashboard_pegawai.testing');
-})->name("testing");
+

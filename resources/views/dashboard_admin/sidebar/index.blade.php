@@ -31,14 +31,14 @@
                         </a>
 
                     </li>
-                    <li x-data="{ selected: '{{ in_array(Route::currentRouteName(), ['presensi.barcode', 'presensi.surat_izin', 'presensi.set_cuti', 'presensi.log_book']) ? 'Presensi' : '' }}' }">
+                    <li x-data="{ selected: '{{ in_array(Route::currentRouteName(), ['administratif.validasisurat', 'administratif.daftarpegawai', 'administratif.set_cuti', 'administratif.log_book']) ? 'Administratif' : '' }}' }">
                         <!-- Trigger for dropdown -->
-                        <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ in_array(Route::currentRouteName(), ['presensi', 'presensi.barcode', 'presensi.surat_izin', 'presensi.set_cuti']) ? 'bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
-                            href="#" @click.prevent="selected = (selected === 'Presensi' ? '' : 'Presensi')">
+                        <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ in_array(Route::currentRouteName(), ['administratif', 'administratif.validasisurat', 'administratif.daftarpegawai', 'administratif.set_cuti']) ? 'bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
+                            href="#" @click.prevent="selected = (selected === 'Administratif' ? '' : 'Administratif')">
                             <i class="fa-solid fa-user"></i>
                             Administratif
                             <svg class="absolute right-4 top-1/2 -translate-y-1/2 fill-current"
-                                :class="{ 'rotate-180': (selected === 'Presensi') }" width="20" height="20"
+                                :class="{ 'rotate-180': (selected === 'Administratif') }" width="20" height="20"
                                 viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
@@ -48,25 +48,25 @@
 
                         <!-- Dropdown Menu Start -->
                         <div class="translate transform overflow-hidden"
-                            :class="(selected === 'Presensi') ? 'block' : 'hidden'">
+                            :class="(selected === 'Administratif') ? 'block' : 'hidden'">
                             <ul class="mb-5.5 mt-4 flex flex-col gap-5 pl-6">
                                 <!-- Surat Izin submenu -->
                                 <li>
-                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-semibold text-white duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'presensi.surat_tugas' ? ' text-white' : '' }}"
-                                        href="{{ route('presensi.surat_izin') }}">
+                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-semibold text-white duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'administratif.surat_tugas' ? ' text-white' : '' }}"
+                                        href="{{ route('administratif.daftarpegawai') }}">
 
-                                        @if (Route::currentRouteName() === 'presensi.surat_izin')
+                                        @if (Route::currentRouteName() === 'administratif.daftarpegawai')
                                             <i class="fa-solid fa-chevron-right"></i>
                                             <!-- Tanda panah hanya muncul pada rute aktif -->
                                         @endif
                                         Daftar Karyawan Magang/PKL
                                     </a>
                                 </li>
-                                <!-- Scan Barcode submenu -->
+                                <!-- Validasi submenu -->
                                 <li>
-                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 text-white font-semibold duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'presensi.barcode' ? ' text-white' : '' }}"
-                                        href="{{ route('presensi.barcode') }}">
-                                        @if (Route::currentRouteName() === 'presensi.barcode')
+                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 text-white font-semibold duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'administratif.validasisurat' ? ' text-white' : '' }}"
+                                        href="{{ route('administratif.validasisurat') }}">
+                                        @if (Route::currentRouteName() === 'administratif.validasisurat')
                                             <i class="fa-solid fa-chevron-right"></i>
                                             <!-- Tanda panah hanya muncul pada rute aktif -->
                                         @endif
@@ -79,8 +79,8 @@
                         </div>
                     </li>
                     <li>
-                        <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ Route::currentRouteName() == 'riwayat' ? ' bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
-                            href="{{ route('riwayat') }}">
+                        <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ Route::currentRouteName() == 'riwayatadmin' ? ' bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
+                            href="{{ route('riwayatadmin') }}">
                             <i class="fa-solid fa-clock-rotate-left"></i>
                             Riwayat Hadir Karyawan
                         </a>

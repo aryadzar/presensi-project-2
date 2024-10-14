@@ -93,6 +93,10 @@ Route::get('dashboard/history', function () {
     return view('dashboard_pegawai.riwayat.index');
 })->name("riwayat");
 
+Route::get('barcode', function () {
+    return view('barcode.index');
+})->name("barcode");
+
 
 
 

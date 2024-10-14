@@ -1,7 +1,7 @@
-@extends('dashboard_pegawai.dashboard-layout.index')
+@extends('dashboard_admin.dashboard-layout.index')
 
-@section('title', 'Dashboard Pegawai')
-@section('nama_pegawai', "Jauhari")
+@section('title', 'Dashboard Admin')
+@section('nama_pegawai', "Coba")
 @section('role', 'Pegawai')
 @section('content')
     {{-- <div class=" flex justify-between">
@@ -11,27 +11,8 @@
 
 </div> --}}
     <div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
-        @include('dashboard_pegawai.breadcrumbs.index')
+        @include('dashboard_admin.breadcrumbs.index')
 
-        <!-- Absence Warning Box -->
-        <div class="col-span-3 bg-yellow-100 p-4 rounded-lg shadow-md flex items-center">
-            <svg class="w-8 h-8 text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                    d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2zm0 15h-1v-1h1v1zm1-4h-2v-4h2v4z" />
-            </svg>
-            <p class="ml-4 text-yellow-800 font-semibold">Anda Belum Melakukan Absensi!! Mohon untuk segera melakukan absensi
-                sebelum batas waktu.</p>
-        </div>
-
-        <div role="alert" class="alert alert-warning flex col-span-3 ">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
-            <span class="ml-2">Warning: Anda Belum Melakukan Absensi!! Mohon untuk segera melakukan absensi sebelum batas
-                waktu.</span>
-        </div>
 
         <!-- Status Cards -->
         <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 col-span-3">
@@ -40,7 +21,7 @@
                     <!-- Container untuk teks -->
                     <div class="">
                         <p class="text-2xl lg:text-3xl font-bold mb-2 sm:mb-4">45</p>
-                        <p class="text-lg lg:text-xl font-bold">Hadir</p>
+                        <p class="text-lg lg:text-xl font-bold">Users</p>
                         <p class="text-[10px] lg:text-sm">*Jumlah dalam hari</p>
                     </div>
 
@@ -169,7 +150,7 @@
 
         <!-- Attendance Table -->
         <div class="col-span-3 bg-blue-300 dark:bg-blue-800 p-4 rounded-lg shadow-md">
-            <p class="font-bold text-black dark:text-orange-400 mb-4">Monitoring Absensi <span class="text-white"> -
+            <p class="font-bold text-black dark:text-orange-400 mb-4">Daftar Absensi Karyawan PKL/magang <span class="text-white"> -
                     2024</span></p>
             <div class="overflow-x-auto">
                 <table class="min-w-full text-left text-sm text-white ">

@@ -24,7 +24,7 @@
 
                 <ul class="mb-6 flex flex-col gap-7">
                     <li>
-                        <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ Route::currentRouteName() == 'dashboard' ? ' bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
+                        <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ Route::currentRouteName() == 'admin.dashboard' ? ' bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
                             href="{{ route('dashboard') }}">
                             <i class="fa-solid fa-house"></i>
                             Dashboard
@@ -35,8 +35,8 @@
                         <!-- Trigger for dropdown -->
                         <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ in_array(Route::currentRouteName(), ['presensi', 'presensi.barcode', 'presensi.surat_izin', 'presensi.set_cuti']) ? 'bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
                             href="#" @click.prevent="selected = (selected === 'Presensi' ? '' : 'Presensi')">
-                            <i class="fa-solid fa-fingerprint"></i>
-                            Presensi
+                            <i class="fa-solid fa-user"></i>
+                            Administratif
                             <svg class="absolute right-4 top-1/2 -translate-y-1/2 fill-current"
                                 :class="{ 'rotate-180': (selected === 'Presensi') }" width="20" height="20"
                                 viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,17 +50,6 @@
                         <div class="translate transform overflow-hidden"
                             :class="(selected === 'Presensi') ? 'block' : 'hidden'">
                             <ul class="mb-5.5 mt-4 flex flex-col gap-5 pl-6">
-                                <!-- Scan Barcode submenu -->
-                                <li>
-                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 text-white font-semibold duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'presensi.barcode' ? ' text-white' : '' }}"
-                                        href="{{ route('presensi.barcode') }}">
-                                        @if (Route::currentRouteName() === 'presensi.barcode')
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                            <!-- Tanda panah hanya muncul pada rute aktif -->
-                                        @endif
-                                        Scan Barcode
-                                    </a>
-                                </li>
                                 <!-- Surat Izin submenu -->
                                 <li>
                                     <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-semibold text-white duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'presensi.surat_tugas' ? ' text-white' : '' }}"
@@ -70,20 +59,21 @@
                                             <i class="fa-solid fa-chevron-right"></i>
                                             <!-- Tanda panah hanya muncul pada rute aktif -->
                                         @endif
-                                        Surat Izin
+                                        Daftar Karyawan Magang/PKL
                                     </a>
                                 </li>
+                                <!-- Scan Barcode submenu -->
                                 <li>
-                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 font-semibold text-white duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'presensi.surat_tugas' ? ' text-white' : '' }}"
-                                        href="{{ route('presensi.log_book') }}">
-
-                                        @if (Route::currentRouteName() === 'presensi.log_book')
+                                    <a class="group relative flex items-center gap-2.5 rounded-md px-4 text-white font-semibold duration-300 ease-in-out hover:bg-blue-400 dark:hover:bg-meta-4 hover:text-white {{ Route::currentRouteName() === 'presensi.barcode' ? ' text-white' : '' }}"
+                                        href="{{ route('presensi.barcode') }}">
+                                        @if (Route::currentRouteName() === 'presensi.barcode')
                                             <i class="fa-solid fa-chevron-right"></i>
                                             <!-- Tanda panah hanya muncul pada rute aktif -->
                                         @endif
-                                        Log Book
+                                        Validasi Surat Izin
                                     </a>
                                 </li>
+
 
                             </ul>
                         </div>
@@ -92,7 +82,7 @@
                         <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ Route::currentRouteName() == 'riwayat' ? ' bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
                             href="{{ route('riwayat') }}">
                             <i class="fa-solid fa-clock-rotate-left"></i>
-                            History
+                            Riwayat Hadir Karyawan
                         </a>
 
                     </li>

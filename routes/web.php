@@ -64,6 +64,10 @@ Route::get('dashboard/history', function () {
     return view('dashboard_pegawai.riwayat.index');
 })->name("riwayat");
 
+Route::get('barcode', function () {
+    return view('barcode.index');
+})->name("barcode");
+
 
 Route::get('/logout', function () {
     if(SSO::check()) { //mengecek otentikasi pada aplikasi

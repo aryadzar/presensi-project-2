@@ -6,10 +6,10 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class UnitKerja extends Model
+class SetUnitKerja extends Model
 {
     use HasFactory;
-    protected $table = 'unit_kerja';
+    protected $table = 'set_unit_kerja';
     protected $guarded = [];
     protected $keyType = 'string';
     protected static function boot()
@@ -23,13 +23,13 @@ class UnitKerja extends Model
         });
     }
 
-    public function setUnitKerja()
+    public function user()
     {
-        return $this->hasMany(SetUnitKerja::class, 'id_unit_kerja');
+        return $this->belongsTo(User::class, 'id_user');
     }
 
-    public function setRoles()
+    public function unitKerja()
     {
-        return $this->hasMany(SetRole::class, 'id_unit_kerja');
+        return $this->belongsTo(UnitKerja::class, 'id_unit_kerja');
     }
 }

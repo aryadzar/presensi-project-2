@@ -22,4 +22,8 @@ class Role extends Model
             }
         });
     }
+
+    public function setRoles(){
+        $this->hasMany(SetRole::class, "id_role");
+    }
 }

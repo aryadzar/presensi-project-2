@@ -14,6 +14,10 @@
 
 <body class="min-h-screen flex items-center justify-center bg-blue-500 p-6">
     <div class="w-full max-w-5xl bg-blue-500 p-6 rounded-lg shadow-lg">
+        <div class="flex items-center mb-4">
+            <img src="{{ asset('assets/logo_absensi/image.png') }}" alt="Logo Unila" class="h-12 mr-4">
+        </div>
+
         <h1 class="text-2xl font-bold mb-6 text-center text-white">Barcode Presensi</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <!-- Bagian kanan: Gambar barcode yang lebih besar -->
@@ -24,7 +28,7 @@
             </div>
 
             <!-- Bagian kiri: Daftar nama orang yang telah absen -->
-            <div class="bg-blue-100 p-4 rounded-lg shadow-inner overflow-y-auto max-h-screen">
+            <div class="bg-blue-100 p-4 rounded-lg shadow-inner overflow-y-auto max-h-[70vh]">
                 <h2 class="text-lg font-semibold mb-4">Daftar Kehadiran:</h2>
                 <ul class="space-y-2">
                     <!-- Contoh item nama, ulangi blok ini untuk setiap orang -->

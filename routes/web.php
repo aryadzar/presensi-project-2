@@ -68,6 +68,10 @@ Route::get('barcode', function () {
     return view('barcode.index');
 })->name("barcode");
 
+Route::get('role', function () {
+    return view('ganti_role.index');
+})->name("role");
+
 
 Route::get('/logout', function () {
     if(SSO::check()) { //mengecek otentikasi pada aplikasi

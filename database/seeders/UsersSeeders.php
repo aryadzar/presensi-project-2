@@ -19,26 +19,38 @@ class UsersSeeders extends Seeder
             //     "id_sso" => " ",
             //     "password" => bcrypt("password")
             // ],
+            // [
+            //     "name" => "Sutarto",
+            //     "id_sso" => "197207061995031002",
+            //     "password" => bcrypt("password")
+            // ],
             [
-                "name" => "Sutarto",
-                "id_sso" => "197207061995031002",
-                "password" => bcrypt("password")
+                "nama" => "Muhammad Arya Dzaky Arenanto",
+                "NPM" => "2217051007",
+                "password" => bcrypt("password"),
+                "alamat" => "Lorem Ipsum",
+                "no_telepon" => "029123121212",
+                "asal_instansi" => "Universitas Lampung",
+                "soft_delete" => 0
             ],
-            // [
-            //     "name" => "Muhammad Arya Dzaky Arenanto",
-            //     "id_sso" => "2217051007",
-            //     "password" => bcrypt("password")
-            // ],
-            // [
-            //     "name" => "M Abdul Adhim",
-            //     "id_sso" => "2217051030",
-            //     "password" => bcrypt("password")
-            // ],
-            // [
-            //     "name" => "Maharani Wahyu Tantri",
-            //     "id_sso" => "2217051051",
-            //     "password" => bcrypt("password")
-            // ],
+            [
+                "nama" => "M Abdul Adhim",
+                "NPM" => "2217051030",
+                "password" => bcrypt("password"),
+                "alamat" => "Lorem Ipsum",
+                "no_telepon" => "029123121212",
+                "asal_instansi" => "Universitas Lampung",
+                "soft_delete" => 0
+            ],
+            [
+                "nama" => "Maharani Wahyu Tantri",
+                "NPM" => "2217051051",
+                "password" => bcrypt("password"),
+                "alamat" => "Lorem Ipsum",
+                "no_telepon" => "029123121212",
+                "asal_instansi" => "Universitas Lampung",
+                "soft_delete" => 0
+            ],
         ];
 
         foreach ($users as $user) {

@@ -38,7 +38,7 @@ Route::get('/login/sso', function () {
             $check = User::where('id_sso', SSO::getUser()->nip)->first(); //mengecek apakah pengguna SSO memiliki username yang sama dengan database aplikasi
             if(!is_null($check)) {
                 Auth::loginUsingId($check->id); //mengotentikasi pengguna aplikasi
-                return redirect()->route('dashboard');
+                return redirect()->route('admin.dashboard');
             } else {
                 SSO::logout("/");
                 return redirect()->route('login'); //mengarahkan ke halaman login jika pengguna gagal diotentikasi oleh aplikasi

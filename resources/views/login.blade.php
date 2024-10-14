@@ -25,10 +25,14 @@
                     <hr class="w-full border-gray-300">
                 </div>
                 <form action="" method="post">
-                    <div class="mb-4 flex items-center justify-center">
-                        <a href="{{ route('login.post') }}" class="btn btn-warning text-lg w-[300px]">
-                            <i class="fa-solid fa-user"></i> Login Dengan SSO Unila
-                        </a>
+                    <div class="mb-4 flex items-center justify-center form-control">
+                        <input type="text" placeholder="NIK/NPM" class="input input-ghost bg-white w-full max-w-xs" />
+                    </div>
+                    <div class="mb-4 flex items-center justify-center form-control">
+                        <input type="text" placeholder="Password" class="input input-ghost bg-white w-full max-w-xs" />
+                    </div>
+                    <div class="mb-4 flex items-center justify-center form-control">
+                        <button type="submit" class="btn btn-success w-full">Login</button>
                     </div>
                 </form>
                 <div class="flex items-center justify-center">

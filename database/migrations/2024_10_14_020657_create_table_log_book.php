@@ -11,16 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('logbook', function (Blueprint $table) {
             $table->uuid("id")->unique()->primary();
-            $table->string('NPM')->after("id");
-            $table->string('nama');
-            $table->longText("alamat")->after('password');
-            $table->string('no_telepon');
-            $table->string('asal_instansi');
-            $table->integer('soft_delete');
-            $table->string('password');
-            $table->rememberToken();
+            $table->uuid('id_presensi');
+            $table->longText('isi_logbook');
+            $table->foreign('id_presensi')->references('id')->on('presensi');
             $table->timestamps();
         });
     }
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('logbook');
     }
 };

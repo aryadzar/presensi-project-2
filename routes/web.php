@@ -96,7 +96,7 @@ Route::prefix('dashboard/administrasi')->group(function () {
     })->name('administratif.validasisurat');
 });
 
-Route::get('/dashboard/historypegawai', function () {
+Route::get('/dashboard/historyadmin', function () {
     $breadcrumbs = Breadcrumbs::generate('Riwayat Hadir Karyawan');
     return view('dashboard_admin.riwayat.index', compact('breadcrumbs'));
 })->name('riwayatadmin');

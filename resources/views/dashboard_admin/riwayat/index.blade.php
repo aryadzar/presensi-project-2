@@ -1,4 +1,4 @@
-@extends('dashboard_pegawai.dashboard-layout.index')
+@extends('dashboard_admin.dashboard-layout.index')
 
 @section('title', 'History Pegawai')
 @section('nama_pegawai', 'Ahmad Januari')
@@ -7,7 +7,7 @@
 @section('content')
     <div class="mb-3">
         <h1 class="text-2xl font-semibold mb-7"> <span class="dark:text-white text-blue-500">
-                <i class="fas fa-history lg:pr-[10px] dark:text-white"></i>History</span>
+                <i class="fas fa-history lg:pr-[10px] dark:text-white"></i>History Hadir Karyawan</span>
         </h1>
     </div>
 

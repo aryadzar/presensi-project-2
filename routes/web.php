@@ -97,7 +97,7 @@ Route::prefix('dashboard/administrasi')->group(function () {
 });
 
 Route::get('/dashboard/historyadmin', function () {
-    $breadcrumbs = Breadcrumbs::generate('Riwayat Hadir Karyawan');
+    $breadcrumbs = Breadcrumbs::generate('Riwayat');
     return view('dashboard_admin.riwayat.index', compact('breadcrumbs'));
 })->name('riwayatadmin');
 

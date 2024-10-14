@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('devices', function (Blueprint $table) {
             $table->uuid("id")->unique()->primary();
-            $table->string('NPM')->after("id");
-            $table->string('nama');
-            $table->longText("alamat")->after('password');
-            $table->string('no_telepon');
-            $table->string('asal_instansi');
-            $table->integer('soft_delete');
-            $table->string('password');
-            $table->rememberToken();
+            $table->ipAddress()->unique();
+            $table->string('device_name');
+            $table->uuid('id_actor');
+            $table->foreign('id_actor')->references('id')->on("users");
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('devices');
     }
 };

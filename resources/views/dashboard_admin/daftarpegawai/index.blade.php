@@ -14,10 +14,16 @@
     @include('dashboard_admin.breadcrumbs.index')
 <!-- Attendance Table -->
 <div class="bg-blue-100 dark:bg-slate-500 p-6 grid grid-cols-1 lg:grid-cols-2 mt-5 rounded-sm">
+    <div class=" col-span-3  mb-5">
+        <!-- The button to open modal -->
+        <h1 class="text-2xl font-semibold "><i class="fa-solid fa-rectangle-list mr-2 dark:text-white text-blue-500"></i>
+            <span class="dark:text-white text-blue-500">Table Unit Kerja</span></h1>
+
+    </div>
     <div class=" col-span-3 flex justify-end mb-5">
         <!-- The button to open modal -->
         <label for="my_modal_7"
-            class="btn bg-blue-300 hover:bg-blue-400 border-white hover:border-white dark:bg-blue-800 text-black-2 dark:text-white">Tambah</label>
+            class="btn bg-blue-300 hover:bg-blue-400 border-white hover:border-white dark:bg-blue-800 text-black-2 dark:text-white">Tambah Unit Kerja</label>
 
     </div>
     <div class="col-span-3">
@@ -32,7 +38,7 @@
                 <tr class="border-b hover:bg-gray-100">
                     <td class="p-2 text-gray-700">01-10-2024</td>
                     <td class="p-2">
-                        <span class="bg-green-500 text-white rounded-full px-3 py-1 text-xs">Hadir</span>
+
                     </td>
                 </tr>
                 <!-- Additional rows can be added here -->
@@ -45,7 +51,7 @@
         <div class=" col-span-3 flex justify-end mb-5">
             <!-- The button to open modal -->
             <label for="my_modal_7"
-                class="btn bg-blue-300 hover:bg-blue-400 border-white hover:border-white dark:bg-blue-800 text-black-2 dark:text-white">Tambah</label>
+                class="btn bg-blue-300 hover:bg-blue-400 border-white hover:border-white dark:bg-blue-800 text-black-2 dark:text-white">Tambah Karyawan</label>
 
         </div>
         <div class="col-span-3">

@@ -67,13 +67,15 @@
                             <td class="p-2">
                                 <!-- The button to open modal -->
                                 <label for="edit_unit_kerja_{{ $item->id }}"
-                                    class=" bg-yellow-400 rounded p-2 mr-2 px-3 py-3">
+                                    class=" bg-yellow-400 rounded p-2 mr-2 px-3 py-3 cursor-pointer">
                                     <i class="fa-solid fa-pen-to-square text-white"></i>
                                 </label>
                                 <input type="checkbox" id="edit_unit_kerja_{{ $item->id }}" class="modal-toggle" />
                                 <div class="modal" role="dialog">
                                     <div class="modal-box dark:bg-gradient-to-b bg-blue-300  dark:from-blue-900 dark:to-blue-950">
-                                        <form action="" method="POST">
+                                        <form action="{{ route("admin.update_unit_kerja", $item->id) }}" method="POST">
+                                            @csrf
+                                            @method("PUT")
                                             <h3 class="text-lg text-black-2 dark:text-white font-bold">Form Edit Unit Kerja</h3>
                                             <div class="grid lg:grid-cols-1 grid-cols-2  gap-1 md:grid-cols-2">
                                                 <!-- Tanggal Mulai -->

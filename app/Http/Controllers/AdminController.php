@@ -24,9 +24,9 @@ class AdminController extends Controller
 
     public function add_unit_kerja(Request $request){
         $request->validate([
-            "nama_unit" =>[ "required",
-            Rule::unique('unit_kerja')->where('LOWER(nama_unit) = ?', [strtolower($request->nama_unit)])
-        ],
+            "nama_unit" =>[ "required",],
+        ], [
+            "nama_unit.required" => "Nama Unit Harus Diisi"
         ]);
 
         $data = UnitKerja::create($request->all());
@@ -34,4 +34,19 @@ class AdminController extends Controller
 
         return redirect()->route('administratif.daftarpegawai')->with('success', "Unit Kerja Berhasil Ditambahkan");
     }
+
+    public function update_unit_kerja(Request $request, $id){
+        $data = UnitKerja::find($id);
+        $request->validate([
+            "nama_unit" => "required",
+        ], [
+            "nama_unit.required" => "Nama Unit Harus Diisi"
+        ]);
+
+        $data->update($request->all());
+
+        return redirect()->route('administratif.daftarpegawai')->with('success', "Unit Kerja Berhasil Diperbarui");
+    }
+
+    
 }

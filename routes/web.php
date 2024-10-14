@@ -36,14 +36,15 @@ Route::group(['guest'], function(){
 
 
 /* ADMIN SIDE BAR */
-Route::get('/dashboard_admin', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
 
 // Administratif Routes
-Route::prefix('dashboard_admin/administrasi')->group(function () {
+Route::prefix('admin/administrasi')->group(function () {
     Route::get('/daftar_pegawai', [AdminController::class, 'read_daftar_pegawai'])->name('administratif.daftarpegawai');
 
     Route::post('/add_unit_kerja', [AdminController::class, "add_unit_kerja"])->name("admin.add_unit_kerja");
-
+    Route::put('/edit_unit_kerja/{id}', [AdminController::class, "update_unit_kerja"])->name('admin.update_unit_kerja');
+    Route::delete('/delete_unit_kerja/{id}', [AdminController::class, "delete_unit_kerja"])->name("admin.delete_unit_kerja");
     Route::get('/validasisurat', function () {
         $breadcrumbs = Breadcrumbs::generate('Validasi Surat');
         return view('dashboard_admin.validasisurat.index', compact('breadcrumbs'));

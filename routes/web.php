@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
 use SSO\SSO;
 use App\Models\User;
 use Diglactic\Breadcrumbs\Breadcrumbs;
@@ -24,52 +25,22 @@ Route::get('/', function (){
     return redirect()->route('login');
 });
 
-Route::get('/login', function () {
-
-    return view('login');
-})->name('login');
 
 
-Route::get('/login/sso', function () {
-    if(SSO::authenticate()) //mengecek apakah user telah login atau belum
-    {
+Route::group(['guest'], function(){
+    Route::get('/login', [LoginController::class, 'loginView'])->name('login');
+    Route::post('/login', [LoginController::class, 'loginAction'])->name('login_post');
 
-        if(SSO::check()) {
-            $check = User::where('id_sso', SSO::getUser()->nip)->first(); //mengecek apakah pengguna SSO memiliki username yang sama dengan database aplikasi
-            if(!is_null($check)) {
-                Auth::loginUsingId($check->id); //mengotentikasi pengguna aplikasi
-                return redirect()->route('dashboard');
-            } else {
-                SSO::logout("/");
-                return redirect()->route('login'); //mengarahkan ke halaman login jika pengguna gagal diotentikasi oleh aplikasi
-            }
-
-        }
-    } else {
-        return redirect()->route('auth.logout'); //me-*redirect* user jika otentikasi SSO gagal, diarahkan untuk mengakhiri sesi login (jika ada)
-    }
-})->name('login.post');
+});
 
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
-
-
-
-
-
-
-
-
-
 
 
 Route::get('/dashboard', function () {
     $breadcrumbs = Breadcrumbs::generate('Home');
     return view('dashboard_pegawai.index', compact('breadcrumbs'));
 })->name('dashboard');
-
-
-
 
 Route::get('dashboard/presensi/scan_barcode', function () {
     $breadcrumbs = Breadcrumbs::generate('Scan Barcode');
@@ -98,10 +69,6 @@ Route::get('barcode', function () {
 })->name("barcode");
 
 
-
-
-
-
 Route::get('/logout', function () {
     if(SSO::check()) { //mengecek otentikasi pada aplikasi
         SSO::logout(url('/'));
@@ -113,4 +80,24 @@ Route::get('/logout', function () {
     }
 })->name("logout");
 
+
+/* ADMIN SIDE BAR */
+
+// Administratif Routes
+Route::prefix('dashboard/administrasi')->group(function () {
+    Route::get('/daftarpegawai', function () {
+        $breadcrumbs = Breadcrumbs::generate('Daftar Pegawai');
+        return view('dashboard_admin.daftarpegawai.index', compact('breadcrumbs'));
+    })->name('administratif.daftarpegawai');
+
+    Route::get('/validasisurat', function () {
+        $breadcrumbs = Breadcrumbs::generate('Validasi Surat');
+        return view('dashboard_admin.validasisurat.index', compact('breadcrumbs'));
+    })->name('administratif.validasisurat');
+});
+
+Route::get('/dashboard/history', function () {
+    $breadcrumbs = Breadcrumbs::generate('Riwayat Hadir Karyawan');
+    return view('dashboard_admin.riwayat.index', compact('breadcrumbs'));
+})->name('riwayatadmin');
 

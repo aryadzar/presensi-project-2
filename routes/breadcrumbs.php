@@ -31,5 +31,28 @@ Breadcrumbs::for('Scan Barcode', function (BreadcrumbTrail $trail){
     $trail->push("Scan Barcode", route('presensi.barcode'));
 });
 
+Breadcrumbs::for('Administratif', function (BreadcrumbTrail $trail){
+    $trail->parent("Dashboard");
+    $trail->push('Administratif');
+});
+
+
+Breadcrumbs::for('Daftar Pegawai', function (BreadcrumbTrail $trail) {
+    $trail->parent('Administratif');
+    $trail->push('Daftar Pegawai', route('administratif.daftarpegawai'));
+});
+
+Breadcrumbs::for('Validasi Surat', function (BreadcrumbTrail $trail) {
+    $trail->parent('Administratif');
+    $trail->push('Validasi Surat', route('administratif.validasisurat'));
+});
+
+// Breadcrumb for Riwayat Hadir Karyawan
+Breadcrumbs::for('Riwayat', function (BreadcrumbTrail $trail) {
+    $trail->parent('Dashboard');
+    $trail->push('Riwayat', route('admin.riwayatadmin'));
+});
+
+
 
 

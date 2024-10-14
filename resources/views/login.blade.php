@@ -24,11 +24,21 @@
                 <div class="flex items-center justify-center mb-6">
                     <hr class="w-full border-gray-300">
                 </div>
-                <form action="" method="post">
-                    <div class="mb-4 flex items-center justify-center">
-                        <a href="{{ route('login.post') }}" class="btn btn-warning text-lg w-[300px]">
-                            <i class="fa-solid fa-user"></i> Login Dengan SSO Unila
-                        </a>
+                <form action="{{ route('login_post') }}" method="post">
+                    @csrf
+                      @if ($errors->has('login'))
+                        <div role="alert" class="alert alert-warning mb-5">
+                            <span>{{ $errors->first('login') }}</span>
+                        </div>
+                        @endif
+                    <div class="mb-4 flex items-center justify-center form-control">
+                        <input type="text" name="NPM" placeholder="NIK/NPM" value="{{ old('NPM') }}" class="input input-ghost bg-white w-full max-w-xs" required />
+                    </div>
+                    <div class="mb-4 flex items-center justify-center form-control">
+                        <input type="password" name="password" placeholder="Password" class="input input-ghost bg-white w-full max-w-xs" required />
+                    </div>
+                    <div class="mb-4 flex items-center justify-center form-control">
+                        <button type="submit" class="btn btn-success w-full">Login</button>
                     </div>
                 </form>
                 <div class="flex items-center justify-center">

@@ -11,4 +11,9 @@ class AdminController extends Controller
         $breadcrumbs = Breadcrumbs::generate("Home");
         return view('dashboard_admin.index', compact('breadcrumbs'));
     }
+
+    public function read_daftar_pegawai(){
+        $breadcrumbs = Breadcrumbs::generate('Daftar Pegawai');
+        return view('dashboard_admin.daftarpegawai.index', compact('breadcrumbs'));
+    }
 }

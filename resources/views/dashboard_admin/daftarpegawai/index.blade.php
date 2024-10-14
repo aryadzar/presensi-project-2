@@ -21,6 +21,37 @@
                 class="btn bg-blue-300 hover:bg-blue-400 border-white hover:border-white dark:bg-blue-800 text-black-2 dark:text-white">Tambah</label>
 
         </div>
+        <div class="col-span-3">
+            <table class="w-full bg-white rounded-md shadow-lg overflow-hidden" id="my-table">
+                <thead class="bg-blue-500 text-white">
+                    <tr>
+                        <th class="p-2 text-left">No</th>
+                        <th class="p-2 text-left">NPM/NIS/NIK</th>
+                        <th class="p-2 text-left">Nama</th>
+                        <th class="p-2 text-left">Alamat</th>
+                        <th class="p-2 text-left">No Telepon</th>
+                        <th class="p-2 text-left">Asal Instansi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b hover:bg-gray-100">
+                        <td class="p-2 text-gray-700">01-10-2024</td>
+                        <td class="p-2">
+                            <span class="bg-green-500 text-white rounded-full px-3 py-1 text-xs">Hadir</span>
+                        </td>
+                        <td class="p-2 text-gray-700">07.40 WIB</td>
+                        <td class="p-2 text-gray-700">16.10 WIB</td>
+                        <td class="p-2 text-gray-700">Absensi Barcode</td>
+                        <td class="p-2 text-left">
+                            <button class="btn bg-blue-500 rounded p-1 px-5" onclick="my_modal_8.showModal()">
+                                <i class="fa-solid fa-eye text-white"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Additional rows can be added here -->
+                </tbody>
+            </table>
+        </div>
     </div>
     <input type="checkbox" id="my_modal_7" class="modal-toggle" />
     <div class="modal" role="dialog">

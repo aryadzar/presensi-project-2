@@ -30,11 +30,31 @@ Route::get('/', function (){
 Route::group(['guest'], function(){
     Route::get('/login', [LoginController::class, 'loginView'])->name('login');
     Route::post('/login', [LoginController::class, 'loginAction'])->name('login_post');
-
+    
 });
 
 
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+
+/* ADMIN SIDE BAR */
+Route::get('/dashboard_admin', [AdminController::class, 'index'])->name('admin.dashboard');
+
+// Administratif Routes
+Route::prefix('dashboard_admin/administrasi')->group(function () {
+    Route::get('/daftar_pegawai', [AdminController::class, 'read_daftar_pegawai'])->name('administratif.daftarpegawai');
+
+    Route::get('/validasisurat', function () {
+        $breadcrumbs = Breadcrumbs::generate('Validasi Surat');
+        return view('dashboard_admin.validasisurat.index', compact('breadcrumbs'));
+    })->name('administratif.validasisurat');
+});
+
+
+
+
+
+
+
+
 
 
 Route::get('/dashboard', function () {
@@ -85,23 +105,10 @@ Route::get('/logout', function () {
 })->name("logout");
 
 
-/* ADMIN SIDE BAR */
 
-// Administratif Routes
-Route::prefix('dashboard/administrasi')->group(function () {
-    Route::get('/daftarpegawai', function () {
-        $breadcrumbs = Breadcrumbs::generate('Daftar Pegawai');
-        return view('dashboard_admin.daftarpegawai.index', compact('breadcrumbs'));
-    })->name('administratif.daftarpegawai');
 
-    Route::get('/validasisurat', function () {
-        $breadcrumbs = Breadcrumbs::generate('Validasi Surat');
-        return view('dashboard_admin.validasisurat.index', compact('breadcrumbs'));
-    })->name('administratif.validasisurat');
-});
-
-Route::get('/dashboard/history', function () {
-    $breadcrumbs = Breadcrumbs::generate('Riwayat Hadir Karyawan');
+Route::get('/dashboard/historyadmin', function () {
+    $breadcrumbs = Breadcrumbs::generate('Riwayat');
     return view('dashboard_admin.riwayat.index', compact('breadcrumbs'));
 })->name('riwayatadmin');
 

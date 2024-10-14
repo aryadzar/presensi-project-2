@@ -24,7 +24,7 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'login' => 'NIP wajib diisi',
+            'login' => 'NPM/NIK atau password salah ! ',
         ])->onlyInput('email');
     }
 }

@@ -1,7 +1,7 @@
 @extends('dashboard_admin.dashboard-layout.index')
 
 @section('title', 'Dashboard Admin')
-@section('nama_pegawai', "Coba")
+@section('nama_pegawai', 'Coba')
 @section('role', 'Pegawai')
 @section('content')
     {{-- <div class=" flex justify-between">
@@ -12,7 +12,6 @@
 </div> --}}
     <div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
         @include('dashboard_admin.breadcrumbs.index')
-
 
         <!-- Status Cards -->
         <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 col-span-3">
@@ -150,7 +149,8 @@
 
         <!-- Attendance Table -->
         <div class="col-span-3 bg-blue-300 dark:bg-blue-800 p-4 rounded-lg shadow-md">
-            <p class="font-bold text-black dark:text-orange-400 mb-4">Daftar Absensi Karyawan PKL/magang <span class="text-white"> -
+            <p class="font-bold text-black dark:text-orange-400 mb-4">Daftar Absensi Karyawan PKL/magang <span
+                    class="text-white"> -
                     2024</span></p>
             <div class="overflow-x-auto">
                 <table class="min-w-full text-left text-sm text-white ">

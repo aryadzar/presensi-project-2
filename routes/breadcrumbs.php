@@ -47,10 +47,9 @@ Breadcrumbs::for('Validasi Surat', function (BreadcrumbTrail $trail) {
     $trail->push('Validasi Surat', route('administratif.validasisurat'));
 });
 
-// Breadcrumb for Riwayat Hadir Karyawan
 Breadcrumbs::for('Riwayat', function (BreadcrumbTrail $trail) {
     $trail->parent('Dashboard');
-    $trail->push('Riwayat', route('admin.riwayatadmin'));
+    $trail->push('Riwayat', route('riwayatadmin'));
 });
 
 

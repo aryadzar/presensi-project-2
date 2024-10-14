@@ -26,16 +26,18 @@
                 </div>
                 <form action="{{ route('login_post') }}" method="post">
                     @csrf
-                      @if ($errors->has('login'))
+                    @if ($errors->has('login'))
                         <div role="alert" class="alert alert-warning mb-5">
                             <span>{{ $errors->first('login') }}</span>
                         </div>
-                        @endif
+                    @endif
                     <div class="mb-4 flex items-center justify-center form-control">
-                        <input type="text" name="NPM" placeholder="NIK/NPM" value="{{ old('NPM') }}" class="input input-ghost bg-white w-full max-w-xs" required />
+                        <input type="text" name="NPM" placeholder="NIK/NPM" value="{{ old('NPM') }}"
+                            class="input input-ghost bg-white w-full max-w-xs" required />
                     </div>
                     <div class="mb-4 flex items-center justify-center form-control">
-                        <input type="password" name="password" placeholder="Password" class="input input-ghost bg-white w-full max-w-xs" required />
+                        <input type="password" name="password" placeholder="Password"
+                            class="input input-ghost bg-white w-full max-w-xs" required />
                     </div>
                     <div class="mb-4 flex items-center justify-center form-control">
                         <button type="submit" class="btn btn-success w-full">Login</button>

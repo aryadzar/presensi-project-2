@@ -12,7 +12,34 @@
     </div>
 
     @include('dashboard_admin.breadcrumbs.index')
+<!-- Attendance Table -->
+<div class="bg-blue-100 dark:bg-slate-500 p-6 grid grid-cols-1 lg:grid-cols-2 mt-5 rounded-sm">
+    <div class=" col-span-3 flex justify-end mb-5">
+        <!-- The button to open modal -->
+        <label for="my_modal_7"
+            class="btn bg-blue-300 hover:bg-blue-400 border-white hover:border-white dark:bg-blue-800 text-black-2 dark:text-white">Tambah</label>
 
+    </div>
+    <div class="col-span-3">
+        <table class="w-full bg-white rounded-md shadow-lg overflow-hidden" id="my-table-1">
+            <thead class="bg-blue-500 text-white">
+                <tr>
+                    <th class="p-2 text-left">No</th>
+                    <th class="p-2 text-left">Nama Unit Kerja</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b hover:bg-gray-100">
+                    <td class="p-2 text-gray-700">01-10-2024</td>
+                    <td class="p-2">
+                        <span class="bg-green-500 text-white rounded-full px-3 py-1 text-xs">Hadir</span>
+                    </td>
+                </tr>
+                <!-- Additional rows can be added here -->
+            </tbody>
+        </table>
+    </div>
+</div>
     <!-- Attendance Table -->
     <div class="bg-blue-100 dark:bg-slate-500 p-6 grid grid-cols-1 lg:grid-cols-2 mt-5 rounded-sm">
         <div class=" col-span-3 flex justify-end mb-5">
@@ -22,7 +49,7 @@
 
         </div>
         <div class="col-span-3">
-            <table class="w-full bg-white rounded-md shadow-lg overflow-hidden" id="my-table">
+            <table class="w-full bg-white rounded-md shadow-lg overflow-hidden" id="my-table-2">
                 <thead class="bg-blue-500 text-white">
                     <tr>
                         <th class="p-2 text-left">No</th>
@@ -31,6 +58,9 @@
                         <th class="p-2 text-left">Alamat</th>
                         <th class="p-2 text-left">No Telepon</th>
                         <th class="p-2 text-left">Asal Instansi</th>
+                        <th class="p-2 text-left">Unit Kerja</th>
+                        <th class="p-2 text-left">Status Karyawan</th>
+                        <th class="p-2 text-left">Role</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,6 +71,9 @@
                         </td>
                         <td class="p-2 text-gray-700">07.40 WIB</td>
                         <td class="p-2 text-gray-700">16.10 WIB</td>
+                        <td class="p-2 text-gray-700">Absensi Barcode</td>
+                        <td class="p-2 text-gray-700">Absensi Barcode</td>
+                        <td class="p-2 text-gray-700">Absensi Barcode</td>
                         <td class="p-2 text-gray-700">Absensi Barcode</td>
                         <td class="p-2 text-left">
                             <button class="btn bg-blue-500 rounded p-1 px-5" onclick="my_modal_8.showModal()">
@@ -110,8 +143,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>
     <script>
-        if (document.getElementById("my-table") && typeof simpleDatatables.DataTable !== 'undefined') {
-            const dataTable = new simpleDatatables.DataTable("#my-table", {
+        if (document.getElementById("my-table-1") && typeof simpleDatatables.DataTable !== 'undefined') {
+            const dataTable = new simpleDatatables.DataTable("#my-table-1", {
+                searchable: true,
+                sortable: false
+            });
+        }
+        if (document.getElementById("my-table-2") && typeof simpleDatatables.DataTable !== 'undefined') {
+            const dataTable = new simpleDatatables.DataTable("#my-table-2", {
                 searchable: true,
                 sortable: false
             });

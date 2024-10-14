@@ -30,7 +30,7 @@ Route::get('/', function (){
 Route::group(['guest'], function(){
     Route::get('/login', [LoginController::class, 'loginView'])->name('login');
     Route::post('/login', [LoginController::class, 'loginAction'])->name('login_post');
-
+    
 });
 
 

@@ -7,51 +7,118 @@
 
     <div class="mb-3">
         <h1 class="text-2xl font-semibold "><i class="fa-solid fa-rectangle-list mr-2 dark:text-white text-blue-500"></i>
-            <span class="dark:text-white text-blue-500">Daftar Karyawan Magang / PKL</span></h1>
+            <span class="dark:text-white text-blue-500">Daftar Karyawan Magang / PKL</span>
+        </h1>
 
     </div>
 
     @include('dashboard_admin.breadcrumbs.index')
-<!-- Attendance Table -->
-<div class="bg-blue-100 dark:bg-slate-500 p-6 grid grid-cols-1 lg:grid-cols-2 mt-5 rounded-sm">
-    <div class=" col-span-3  mb-5">
-        <!-- The button to open modal -->
-        <h1 class="text-2xl font-semibold "><i class="fa-solid fa-rectangle-list mr-2 dark:text-white text-blue-500"></i>
-            <span class="dark:text-white text-blue-500">Table Unit Kerja</span></h1>
-
-    </div>
-    <div class=" col-span-3 flex justify-end mb-5">
-        <!-- The button to open modal -->
-        <label for="my_modal_7"
-            class="btn bg-blue-300 hover:bg-blue-400 border-white hover:border-white dark:bg-blue-800 text-black-2 dark:text-white">Tambah Unit Kerja</label>
-
-    </div>
-    <div class="col-span-3">
-        <table class="w-full bg-white rounded-md shadow-lg overflow-hidden" id="my-table-1">
-            <thead class="bg-blue-500 text-white">
-                <tr>
-                    <th class="p-2 text-left">No</th>
-                    <th class="p-2 text-left">Nama Unit Kerja</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="border-b hover:bg-gray-100">
-                    <td class="p-2 text-gray-700">01-10-2024</td>
-                    <td class="p-2">
-
-                    </td>
-                </tr>
-                <!-- Additional rows can be added here -->
-            </tbody>
-        </table>
-    </div>
-</div>
     <!-- Attendance Table -->
     <div class="bg-blue-100 dark:bg-slate-500 p-6 grid grid-cols-1 lg:grid-cols-2 mt-5 rounded-sm">
+        <div class=" col-span-3  mb-5">
+            <!-- The button to open modal -->
+            <h1 class="text-2xl font-semibold "><i class="fa-solid fa-rectangle-list mr-2 dark:text-white text-blue-500"></i>
+                <span class="dark:text-white text-blue-500">Table Unit Kerja</span>
+            </h1>
+
+        </div>
+        <div class=" col-span-3 flex justify-end mb-5">
+            <!-- The button to open modal -->
+            <label for="tambah_unit_kerja"
+                class="btn bg-blue-300 hover:bg-blue-400 border-white hover:border-white dark:bg-blue-800 text-black-2 dark:text-white">Tambah
+                Unit Kerja</label>
+
+        </div>
+        <div class="col-span-3">
+            @if (session()->has('success'))
+            <div role="alert" class="alert alert-success mb-5">
+                <span>{{ session("success") }}</span>
+            </div>
+            @endif
+            @if ($errors->any())
+            <div role="alert" class="alert alert-error mb-5">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            <table class="w-full bg-white rounded-md shadow-lg overflow-hidden" id="my-table-1">
+                <thead class="bg-blue-500 text-white">
+                    <tr>
+                        <th class="p-2 text-left">No</th>
+                        <th class="p-2 text-left">Nama Unit Kerja</th>
+                        <th class="p-2 text-left">Terakhir Dibuat</th>
+                        <th class="p-2 text-left">Terakhir Diperbarui</th>
+                        <th class="p-2 text-left">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @php
+                        $no = 1;
+                    @endphp
+                    @foreach ($unit_kerja as $item)
+                        <tr class="border-b hover:bg-gray-100">
+                            <td class="p-2 text-gray-700">{{ $no++ }}</td>
+                            <td class="p-2 text-gray-700">{{ $item->nama_unit }}</td>
+                            <td class="p-2 text-gray-700">{{ $item->created_at->diffForHumans() }}</td>
+                            <td class="p-2 text-gray-700">{{ $item->updated_at->diffForHumans() }}</td>
+                            <td class="p-2">
+                                <!-- The button to open modal -->
+                                <label for="edit_unit_kerja_{{ $item->id }}"
+                                    class=" bg-yellow-400 rounded p-2 mr-2 px-3 py-3">
+                                    <i class="fa-solid fa-pen-to-square text-white"></i>
+                                </label>
+                                <input type="checkbox" id="edit_unit_kerja_{{ $item->id }}" class="modal-toggle" />
+                                <div class="modal" role="dialog">
+                                    <div class="modal-box dark:bg-gradient-to-b bg-blue-300  dark:from-blue-900 dark:to-blue-950">
+                                        <form action="" method="POST">
+                                            <h3 class="text-lg text-black-2 dark:text-white font-bold">Form Edit Unit Kerja</h3>
+                                            <div class="grid lg:grid-cols-1 grid-cols-2  gap-1 md:grid-cols-2">
+                                                <!-- Tanggal Mulai -->
+                                                <div class="form-control">
+                                                    <label for="nama_unit" class="text-black-2 mt-5 mb-2 text-sm lg:text-lg dark:text-white">Unit
+                                                        Kerja</label>
+                                                    <input type="text" class="input input-bordered bg-white dark:text-black-2 w-full"
+                                                        name="nama_unit" id="nama_unit" value="{{ $item->nama_unit }}">
+                                                </div>
+                                                <!-- Tombol Submit -->
+                                                <div class="form-control col-span-2 flex items-center justify-center mt-5">
+                                                    <button type="submit"
+                                                        class="btn w-full lg:w-auto bg-blue-400 hover:bg-blue-300 dark:bg-black text-white">Edit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <label class="modal-backdrop" for="edit_unit_kerja_{{ $item->id }}">Close</label>
+                                </div>
+                                <label for="my_modal_6" class=" bg-red-500 rounded p-2 px-3 py-3">
+                                    <i class="fa-solid fa-trash text-white"></i>
+                                </label>
+                            </td>
+                        </tr>
+                    @endforeach
+                    <!-- Additional rows can be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Attendance Table -->
+    <div class="bg-blue-100 dark:bg-slate-500 p-6 grid grid-cols-1 lg:grid-cols-2 mt-5 rounded-sm">
+        <div class=" col-span-3  mb-5">
+            <!-- The button to open modal -->
+            <h1 class="text-2xl font-semibold ">
+                <i class="fa-solid fa-users mr-2 dark:text-white text-blue-500"></i>
+                <span class="dark:text-white text-blue-500">Table Users</span>
+            </h1>
+
+        </div>
         <div class=" col-span-3 flex justify-end mb-5">
             <!-- The button to open modal -->
             <label for="my_modal_7"
-                class="btn bg-blue-300 hover:bg-blue-400 border-white hover:border-white dark:bg-blue-800 text-black-2 dark:text-white">Tambah Karyawan</label>
+                class="btn bg-blue-300 hover:bg-blue-400 border-white hover:border-white dark:bg-blue-800 text-black-2 dark:text-white">Tambah
+                User</label>
 
         </div>
         <div class="col-span-3">
@@ -67,6 +134,7 @@
                         <th class="p-2 text-left">Unit Kerja</th>
                         <th class="p-2 text-left">Status Karyawan</th>
                         <th class="p-2 text-left">Role</th>
+                        <th class="p-2 text-left">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -81,9 +149,13 @@
                         <td class="p-2 text-gray-700">Absensi Barcode</td>
                         <td class="p-2 text-gray-700">Absensi Barcode</td>
                         <td class="p-2 text-gray-700">Absensi Barcode</td>
+                        <td class="p-2 text-gray-700">Absensi Barcode</td>
                         <td class="p-2 text-left">
-                            <button class="btn bg-blue-500 rounded p-1 px-5" onclick="my_modal_8.showModal()">
-                                <i class="fa-solid fa-eye text-white"></i>
+                            <button class=" bg-yellow-500 rounded p-1 px-3" onclick="my_modal_8.showModal()">
+                                <i class="fa-solid fa-pen-to-square text-white"></i>
+                            </button>
+                            <button class=" bg-red-800 rounded p-1 px-3" onclick="my_modal_8.showModal()">
+                                <i class="fa-solid fa-trash text-white"></i>
                             </button>
                         </td>
                     </tr>
@@ -92,50 +164,21 @@
             </table>
         </div>
     </div>
-    <input type="checkbox" id="my_modal_7" class="modal-toggle" />
+
+    <input type="checkbox" id="tambah_unit_kerja" class="modal-toggle" />
     <div class="modal" role="dialog">
         <div class="modal-box dark:bg-gradient-to-b bg-blue-300  dark:from-blue-900 dark:to-blue-950">
-            <h3 class="text-lg text-black-2 dark:text-white font-bold">Form Surat izin</h3>
-            <form action="" method="POST">
+            <h3 class="text-lg text-black-2 dark:text-white font-bold">Form Tambah Unit Kerja</h3>
+            <form action="{{ route('admin.add_unit_kerja') }}" method="POST">
                 <div class="grid lg:grid-cols-1 grid-cols-2  gap-1 md:grid-cols-2">
                     <!-- Tanggal Mulai -->
+                    @csrf
                     <div class="form-control">
-                        <label for="tanggal-mulai" class="text-black-2 mt-5 mb-2 text-sm lg:text-lg dark:text-white">Tanggal
-                            Mulai</label>
-                        <input type="datetime-local" class="input input-bordered bg-white dark:text-black-2 w-full"
-                            name="tanggal-mulai" id="tanggal-mulai">
-                    </div>
-
-                    <!-- Tanggal Selesai -->
-                    <div class="form-control">
-                        <label for="tanggal-selesai"
-                            class="text-black-2 mt-5 mb-2 text-sm lg:text-lg dark:text-white">Tanggal Selesai</label>
-                        <input type="datetime-local" class="input input-bordered bg-white dark:text-black-2 w-full"
-                            name="tanggal-selesai" id="tanggal-selesai">
-                    </div>
-
-                    <!-- Nomor Surat -->
-                    <div class="form-control col-span-2">
-                        <label for="nomor-surat" class="text-black-2 mt-5 mb-2 text-lg dark:text-white">Nomor Surat</label>
+                        <label for="nama_unit" class="text-black-2 mt-5 mb-2 text-sm lg:text-lg dark:text-white">Unit
+                            Kerja</label>
                         <input type="text" class="input input-bordered bg-white dark:text-black-2 w-full"
-                            name="nomor-surat" id="nomor-surat">
+                            name="nama_unit" id="nama_unit" value="{{ old("nama_unit") }}" required>
                     </div>
-
-                    <!-- Upload File -->
-                    <div class="form-control col-span-2">
-                        <label class="block mb-2 mt-5 text-lg font-medium text-gray-900 dark:text-white"
-                            for="file_input">Upload file</label>
-                        <input
-                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gr dark:border-white dark:placeholder-white"
-                            id="file_input" type="file">
-                    </div>
-
-                    <!-- Keterangan -->
-                    <div class="form-control col-span-2">
-                        <label for="keterangan" class="text-black-2 mt-5 mb-2 text-lg dark:text-white">Keterangan</label>
-                        <textarea name="keterangan" id="keterangan" class="textarea bg-white textarea-bordered w-full"></textarea>
-                    </div>
-
                     <!-- Tombol Submit -->
                     <div class="form-control col-span-2 flex items-center justify-center mt-5">
                         <button type="submit"
@@ -144,7 +187,7 @@
                 </div>
             </form>
         </div>
-        <label class="modal-backdrop" for="my_modal_7">Close</label>
+        <label class="modal-backdrop" for="tambah_unit_kerja">Close</label>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>

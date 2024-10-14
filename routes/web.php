@@ -30,7 +30,7 @@ Route::get('/', function (){
 Route::group(['guest'], function(){
     Route::get('/login', [LoginController::class, 'loginView'])->name('login');
     Route::post('/login', [LoginController::class, 'loginAction'])->name('login_post');
-    
+
 });
 
 
@@ -41,6 +41,8 @@ Route::get('/dashboard_admin', [AdminController::class, 'index'])->name('admin.d
 // Administratif Routes
 Route::prefix('dashboard_admin/administrasi')->group(function () {
     Route::get('/daftar_pegawai', [AdminController::class, 'read_daftar_pegawai'])->name('administratif.daftarpegawai');
+
+    Route::post('/add_unit_kerja', [AdminController::class, "add_unit_kerja"])->name("admin.add_unit_kerja");
 
     Route::get('/validasisurat', function () {
         $breadcrumbs = Breadcrumbs::generate('Validasi Surat');

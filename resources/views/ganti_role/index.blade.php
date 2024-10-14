@@ -27,19 +27,19 @@
             <!-- Form Section -->
             <div class="w-full bg-blue-400 rounded-lg shadow-md p-10">
                 <div class="flex items-center mb-7 text-black">
-                    <i class="fa-solid fa-arrow-right-arrow-left fa-rotate-by"
-                        style="--fa-rotate-angle: 135deg;"></i>
+                    <i class="fa-solid fa-arrow-right-arrow-left fa-rotate-by" style="--fa-rotate-angle: 135deg;"></i>
                     <h2 class="text-2xl font-semibold ml-2">Ganti Role</h2>
                 </div>
 
                 <div class="text-center space-y-5 ">
                     <template x-for="role in ['Karyawan', 'Operator', 'Admin']" :key="role">
                         <button @click="selectedRole = role"
-                            :class="selectedRole === role ? 'bg-green-200 text-[#198B34] font-semibold' : 'bg-white text-gray-800'"
+                            :class="selectedRole === role ? 'bg-green-200 text-[#198B34] font-semibold' :
+                                'bg-white text-gray-800'"
                             class="py-4 px-6 w-full rounded-lg shadow-sm border border-gray-300 focus:outline-none">
                             <span x-text="role"></span>
                             <span x-show="selectedRole === role">
-                                 <i class="fa-regular fa-circle-check" style="color: #198B34;"></i>
+                                <i class="fa-regular fa-circle-check" style="color: #198B34;"></i>
                             </span>
                         </button>
                     </template>

@@ -47,6 +47,14 @@ class AdminController extends Controller
 
         return redirect()->route('administratif.daftarpegawai')->with('success', "Unit Kerja Berhasil Diperbarui");
     }
+    public function delete_unit_kerja($id){
+        $data = UnitKerja::find($id);
 
-    
+        $data->delete();
+
+        return redirect()->route('administratif.daftarpegawai')->with('success', "Unit Kerja Berhasil Dihapus");
+
+    }
+
+
 }

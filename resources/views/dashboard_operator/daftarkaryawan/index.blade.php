@@ -13,7 +13,7 @@
     </div>
 
     @include('dashboard_admin.breadcrumbs.index')
-    
+
     <!-- Attendance Table -->
     <div class="bg-blue-100 dark:bg-slate-500 p-6 grid grid-cols-1 lg:grid-cols-2 mt-5 rounded-sm">
         <div class=" col-span-3  mb-5">
@@ -74,8 +74,6 @@
             </table>
         </div>
     </div>
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>
     <script>

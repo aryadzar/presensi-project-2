@@ -19,10 +19,10 @@
         </div>
     </div>
 
-
     <div class="min-h-screen flex items-center justify-center w-full">
         <!-- Container for Form and Content -->
-        <div class="flex flex-col justify-center items-center backdrop-blur-lg rounded-lg overflow-hidden relative z-10 max-w-md mx-auto w-full p-8">
+        <div
+            class="flex flex-col justify-center items-center backdrop-blur-lg rounded-lg overflow-hidden relative z-10 max-w-md mx-auto w-full p-8">
             <!-- Form Section -->
             <div class="w-full bg-blue-400 rounded-lg shadow-md p-10">
                 <div class="flex items-center mb-7 text-black">
@@ -31,15 +31,17 @@
                 </div>
 
                 <div class="text-center space-y-5 ">
-                    @foreach($roles as $setRole)
-                    <li>
-                        <form action="{{ route('set_role') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="role_id" value="{{ $setRole->role->id }}">
-                            <button type="submit" class="block bg-green-200 text-green-800 py-4 px-6 rounded-lg border border-green-800 hover:bg-green-300 transition w-full">{{ $setRole->role->nama_role }} || {{ $setRole->unitKerja->nama_unit }}</button>
-                        </form>
-                    </li>
-                @endforeach
+                    @foreach ($roles as $setRole)
+                        <li>
+                            <form action="{{ route('set_role') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="role_id" value="{{ $setRole->role->id }}">
+                                <button type="submit"
+                                    class="block bg-green-200 text-green-800 py-4 px-6 rounded-lg border border-green-800 hover:bg-green-300 transition w-full">{{ $setRole->role->nama_role }}
+                                    || {{ $setRole->unitKerja->nama_unit }}</button>
+                            </form>
+                        </li>
+                    @endforeach
                 </div>
 
             </div>

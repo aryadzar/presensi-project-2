@@ -31,18 +31,18 @@
         </div>
         <div class="col-span-3">
             @if (session()->has('success'))
-            <div role="alert" class="alert alert-success bg-green-300 mb-5">
-                <span>{{ session("success") }}</span>
-            </div>
+                <div role="alert" class="alert alert-success bg-green-300 mb-5">
+                    <span>{{ session('success') }}</span>
+                </div>
             @endif
             @if ($errors->any())
-            <div role="alert" class="alert alert-error mb-5">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+                <div role="alert" class="alert alert-error mb-5">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
             @endif
             <table class="w-full bg-white rounded-md shadow-lg overflow-hidden" id="my-table-1">
                 <thead class="bg-blue-500 text-white">
@@ -72,17 +72,21 @@
                                 </label>
                                 <input type="checkbox" id="edit_unit_kerja_{{ $item->id }}" class="modal-toggle" />
                                 <div class="modal" role="dialog">
-                                    <div class="modal-box dark:bg-gradient-to-b bg-blue-300  dark:from-blue-900 dark:to-blue-950">
-                                        <form action="{{ route("admin.update_unit_kerja", $item->id) }}" method="POST">
+                                    <div
+                                        class="modal-box dark:bg-gradient-to-b bg-blue-300  dark:from-blue-900 dark:to-blue-950">
+                                        <form action="{{ route('admin.update_unit_kerja', $item->id) }}" method="POST">
                                             @csrf
-                                            @method("PUT")
-                                            <h3 class="text-lg text-black-2 dark:text-white font-bold">Form Edit Unit Kerja</h3>
+                                            @method('PUT')
+                                            <h3 class="text-lg text-black-2 dark:text-white font-bold">Form Edit Unit Kerja
+                                            </h3>
                                             <div class="grid lg:grid-cols-1 grid-cols-2  gap-1 md:grid-cols-2">
                                                 <!-- Tanggal Mulai -->
                                                 <div class="form-control">
-                                                    <label for="nama_unit" class="text-black-2 mt-5 mb-2 text-sm lg:text-lg dark:text-white">Unit
+                                                    <label for="nama_unit"
+                                                        class="text-black-2 mt-5 mb-2 text-sm lg:text-lg dark:text-white">Unit
                                                         Kerja</label>
-                                                    <input type="text" class="input input-bordered bg-white dark:text-black-2 w-full"
+                                                    <input type="text"
+                                                        class="input input-bordered bg-white dark:text-black-2 w-full"
                                                         name="nama_unit" id="nama_unit" value="{{ $item->nama_unit }}">
                                                 </div>
                                                 <!-- Tombol Submit -->
@@ -96,19 +100,23 @@
                                     <label class="modal-backdrop" for="edit_unit_kerja_{{ $item->id }}">Close</label>
                                 </div>
 
-                                <label for="delete_unit_kerja_{{ $item->id }}" class=" bg-red-500 rounded p-2 px-3 py-3 cursor-pointer">
+                                <label for="delete_unit_kerja_{{ $item->id }}"
+                                    class=" bg-red-500 rounded p-2 px-3 py-3 cursor-pointer">
                                     <i class="fa-solid fa-trash text-white"></i>
                                 </label>
 
                                 <input type="checkbox" id="delete_unit_kerja_{{ $item->id }}" class="modal-toggle" />
                                 <div class="modal" role="dialog">
-                                    <div class="modal-box dark:bg-gradient-to-b bg-blue-300  dark:from-blue-900 dark:to-blue-950">
-                                        <form action="{{ route("admin.delete_unit_kerja", $item->id) }}" method="POST">
+                                    <div
+                                        class="modal-box dark:bg-gradient-to-b bg-blue-300  dark:from-blue-900 dark:to-blue-950">
+                                        <form action="{{ route('admin.delete_unit_kerja', $item->id) }}" method="POST">
                                             @csrf
-                                            @method("DELETE")
+                                            @method('DELETE')
                                             <h3 class="text-lg text-black-2 dark:text-white font-bold">Peringatan !</h3>
-                                            <h3 class="text-sm mt-5 text-black-2 dark:text-white font-bold">Anda Yakin Mau Menghapus unit kerja {{ $item->nama_unit }} ? </h3>
-                                            <h3 class="text-sm mt-5 text-black-2 dark:text-white font-bold">Tindakan bersifat Irreversible </h3>
+                                            <h3 class="text-sm mt-5 text-black-2 dark:text-white font-bold">Anda Yakin Mau
+                                                Menghapus unit kerja {{ $item->nama_unit }} ? </h3>
+                                            <h3 class="text-sm mt-5 text-black-2 dark:text-white font-bold">Tindakan
+                                                bersifat Irreversible </h3>
                                             <div class="grid lg:grid-cols-1 grid-cols-2  gap-1 md:grid-cols-2">
                                                 <!-- Tombol Submit -->
                                                 <div class="form-control col-span-2 flex items-center justify-center mt-5">
@@ -201,7 +209,7 @@
                         <label for="nama_unit" class="text-black-2 mt-5 mb-2 text-sm lg:text-lg dark:text-white">Unit
                             Kerja</label>
                         <input type="text" class="input input-bordered bg-white dark:text-black-2 w-full"
-                            name="nama_unit" id="nama_unit" value="{{ old("nama_unit") }}" required>
+                            name="nama_unit" id="nama_unit" value="{{ old('nama_unit') }}" required>
                     </div>
                     <!-- Tombol Submit -->
                     <div class="form-control col-span-2 flex items-center justify-center mt-5">

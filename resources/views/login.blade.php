@@ -43,6 +43,9 @@
                         <button type="submit" class="btn btn-success w-full">Login</button>
                     </div>
                 </form>
+                <a href="{{ route('login_sso') }}" class="btn btn-warning text-center w-[300px] mb-4">
+                    <i class="fa-solid fa-circle-info"></i> Log In With SSO Unila
+                </a>
                 <div class="flex items-center justify-center">
                     <a href="https://apps.unila.ac.id/#lupa" class="btn btn-error text-center w-[300px]">
                         <i class="fa-solid fa-circle-info"></i> Lupa password

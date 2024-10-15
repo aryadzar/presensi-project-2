@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use SSO\SSO;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,6 +13,31 @@ class LoginController extends Controller
         return view('login');
     }
 
+    public function login_sso(){
+        if(SSO::authenticate()){
+            $check = User::where('NPM', SSO::getUser()->nip)->first(); //mengecek apakah pengguna SSO memiliki username yang sama dengan database aplikasi
+            if(SSO::check()){
+                Auth::loginUsingId($check->id);
+                $user = Auth::user();
+
+                $roles = $user->setRoles()->with('role')->get();
+
+                if ($roles->count() > 1) {
+                    return redirect()->route('role');
+                }
+
+                $roleName = $roles->first()->role->nama_role;
+
+                if ($roleName === 'Admin') {
+                    return redirect()->route('admin.dashboard');
+                } elseif ($roleName === 'Operator') {
+                    return redirect()->route('operator.dashboard');
+                } else {
+                    return redirect()->route('karyawan.dashboard');
+                }
+            }
+        }
+    }
     public function selectRole(){
         $user = Auth::user();
 
@@ -78,6 +105,10 @@ class LoginController extends Controller
 
         request()->session()->regenerateToken();
 
+        if(SSO::check()){
+
+            SSO::logout(url('/'));
+        }
         return redirect('/');
     }
 }

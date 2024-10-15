@@ -30,8 +30,9 @@ Route::get('/', function (){
 Route::group(['middleware' => 'guest'], function(){
     Route::get('/login', [LoginController::class, 'loginView'])->name('login');
     Route::post('/login', [LoginController::class, 'loginAction'])->name('login_post');
-
+    Route::get('/login/sso', [LoginController::class, 'login_sso'])->name('login_sso');
 });
+Route::get('/logout', [LoginController::class, "logout"])->name("logout");
 
 
 
@@ -136,7 +137,6 @@ Route::get('barcode', function () {
 
 
 
-Route::get('/logout', [LoginController::class, "logout"])->name("logout");
 
 Route::get('/dashboard/historyadmin', function () {
     $breadcrumbs = Breadcrumbs::generate('Riwayat');

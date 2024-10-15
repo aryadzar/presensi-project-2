@@ -25,32 +25,32 @@ class UsersSeeders extends Seeder
             //     "password" => bcrypt("password")
             // ],
             [
-                "nama" => "Muhammad Arya Dzaky Arenanto",
-                "NPM" => "2217051007",
+                "nama" => "Nurafifah Rini Adilah",
+                "NPM" => "2115061062",
                 "password" => bcrypt("password"),
                 "alamat" => "Lorem Ipsum",
                 "no_telepon" => "029123121212",
                 "asal_instansi" => "Universitas Lampung",
                 "soft_delete" => 0
             ],
-            [
-                "nama" => "M Abdul Adhim",
-                "NPM" => "2217051030",
-                "password" => bcrypt("password"),
-                "alamat" => "Lorem Ipsum",
-                "no_telepon" => "029123121212",
-                "asal_instansi" => "Universitas Lampung",
-                "soft_delete" => 0
-            ],
-            [
-                "nama" => "Maharani Wahyu Tantri",
-                "NPM" => "2217051051",
-                "password" => bcrypt("password"),
-                "alamat" => "Lorem Ipsum",
-                "no_telepon" => "029123121212",
-                "asal_instansi" => "Universitas Lampung",
-                "soft_delete" => 0
-            ],
+            // [
+            //     "nama" => "M Abdul Adhim",
+            //     "NPM" => "2217051030",
+            //     "password" => bcrypt("password"),
+            //     "alamat" => "Lorem Ipsum",
+            //     "no_telepon" => "029123121212",
+            //     "asal_instansi" => "Universitas Lampung",
+            //     "soft_delete" => 0
+            // ],
+            // [
+            //     "nama" => "Maharani Wahyu Tantri",
+            //     "NPM" => "2217051051",
+            //     "password" => bcrypt("password"),
+            //     "alamat" => "Lorem Ipsum",
+            //     "no_telepon" => "029123121212",
+            //     "asal_instansi" => "Universitas Lampung",
+            //     "soft_delete" => 0
+            // ],
         ];
 
         foreach ($users as $user) {

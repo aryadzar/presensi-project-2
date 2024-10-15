@@ -32,7 +32,6 @@
 
                 <div class="text-center space-y-5 ">
                     @foreach ($roles as $setRole)
-                        <li>
                             <form action="{{ route('set_role') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="role_id" value="{{ $setRole->role->id }}">
@@ -40,7 +39,6 @@
                                     class="block bg-green-200 text-green-800 py-4 px-6 rounded-lg border border-green-800 hover:bg-green-300 transition w-full">{{ $setRole->role->nama_role }}
                                     || {{ $setRole->unitKerja->nama_unit }}</button>
                             </form>
-                        </li>
                     @endforeach
                 </div>
 

@@ -31,7 +31,7 @@
         </div>
         <div class="col-span-3">
             @if (session()->has('success'))
-            <div role="alert" class="alert alert-success mb-5">
+            <div role="alert" class="alert alert-success bg-green-300 mb-5">
                 <span>{{ session("success") }}</span>
             </div>
             @endif
@@ -95,9 +95,31 @@
                                     </div>
                                     <label class="modal-backdrop" for="edit_unit_kerja_{{ $item->id }}">Close</label>
                                 </div>
-                                <label for="my_modal_6" class=" bg-red-500 rounded p-2 px-3 py-3">
+
+                                <label for="delete_unit_kerja_{{ $item->id }}" class=" bg-red-500 rounded p-2 px-3 py-3 cursor-pointer">
                                     <i class="fa-solid fa-trash text-white"></i>
                                 </label>
+
+                                <input type="checkbox" id="delete_unit_kerja_{{ $item->id }}" class="modal-toggle" />
+                                <div class="modal" role="dialog">
+                                    <div class="modal-box dark:bg-gradient-to-b bg-blue-300  dark:from-blue-900 dark:to-blue-950">
+                                        <form action="{{ route("admin.delete_unit_kerja", $item->id) }}" method="POST">
+                                            @csrf
+                                            @method("DELETE")
+                                            <h3 class="text-lg text-black-2 dark:text-white font-bold">Peringatan !</h3>
+                                            <h3 class="text-sm mt-5 text-black-2 dark:text-white font-bold">Anda Yakin Mau Menghapus unit kerja {{ $item->nama_unit }} ? </h3>
+                                            <h3 class="text-sm mt-5 text-black-2 dark:text-white font-bold">Tindakan bersifat Irreversible </h3>
+                                            <div class="grid lg:grid-cols-1 grid-cols-2  gap-1 md:grid-cols-2">
+                                                <!-- Tombol Submit -->
+                                                <div class="form-control col-span-2 flex items-center justify-center mt-5">
+                                                    <button type="submit"
+                                                        class="btn w-full lg:w-auto bg-red text-white">Delete</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <label class="modal-backdrop" for="delete_unit_kerja_{{ $item->id }}">Close</label>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

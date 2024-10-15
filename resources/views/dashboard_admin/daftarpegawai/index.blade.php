@@ -1,6 +1,6 @@
 @extends('dashboard_admin.dashboard-layout.index')
 
-@section('title', 'Dashboard Admin')
+@section('title', 'Admin Data Master')
 @section('nama_pegawai', 'Coba')
 @section('role', 'Pegawai')
 @section('content')
@@ -163,34 +163,30 @@
                         <th class="p-2 text-left">Alamat</th>
                         <th class="p-2 text-left">No Telepon</th>
                         <th class="p-2 text-left">Asal Instansi</th>
-                        <th class="p-2 text-left">Unit Kerja</th>
-                        <th class="p-2 text-left">Status Karyawan</th>
-                        <th class="p-2 text-left">Role</th>
-                        <th class="p-2 text-left">Action</th>
+                        <th class="p-2 text-left">Detail</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        $no_users = 1;
+                    @endphp
+                    @foreach ($users as $item)
                     <tr class="border-b hover:bg-gray-100">
-                        <td class="p-2 text-gray-700">01-10-2024</td>
-                        <td class="p-2">
-                            <span class="bg-green-500 text-white rounded-full px-3 py-1 text-xs">Hadir</span>
-                        </td>
-                        <td class="p-2 text-gray-700">07.40 WIB</td>
-                        <td class="p-2 text-gray-700">16.10 WIB</td>
-                        <td class="p-2 text-gray-700">Absensi Barcode</td>
-                        <td class="p-2 text-gray-700">Absensi Barcode</td>
-                        <td class="p-2 text-gray-700">Absensi Barcode</td>
-                        <td class="p-2 text-gray-700">Absensi Barcode</td>
-                        <td class="p-2 text-gray-700">Absensi Barcode</td>
+                        <td class="p-2 text-gray-700">{{ $no_users++ }}</td>
+                        <td class="p-2">{{ $item->NPM }}</td>
+                        <td class="p-2 text-gray-700">{{ $item->nama }}</td>
+                        <td class="p-2 text-gray-700">{{ $item->alamat }}</td>
+                        <td class="p-2 text-gray-700">{{ $item->no_telepon }}</td>
+                        <td class="p-2 text-gray-700">{{ $item->asal_instansi }}</td>
+
                         <td class="p-2 text-left">
-                            <button class=" bg-yellow-500 rounded p-1 px-3" onclick="my_modal_8.showModal()">
+                            <a href="#" class=" bg-yellow-500 rounded p-1 px-3" onclick="my_modal_8.showModal()">
                                 <i class="fa-solid fa-pen-to-square text-white"></i>
-                            </button>
-                            <button class=" bg-red-800 rounded p-1 px-3" onclick="my_modal_8.showModal()">
-                                <i class="fa-solid fa-trash text-white"></i>
-                            </button>
+                            </a>
                         </td>
                     </tr>
+                    @endforeach
+
                     <!-- Additional rows can be added here -->
                 </tbody>
             </table>

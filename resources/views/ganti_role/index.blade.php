@@ -36,8 +36,8 @@
                                 @csrf
                                 <input type="hidden" name="role_id" value="{{ $setRole->role->id }}">
                                 <button type="submit"
-                                    class="block bg-green-200 text-green-800 py-4 px-6 rounded-lg border border-green-800 hover:bg-green-300 transition w-full">{{ $setRole->role->nama_role }}
-                                    || {{ $setRole->unitKerja->nama_unit }}</button>
+                                    class="block bg-whiten text-green-800 py-4 px-6 rounded-lg border border-green-800 hover:bg-green-200 transition w-full">{{ $setRole->role->nama_role  }}
+                                     {{ $setRole->role->nama_role === 'Admin' ? " " : "|| ".$setRole->unitKerja->nama_unit }}</button>
                             </form>
                     @endforeach
                 </div>

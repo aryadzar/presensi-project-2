@@ -95,7 +95,7 @@ class LoginController extends Controller
 
         return back()->withErrors([
             'login' => 'NPM/NIK atau password salah ! ',
-        ])->onlyInput('email');
+        ])->onlyInput('NPM');
     }
 
     public function logout(){

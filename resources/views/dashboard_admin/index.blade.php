@@ -1,8 +1,6 @@
 @extends('dashboard_admin.dashboard-layout.index')
 
 @section('title', 'Dashboard Admin')
-@section('nama_pegawai', 'Coba')
-@section('role', 'Pegawai')
 @section('content')
     {{-- <div class=" flex justify-between">
     <h1  class="text-2xl font-semibold mb-7"> <span class=" text-blue-500"><i class="fa-solid fa-house"></i>  Dashboard</span></h1>

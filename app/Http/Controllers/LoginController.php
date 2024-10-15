@@ -106,8 +106,7 @@ class LoginController extends Controller
         request()->session()->regenerateToken();
 
         if(SSO::check()){
-
-            SSO::logout(url('/'));
+            SSO::logout(url(route('login')));
         }
         return redirect('/');
     }

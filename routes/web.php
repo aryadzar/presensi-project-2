@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Session;
 
 Route::get('/', function (){
     return redirect()->route('login');
-});
+})->name('/');
 
 
 
@@ -32,8 +32,8 @@ Route::group(['middleware' => 'guest'], function(){
     Route::post('/login', [LoginController::class, 'loginAction'])->name('login_post');
     Route::get('/login/sso', [LoginController::class, 'login_sso'])->name('login_sso');
 });
-Route::get('/logout', [LoginController::class, "logout"])->name("logout");
 
+Route::get('/logout', [LoginController::class, "logout"])->name("logout");
 
 
 

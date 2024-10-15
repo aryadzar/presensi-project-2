@@ -58,11 +58,11 @@ class User extends Authenticatable
     ];
 
     public function setRoles(){
-        $this->hasMany(SetRole::class, "id_user");
+        return $this->hasMany(SetRole::class, "id_user");
     }
 
     public function setUnitKerja(){
-        $this->hasMany(SetUnitKerja::class, "id_user");
+        return $this->hasMany(SetUnitKerja::class, "id_user");
     }
 
 

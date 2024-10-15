@@ -12,18 +12,17 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gradient-to-b from-blue-500 to-blue-900 overflow-hidden">
-    <!-- Header -->
+<body class="bg-gradient-to-b from-blue-500 to-blue-950 overflow-hidden">
     <div class="w-full max-w mx-auto rounded-lg shadow-lg p-2">
         <div class="flex items-center p-3">
             <img src="{{ asset('assets/logo_absensi/image.png') }}" alt="Logo Unila" class="h-12 mr-4">
         </div>
     </div>
 
-    <div class="min-h-screen flex items-center justify-center">
+
+    <div class="min-h-screen flex items-center justify-center w-full">
         <!-- Container for Form and Content -->
-        <div class="flex flex-col justify-center items-center backdrop-blur-lg rounded-lg overflow-hidden relative z-10 max-w-md mx-auto p-8"
-            x-data="{ selectedRole: 'Karyawan' }">
+        <div class="flex flex-col justify-center items-center backdrop-blur-lg rounded-lg overflow-hidden relative z-10 max-w-md mx-auto w-full p-8">
             <!-- Form Section -->
             <div class="w-full bg-blue-400 rounded-lg shadow-md p-10">
                 <div class="flex items-center mb-7 text-black">
@@ -32,30 +31,21 @@
                 </div>
 
                 <div class="text-center space-y-5 ">
-                    <template x-for="role in ['Karyawan', 'Operator', 'Admin']" :key="role">
-                        <button @click="selectedRole = role"
-                            :class="selectedRole === role ? 'bg-green-200 text-[#198B34] font-semibold' :
-                                'bg-white text-gray-800'"
-                            class="py-4 px-6 w-full rounded-lg shadow-sm border border-gray-300 focus:outline-none">
-                            <span x-text="role"></span>
-                            <span x-show="selectedRole === role">
-                                <i class="fa-regular fa-circle-check" style="color: #198B34;"></i>
-                            </span>
-                        </button>
-                    </template>
+                    @foreach($roles as $setRole)
+                    <li>
+                        <form action="{{ route('set_role') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="role_id" value="{{ $setRole->role->id }}">
+                            <button type="submit" class="block bg-green-200 text-green-800 py-4 px-6 rounded-lg border border-green-800 hover:bg-green-300 transition w-full">{{ $setRole->role->nama_role }} || {{ $setRole->unitKerja->nama_unit }}</button>
+                        </form>
+                    </li>
+                @endforeach
                 </div>
 
-                <div class="mt-6 flex justify-center">
-                    <a href="{{ route('dashboard') }}"
-                        class="bg-blue-600 text-white py-3 px-5 rounded-lg hover:bg-blue-700 flex items-center">
-                        <i class="fa-solid fa-house mr-2"></i> Dashboard
-                    </a>
-                </div>
             </div>
         </div>
     </div>
 
-    <div class="h-16"></div>
 </body>
 
 </html>

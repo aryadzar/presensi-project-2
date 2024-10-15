@@ -11,6 +11,34 @@ class LoginController extends Controller
         return view('login');
     }
 
+    public function selectRole(){
+        $user = Auth::user();
+
+        // Ambil semua role user
+        $roles = $user->setRoles()->with(['role', 'unitKerja'])->get();
+
+        return view('ganti_role.index', compact('roles'));
+    }
+
+    public function setRole(Request $request){
+        $roleId = $request->input('role_id');
+        $user = Auth::user();
+
+        // Cek apakah user memiliki role yang dipilih
+        if ($user->setRoles()->where('id_role', $roleId)->exists()) {
+            $role = $user->setRoles()->where('id_role', $roleId)->first()->role->nama_role;
+
+            // Redirect ke halaman dashboard sesuai role
+            if ($role === 'Admin') {
+                return redirect()->route('admin.dashboard');
+            } elseif ($role === 'Operator') {
+                return redirect()->route('operator.dashboard');
+            } else {
+                return redirect()->route('karyawan.dashboard');
+            }
+        }
+    }
+
     public function loginAction(Request $request){
         $credentials = $request->validate([
             'NPM' => 'required',
@@ -19,12 +47,37 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            $user = Auth::user();
 
-            return redirect()->intended('dashboard');
+            $roles = $user->setRoles()->with('role')->get();
+
+            if ($roles->count() > 1) {
+                return redirect()->route('role');
+            }
+
+            $roleName = $roles->first()->role->nama_role;
+
+            if ($roleName === 'Admin') {
+                return redirect()->route('admin.dashboard');
+            } elseif ($roleName === 'Operator') {
+                return redirect()->route('operator.dashboard');
+            } else {
+                return redirect()->route('karyawan.dashboard');
+            }
         }
 
         return back()->withErrors([
             'login' => 'NPM/NIK atau password salah ! ',
         ])->onlyInput('email');
+    }
+
+    public function logout(){
+        Auth::logout();
+
+        request()->session()->invalidate();
+
+        request()->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

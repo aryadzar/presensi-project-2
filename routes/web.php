@@ -107,11 +107,42 @@ Route::get('/logout', function () {
     }
 })->name("logout");
 
-
-
-
 Route::get('/dashboard/historyadmin', function () {
     $breadcrumbs = Breadcrumbs::generate('Riwayat');
     return view('dashboard_admin.riwayat.index', compact('breadcrumbs'));
 })->name('riwayatadmin');
 
+
+
+
+
+/*OPERATOR SIDE BAR*/
+
+Route::get('operator', function () {
+    $breadcrumbs = Breadcrumbs::generate('Dashboard');
+    return view('dashboard_operator.index', compact('breadcrumbs'));
+})->name("operator.dashboard");
+
+// Administrasi - Kelola Karyawan Magang/PKL route
+Route::get('operator/daftarkaryawan', function () {
+    $breadcrumbs = Breadcrumbs::generate('Kelola Karyawan');
+    return view('dashboard_operator.daftarkaryawan.index', compact('breadcrumbs'));
+})->name("operator.daftarkaryawan");
+
+// Administrasi - Validasi Surat Izin route
+Route::get('operator/validasisurat', function () {
+    $breadcrumbs = Breadcrumbs::generate('Validasi Surat Izin');
+    return view('dashboard_operator.validasisurat.index', compact('breadcrumbs'));
+})->name("operator.validasisurat");
+
+// Administrasi - Perangkat Karyawan route
+Route::get('operator/devicekaryawan', function () {
+    $breadcrumbs = Breadcrumbs::generate('Perangkat Karyawan');
+    return view('dashboard_operator.devicekaryawan.index', compact('breadcrumbs'));
+})->name("operator.devicekaryawan");
+
+// Riwayat Hadir Karyawan route
+Route::get('operator/riwayat', function () {
+    $breadcrumbs = Breadcrumbs::generate('Riwayat'); // Breadcrumbs for Riwayat
+    return view('dashboard_operator.riwayat.index', compact('breadcrumbs')); // Assuming the view is 'index' under 'riwayat'
+})->name("riwayatoperator");

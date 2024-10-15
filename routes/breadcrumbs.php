@@ -52,6 +52,35 @@ Breadcrumbs::for('Riwayat', function (BreadcrumbTrail $trail) {
     $trail->push('Riwayat', route('riwayatadmin'));
 });
 
+// Administrasi Breadcrumb (parent link for submenus)
+Breadcrumbs::for('Administrasi', function (BreadcrumbTrail $trail) {
+    $trail->parent('Dashboard');
+    $trail->push('Administrasi');
+});
+
+// Kelola Karyawan Magang/PKL Breadcrumb
+Breadcrumbs::for('Kelola Karyawan', function (BreadcrumbTrail $trail) {
+    $trail->parent('Administrasi');
+    $trail->push('Kelola Karyawan', route('operator.daftarkaryawan'));
+});
+
+// Validasi Surat Izin Breadcrumb
+Breadcrumbs::for('Validasi Surat Izin', function (BreadcrumbTrail $trail) {
+    $trail->parent('Administrasi');
+    $trail->push('Validasi Surat Izin', route('operator.validasisurat'));
+});
+
+// Perangkat Karyawan Breadcrumb
+Breadcrumbs::for('Perangkat Karyawan', function (BreadcrumbTrail $trail) {
+    $trail->parent('Administrasi');
+    $trail->push('Perangkat Karyawan', route('operator.devicekaryawan'));
+});
+
+// Riwayat Hadir Karyawan Breadcrumb
+Breadcrumbs::for('Riwayat Hadir Karyawan', function (BreadcrumbTrail $trail) {
+    $trail->parent('Dashboard');
+    $trail->push('Riwayat Hadir Karyawan', route('riwayatoperator'));
+});
 
 
 

@@ -1,15 +1,17 @@
-@extends('dashboard_admin.dashboard-layout.index')
+@extends('dashboard_operator.dashboard-layout.index')
 
-@section('title', 'Dashboard Admin')
+@section('title', 'Dashboard Operator')
 @section('nama_pegawai', 'Coba')
-@section('role', 'Pegawai')
+@section('role', 'Operator')
 @section('content')
     {{-- <div class=" flex justify-between">
     <h1  class="text-2xl font-semibold mb-7"> <span class=" text-blue-500"><i class="fa-solid fa-house"></i>  Dashboard</span></h1>
+
     <h1 class="text-2xl text-blue-500 font-semibold">{{ Carbon\Carbon::now()->isoFormat('dddd, D MMMM Y') }}</h1>
+
 </div> --}}
     <div class="p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
-        @include('dashboard_admin.breadcrumbs.index')
+        @include('dashboard_operator.breadcrumbs.index')
 
         <!-- Status Cards -->
         <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 col-span-3">

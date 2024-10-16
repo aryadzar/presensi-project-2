@@ -42,7 +42,7 @@ class LoginController extends Controller
         $user = Auth::user();
 
         // Ambil semua role user
-        $roles = $user->setRoles()->with(['role', 'unitKerja'])->get();
+        $roles = $user->setRoles()->with(['role', 'unitKerja'])->get()->sortDesc();
 
         return view('ganti_role.index', compact('roles'));
     }

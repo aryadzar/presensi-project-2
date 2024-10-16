@@ -8,7 +8,7 @@ use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
 
 Breadcrumbs::for('Dashboard', function (BreadcrumbTrail $trail){
-    $trail->push('Dashboard', route('dashboard'));
+    $trail->push('Dashboard');
 });
 
 Breadcrumbs::for('Home', function (BreadcrumbTrail $trail){
@@ -61,8 +61,13 @@ Breadcrumbs::for('Administrasi', function (BreadcrumbTrail $trail) {
 // Kelola Karyawan Magang/PKL Breadcrumb
 Breadcrumbs::for('Kelola Karyawan', function (BreadcrumbTrail $trail) {
     $trail->parent('Administrasi');
-    $trail->push('Kelola Karyawan', route('operator.daftarkaryawan'));
+    $trail->push('Kelola User' );
 });
+Breadcrumbs::for('Tambah User', function (BreadcrumbTrail $trail) {
+    $trail->parent('Kelola Karyawan');
+    $trail->push('Tambah User');
+});
+
 
 // Validasi Surat Izin Breadcrumb
 Breadcrumbs::for('Validasi Surat Izin', function (BreadcrumbTrail $trail) {

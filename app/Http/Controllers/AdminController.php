@@ -56,5 +56,9 @@ class AdminController extends Controller
 
     }
 
+    public function add_user(){
+        $breadcrumbs = Breadcrumbs::generate("Tambah User");
+        return view('dashboard_admin.tambah_user.index', compact('breadcrumbs'));
+    }
 
 }

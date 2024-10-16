@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid("id")->unique()->primary();
             $table->uuid('id_role');
             $table->uuid('id_user');
-            $table->uuid('id_unit_kerja');
+            $table->uuid('id_unit_kerja')->nullable();
             $table->uuid('id_actor');
             $table->foreign('id_role')->references('id')->on('role');
             $table->foreign("id_user")->references('id')->on('users');

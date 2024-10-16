@@ -148,9 +148,9 @@
         </div>
         <div class=" col-span-3 flex justify-end mb-5">
             <!-- The button to open modal -->
-            <label for="my_modal_7"
+            <a href="{{ route("add_user") }}" for="my_modal_7"
                 class="btn bg-blue-300 hover:bg-blue-400 border-white hover:border-white dark:bg-blue-800 text-black-2 dark:text-white">Tambah
-                User</label>
+                User</a>
 
         </div>
         <div class="col-span-3">
@@ -180,8 +180,8 @@
                         <td class="p-2 text-gray-700">{{ $item->asal_instansi }}</td>
 
                         <td class="p-2 text-left">
-                            <a href="#" class=" bg-yellow-500 rounded p-1 px-3" onclick="my_modal_8.showModal()">
-                                <i class="fa-solid fa-pen-to-square text-white"></i>
+                            <a href="#" class=" bg-yellow-400 rounded p-1 px-2 py-2" >
+                                <i class="fa-solid fa-eye text-white"></i>
                             </a>
                         </td>
                     </tr>

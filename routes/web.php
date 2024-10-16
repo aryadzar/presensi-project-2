@@ -135,8 +135,6 @@ Route::get('barcode', function () {
 
 
 
-
-
 Route::get('/dashboard/historyadmin', function () {
     $breadcrumbs = Breadcrumbs::generate('Riwayat');
     return view('dashboard_admin.riwayat.index', compact('breadcrumbs'));
@@ -144,6 +142,13 @@ Route::get('/dashboard/historyadmin', function () {
 
 
 
+//USER CONTROLLER
+use App\Http\Controllers\UserController;
+
+Route::get('/admin/user/tambah', [UserController::class, 'create'])->name('user.create');
+Route::post('/admin/user/store', [UserController::class, 'store'])->name('user.store');
+
+Route::post('/admin/store_user', [AdminController::class, 'storeUser'])->name('admin.store_user');
 
 
 // /*OPERATOR SIDE BAR*/

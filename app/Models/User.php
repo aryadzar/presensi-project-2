@@ -66,4 +66,16 @@ class User extends Authenticatable
     }
 
 
+    use HasFactory;
+
+    protected $fillable = [
+        'NPM',
+        'nama',
+        'alamat',
+        'no_telepon',
+        'asal_instansi',
+    ];
+
+
+
 }

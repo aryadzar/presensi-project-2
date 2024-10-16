@@ -61,35 +61,75 @@ class AdminController extends Controller
         return view('dashboard_admin.tambah_user.index', compact('breadcrumbs'));
     }
 
-    public function storeUser(Request $request)
-{
-    // Validasi data permintaan yang masuk
-    $validator = Validator::make($request->all(), [
-        'NPM' => 'required|string|max:255',
-        'nama' => 'required|string|max:255',
-        'alamat' => 'required|string|max:255',
-        'no_telepon' => 'required|string|max:15',
-        'asal_instansi' => 'required|string|max:255',
-    ]);
+    public function storeUser(Request $request){
+        $request->validate([
+            'NPM' => 'required|numeric|unique:users,NPM',
+            'nama' => 'required|string|max:255',
+            'alamat' => 'required|string|max:255',
+            'no_telepon' => 'required|numeric',
+            'asal_instansi' => 'required|string|max:255',
+        ],
+        ["NPM.unique" => "NPM/NIK/NIS sudah terdaftar pada absensi"]
+    );
 
-    if ($validator->fails()) {
-        return redirect()->back()->withErrors($validator)->withInput();
+        $data = User::create([
+            "NPM" => $request->NPM,
+            "nama" => $request->nama,
+            "alamat" => $request->alamat,
+            "password" => bcrypt("password"),
+            "no_telepon" => $request->no_telepon,
+            "asal_instansi" => $request->asal_instansi,
+            "soft_delete" => 0
+        ]);
+
+        $data->save();
+
+        return redirect()->route('administratif.daftarpegawai')->with('success', 'User Berhasil Ditambah');
     }
 
+    public function show_user_info($id){
+        $data = User::find($id);
 
-    $data = User::create([
-        'NPM' => $request->NPM,
-        'nama' => $request->nama,
-        'alamat' => $request->alamat,
-        'no_telepon' => $request->no_telepon,
-        'asal_instansi' => $request->asal_instansi,
-        'soft_delete' => "0", // Menetapkan nilai default 0 jika belum diatur
-    ]);
+        return view("dashboard_admin.edit_user.index", compact("data"));
+    }
 
-    $data->save();
+    public function edit_user_info(Request $request,$id){
+        $request->validate([
+            'NPM' => 'required|numeric|',
+            'nama' => 'required|string|max:255',
+            'alamat' => 'required|string|max:255',
+            'no_telepon' => 'required|numeric',
+            'asal_instansi' => 'required|string|max:255',
+        ],
+        ["NPM.unique" => "NPM/NIK/NIS sudah terdaftar pada absensi"]
+        );
+
+        $data = User::find($id);
+
+        $data->update([
+            "NPM" => $request->NPM,
+            "nama" => $request->nama,
+            "alamat" => $request->alamat,
+            "password" => bcrypt("password"),
+            "no_telepon" => $request->no_telepon,
+            "asal_instansi" => $request->asal_instansi,
+            "soft_delete" => 0
+        ]);
+
+        $data->save();
 
 
-    return redirect()->route('admin.users.index')->with('success', 'User created successfully!');
-}
+        return redirect()->route('administratif.daftarpegawai')->with('success', 'User Berhasil Diedit');
+
+    }
+
+    public function delete_user($id){
+        $data = User::find($id);
+
+        $data->delete();
+
+        return redirect()->route('administratif.daftarpegawai')->with('success', 'User Berhasil Dihapus');
+
+    }
 
 }

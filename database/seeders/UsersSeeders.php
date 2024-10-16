@@ -25,8 +25,8 @@ class UsersSeeders extends Seeder
             //     "password" => bcrypt("password")
             // ],
             [
-                "nama" => "Sheila Coba",
-                "NPM" => "2217051150",
+                "nama" => "Muhammad Arya Dzaky Arenanto",
+                "NPM" => "2217051007",
                 "password" => bcrypt("password"),
                 "alamat" => "Lorem Ipsum",
                 "no_telepon" => "029123121212",

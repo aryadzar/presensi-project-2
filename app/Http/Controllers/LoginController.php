@@ -10,31 +10,33 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     public function loginView(){
-        return view('login');
+        return view(view: 'login');
     }
+
 
     public function login_sso(){
         if(SSO::authenticate()){
             $check = User::where('NPM', SSO::getUser()->nip)->first(); //mengecek apakah pengguna SSO memiliki username yang sama dengan database aplikasi
             if(SSO::check()){
                 Auth::loginUsingId($check->id);
-                $user = Auth::user();
+                return redirect()->route('presensi.barcode');
+                // $user = Auth::user();
 
-                $roles = $user->setRoles()->with('role')->get();
+                // $roles = $user->setRoles()->with('role')->get();
 
-                if ($roles->count() > 1) {
-                    return redirect()->route('role');
-                }
+                // if ($roles->count() > 1) {
+                //     return redirect()->route('role');
+                // }
 
-                $roleName = $roles->first()->role->nama_role;
+                // $roleName = $roles->first()->role->nama_role;
 
-                if ($roleName === 'Admin') {
-                    return redirect()->route('admin.dashboard');
-                } elseif ($roleName === 'Operator') {
-                    return redirect()->route('operator.dashboard');
-                } else {
-                    return redirect()->route('karyawan.dashboard');
-                }
+                // if ($roleName === 'Admin') {
+                //     return redirect()->route('admin.dashboard');
+                // } elseif ($roleName === 'Operator') {
+                //     return redirect()->route('operator.dashboard');
+                // } else {
+                //     return redirect()->route('karyawan.dashboard');
+                // }
             }
         }
     }
@@ -74,23 +76,26 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            $user = Auth::user();
 
-            $roles = $user->setRoles()->with('role')->get();
+            return redirect()->route('presensi.barcode');
 
-            if ($roles->count() > 1) {
-                return redirect()->route('role');
-            }
+            // $user = Auth::user();
 
-            $roleName = $roles->first()->role->nama_role;
+            // $roles = $user->setRoles()->with('role')->get();
 
-            if ($roleName === 'Admin') {
-                return redirect()->route('admin.dashboard');
-            } elseif ($roleName === 'Operator') {
-                return redirect()->route('operator.dashboard');
-            } else {
-                return redirect()->route('karyawan.dashboard');
-            }
+            // if ($roles->count() > 1) {
+            //     return redirect()->route('role');
+            // }
+
+            // $roleName = $roles->first()->role->nama_role;
+
+            // if ($roleName === 'Admin') {
+            //     return redirect()->route('admin.dashboard');
+            // } elseif ($roleName === 'Operator') {
+            //     return redirect()->route('operator.dashboard');
+            // } else {
+            //     return redirect()->route('karyawan.dashboard');
+            // }
         }
 
         return back()->withErrors([
@@ -109,5 +114,54 @@ class LoginController extends Controller
             SSO::logout(url(route('login')));
         }
         return redirect('/');
+    }
+
+    private function jangan_diotak_atik(){
+        // BAGIAN lOGIN_ACTION
+        // if (Auth::attempt($credentials)) {
+        //     $request->session()->regenerate();
+        //     $user = Auth::user();
+
+        //     $roles = $user->setRoles()->with('role')->get();
+
+        //     if ($roles->count() > 1) {
+        //         return redirect()->route('role');
+        //     }
+
+        //     $roleName = $roles->first()->role->nama_role;
+
+        //     if ($roleName === 'Admin') {
+        //         return redirect()->route('admin.dashboard');
+        //     } elseif ($roleName === 'Operator') {
+        //         return redirect()->route('operator.dashboard');
+        //     } else {
+        //         return redirect()->route('karyawan.dashboard');
+        //     }
+        // }
+
+        // BAGIAN LOGIN_SSO
+        // if(SSO::authenticate()){
+        //     $check = User::where('NPM', SSO::getUser()->nip)->first(); //mengecek apakah pengguna SSO memiliki username yang sama dengan database aplikasi
+        //     if(SSO::check()){
+        //         Auth::loginUsingId($check->id);
+        //         $user = Auth::user();
+
+        //         $roles = $user->setRoles()->with('role')->get();
+
+        //         if ($roles->count() > 1) {
+        //             return redirect()->route('role');
+        //         }
+
+        //         $roleName = $roles->first()->role->nama_role;
+
+        //         if ($roleName === 'Admin') {
+        //             return redirect()->route('admin.dashboard');
+        //         } elseif ($roleName === 'Operator') {
+        //             return redirect()->route('operator.dashboard');
+        //         } else {
+        //             return redirect()->route('karyawan.dashboard');
+        //         }
+        //     }
+        // }
     }
 }

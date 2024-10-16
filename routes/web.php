@@ -1,13 +1,16 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\LoginController;
 use SSO\SSO;
 use App\Models\User;
-use Diglactic\Breadcrumbs\Breadcrumbs;
+use App\Models\Presensi;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
 
 
 /*
@@ -33,12 +36,56 @@ Route::group(['middleware' => 'guest'], function(){
     Route::get('/login/sso', [LoginController::class, 'login_sso'])->name('login_sso');
 });
 
+Route::get('/barcode_generate', function (){
+    $barcode  = Str::uuid()->toString();
+
+    return response()->json(['barcode' => $barcode]);
+
+})->name('barcode_generate');
+
+
 Route::get('/logout', [LoginController::class, "logout"])->name("logout");
 
+// , 'CheckRole:Admin'
 
 
+Route::group(['middleware' => ['auth']], function(){
 
-Route::group(['middleware' => ['auth', 'CheckRole:Admin']], function(){
+    Route::get('/scan_barcode', function () {
+        $breadcrumbs = Breadcrumbs::generate('Scan Barcode');
+        return view('dashboard_pegawai.scan_barcode.index', compact('breadcrumbs'));
+    })->name("presensi.barcode");
+
+    Route::post('/presensi/check-in', function (Request $request) {
+        $barcode = $request->input('barcode'); // Ambil barcode yang di-scan
+        $userId = Auth::user()->id; // Gunakan ID user yang sedang login
+
+        // Cari presensi berdasarkan ID user dan barcode
+        $alreadyPresent = Presensi::where('id_user', $userId)
+            ->whereDate('tanggal', now()->toDateString())
+            ->exists();
+
+        if ($alreadyPresent) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Anda sudah melakukan presensi hari ini.'
+            ]);
+        }
+
+        // Buat data presensi baru
+        $presensi = new Presensi();
+        $presensi->id_user = $userId;
+        $presensi->data_qr_code = $barcode; // Simpan kode random di barcode
+        $presensi->tanggal = now();
+        $presensi->save();
+
+        return response()->json([
+            'success' => true,
+            'user_name' => Auth::user()->nama
+        ]);
+
+    });
+
 
 
 
@@ -47,14 +94,22 @@ Route::group(['middleware' => ['auth', 'CheckRole:Admin']], function(){
 
 
     // Administratif Routes
-    Route::prefix('admin/administrasi')->group(function () {
-        Route::get('/data_master', [AdminController::class, 'read_daftar_pegawai'])->name('administratif.daftarpegawai');
+    Route::prefix('admin/')->group(function () {
+        Route::get('/user', [AdminController::class, 'read_daftar_pegawai'])->name('administratif.daftarpegawai');
 
         Route::post('/add_unit_kerja', [AdminController::class, "add_unit_kerja"])->name("admin.add_unit_kerja");
         Route::put('/edit_unit_kerja/{id}', [AdminController::class, "update_unit_kerja"])->name('admin.update_unit_kerja');
         Route::delete('/delete_unit_kerja/{id}', [AdminController::class, "delete_unit_kerja"])->name("admin.delete_unit_kerja");
 
         Route::get('/add_user', [AdminController::class, 'add_user'])->name('add_user');
+        Route::post('/store_user', [AdminController::class, 'storeUser'])->name('admin.store_user');
+        Route::get('/user_info/{id}', [AdminController::class, 'show_user_info'])->name('show_user_info');
+        Route::patch('/user_info/{id}', [AdminController::class, 'edit_user_info'])->name('edit_user_info');
+        Route::delete('/user_delete/{id}', [AdminController::class, 'delete_user'])->name('delete_user');
+
+
+
+
 
         Route::get('/validasisurat', function () {
             $breadcrumbs = Breadcrumbs::generate('Validasi Surat');
@@ -107,10 +162,7 @@ Route::get('/dashboard', function () {
     return view('dashboard_pegawai.index', compact('breadcrumbs'));
 })->name('dashboard');
 
-Route::get('dashboard/presensi/scan_barcode', function () {
-    $breadcrumbs = Breadcrumbs::generate('Scan Barcode');
-    return view('dashboard_pegawai.scan_barcode.index', compact('breadcrumbs'));
-})->name("presensi.barcode");
+
 
 Route::get('dashboard/presensi/set_izin', function () {
     $breadcrumbs = Breadcrumbs::generate('Surat Izin');
@@ -142,13 +194,8 @@ Route::get('/dashboard/historyadmin', function () {
 
 
 
-//USER CONTROLLER
-use App\Http\Controllers\UserController;
 
-Route::get('/admin/user/tambah', [UserController::class, 'create'])->name('user.create');
-Route::post('/admin/user/store', [UserController::class, 'store'])->name('user.store');
 
-Route::post('/admin/store_user', [AdminController::class, 'storeUser'])->name('admin.store_user');
 
 
 // /*OPERATOR SIDE BAR*/

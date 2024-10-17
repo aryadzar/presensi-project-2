@@ -1,6 +1,6 @@
 @extends('dashboard_pegawai.dashboard-layout.index')
 
-@section('title', 'Dashboard Pegawai')
+@section('title', 'Scan Barcode Presensi')
 @section('nama_pegawai', 'Ahmad Januari')
 @section('role', 'Pegawai')
 @section('content')
@@ -45,43 +45,43 @@
 
     <script>
         function onScanSuccess(decodedText, decodedResult) {
-    // Hentikan scanner setelah berhasil scan
-    html5QrcodeScanner.clear().then(() => {
-        console.log("Barcode scan berhasil, scanner dihentikan.");
+            // Hentikan scanner setelah berhasil scan
+            html5QrcodeScanner.clear().then(() => {
+                console.log("Barcode scan berhasil, scanner dihentikan.");
 
-        fetch('/presensi/check-in', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-            },
-            body: JSON.stringify({
-                barcode: decodedText // Kirim hasil scan (misalnya userId)
-            })
-        })
-        .then(response => {
-            return response.json(); // Teruskan memproses respons sebagai JSON
-        })
-        .then(data => {
-            if (data.success) {
-                alert(`Presensi berhasil untuk user: ${data.user_name}`);
-            } else {
-                alert(`Presensi gagal: ${data.message}`);
-            }
+                fetch('/presensi/check-in', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        body: JSON.stringify({
+                            barcode: decodedText // Kirim hasil scan (misalnya userId)
+                        })
+                    })
+                    .then(response => {
+                        return response.json(); // Teruskan memproses respons sebagai JSON
+                    })
+                    .then(data => {
+                        if (data.success) {
+                            alert(`Presensi berhasil untuk user: ${data.user_name}`);
+                        } else {
+                            alert(`Presensi gagal: ${data.message}`);
+                        }
 
-            // Setelah selesai, aktifkan kembali scanner jika diperlukan
-            html5QrcodeScanner.render(onScanSuccess);
-        })
-        .catch(error => {
-            console.log('Error:', error);
+                        // Setelah selesai, aktifkan kembali scanner jika diperlukan
+                        html5QrcodeScanner.render(onScanSuccess);
+                    })
+                    .catch(error => {
+                        console.log('Error:', error);
 
-            // Jika ada error, aktifkan kembali scanner untuk mencoba lagi
-            html5QrcodeScanner.render(onScanSuccess);
-        });
-    }).catch(err => {
-        console.log("Error saat menghentikan scanner:", err);
-    });
-}
+                        // Jika ada error, aktifkan kembali scanner untuk mencoba lagi
+                        html5QrcodeScanner.render(onScanSuccess);
+                    });
+            }).catch(err => {
+                console.log("Error saat menghentikan scanner:", err);
+            });
+        }
 
         let config = {
             fps: 10,

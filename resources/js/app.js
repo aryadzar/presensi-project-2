@@ -4,6 +4,18 @@ import { DataTable } from "simple-datatables";
 import Alpine from 'alpinejs';
 import { Html5QrcodeScanner } from 'html5-qrcode';
 import QRCode from 'qrcode';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+
+
+window.addEventListener('beforeunload', function () {
+    NProgress.start(0.5);  // Mulai NProgress saat pengguna berpindah halaman
+    NProgress.set(0.5);  // Mulai NProgress saat pengguna berpindah halaman
+});
+
+window.onload = function () {
+    NProgress.done();  // Selesaikan NProgress setelah halaman baru sepenuhnya dimuat
+};
 
 async function updateBarcode() {
     try {

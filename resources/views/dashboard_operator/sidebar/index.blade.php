@@ -1,5 +1,5 @@
 <aside :class="sidebarToggle ? 'translate-x-0' : '-translate-x-full'"
-    class="absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-gradient-to-b from-blue-500 to-blue-600 duration-300 ease-linear dark:from-blue-800 dark:to-blue-950 lg:static lg:translate-x-0"
+    class="absolute left-0 top-0 z-999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-gradient-to-b from-blue-500 to-blue-600 duration-300 ease-linear dark:from-blue-800 dark:to-blue-950 lg:static lg:translate-x-0"
     @click.outside="sidebarToggle = false">
 
     <!-- SIDEBAR HEADER -->

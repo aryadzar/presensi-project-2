@@ -14,16 +14,16 @@ return new class extends Migration
         Schema::create('presensi', function (Blueprint $table) {
             $table->uuid("id")->unique()->primary();
             $table->uuid('id_user');
-            $table->uuid('id_device');
-            $table->date("tanggal");
-            $table->time("check_in");
-            $table->time("check_out");
-            $table->string("keterangan");
+            // $table->uuid('id_device');
+            $table->timestamp("tanggal")->useCurrent();
+            // $table->time("check_in");
+            // $table->time("check_out");
+            // $table->string("keterangan");
             $table->string('data_qr_code');
-            $table->string('lat');
-            $table->string('lang');
+            // $table->string('lat');
+            // $table->string('lang');
             $table->foreign('id_user')->references('id')->on('users');
-            $table->foreign('id_device')->references('id')->on('devices');
+            // $table->foreign('id_device')->references('id')->on('devices');
             $table->timestamps();
         });
     }

@@ -57,6 +57,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function presensi(){
+        return $this->hasMany(Presensi::class, "id_user");
+    }
+
     public function setRoles(){
         return $this->hasMany(SetRole::class, "id_user");
     }
@@ -64,6 +68,20 @@ class User extends Authenticatable
     public function setUnitKerja(){
         return $this->hasMany(SetUnitKerja::class, "id_user");
     }
+
+
+    use HasFactory;
+
+    protected $fillable = [
+        'NPM',
+        'nama',
+        'alamat',
+        'no_telepon',
+        'asal_instansi',
+        "soft_delete",
+        "password"
+    ];
+
 
 
 }

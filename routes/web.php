@@ -191,7 +191,8 @@ Route::get('dashboard/presensi/log_book', function () {
 })->name("presensi.log_book");
 
 Route::get('dashboard/history', function () {
-    return view('dashboard_pegawai.riwayat.index');
+    $data = Auth::user()->presensi()->get();
+    return view('dashboard_pegawai.riwayat.index', compact('data'));
 })->name("riwayat");
 
 Route::get('barcode', function () {

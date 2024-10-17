@@ -166,12 +166,12 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                 @click.prevent="dropdownOpen = ! dropdownOpen">
                                 <span class="hidden text-right lg:block">
                                     <span
-                                        class="block text-sm font-medium text-slate-900 dark:text-white">@yield('nama_pegawai')</span>
-                                    <span class="block  font-medium">@yield('role')</span>
+                                        class="block text-sm font-medium text-slate-900 dark:text-white">{{ Auth::user()->nama }}</span>
+                                    <span class="block text-black-2 dark:text-white  font-medium">Pegawai</span>
                                 </span>
 
-                                <span class="h-12 w-12 rounded-full">
-                                    <img src="./images/user/user-01.png" alt="User" />
+                                <span class=" rounded-full text-black-2 text-2xl dark:text-white ">
+                                    <i class="fa-solid fa-user-tie "></i>
                                 </span>
 
                                 <svg :class="dropdownOpen && 'rotate-180'" class="hidden fill-current sm:block"

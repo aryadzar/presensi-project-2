@@ -14,6 +14,7 @@ window.addEventListener('beforeunload', function () {
 });
 
 window.onload = function () {
+    NProgress.set(0.8);  // Mulai NProgress saat pengguna berpindah halaman
     NProgress.done();  // Selesaikan NProgress setelah halaman baru sepenuhnya dimuat
 };
 

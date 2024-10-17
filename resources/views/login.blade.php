@@ -20,7 +20,7 @@
                     <img src="{{ asset('/assets/logo_unila/unila.png') }}" alt="Logo" class="w-24 mx-auto">
                 </div>
                 <h2 class="text-2xl font-semibold mb-4 text-black-2">Log In</h2>
-                <p class="mb-6 text-lg text-black-2">Selamat datang di web absensi</p>
+                <p class="mb-6 text-lg text-black-2">Selamat datang di web Presensi</p>
                 <div class="flex items-center justify-center mb-6">
                     <hr class="w-full border-gray-300">
                 </div>

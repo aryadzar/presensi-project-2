@@ -17,7 +17,7 @@
             const passwordContent = document.getElementById('password-content');
             const overviewTab = document.getElementById('overview-tab');
             const passwordTab = document.getElementById('password-tab');
-            
+
             if (tab === 'overview') {
                 overviewContent.classList.remove('hidden');
                 passwordContent.classList.add('hidden');
@@ -32,13 +32,14 @@
         }
     </script>
 </head>
+
 <body class="bg-gradient-to-b from-blue-500 to-blue-950 overflow-hidden">
-<div class="w-full max-w mx-auto rounded-lg shadow-lg p-2">
+    <div class="w-full max-w mx-auto rounded-lg shadow-lg p-2">
         <div class="flex items-center p-3">
             <img src="{{ asset('assets/logo_absensi/image.png') }}" alt="Logo Unila" class="h-12 mr-4">
         </div>
     </div>
-    
+
     <div class="flex justify-center items-center h-screen">
         <div class="bg-blue-400 shadow-lg rounded-lg w-1/3">
             <div class="flex justify-center mt-4">
@@ -84,18 +85,25 @@
                     <form>
                         <div class="mb-4">
                             <label for="current-password" class="block text-gray-700">Kata Sandi Saat Ini</label>
-                            <input id="current-password" type="password" class="w-full px-4 py-2 border rounded-md bg-gray-200" placeholder="Masukkan kata sandi saat ini">
+                            <input id="current-password" type="password"
+                                class="w-full px-4 py-2 border rounded-md bg-gray-200"
+                                placeholder="Masukkan kata sandi saat ini">
                         </div>
                         <div class="mb-4">
                             <label for="new-password" class="block text-gray-700">Kata Sandi Baru</label>
-                            <input id="new-password" type="password" class="w-full px-4 py-2 border rounded-md bg-gray-200" placeholder="Masukkan kata sandi baru">
+                            <input id="new-password" type="password"
+                                class="w-full px-4 py-2 border rounded-md bg-gray-200"
+                                placeholder="Masukkan kata sandi baru">
                         </div>
                         <div class="mb-4">
                             <label for="confirm-password" class="block text-gray-700">Masukan Ulang Kata Sandi</label>
-                            <input id="confirm-password" type="password" class="w-full px-4 py-2 border rounded-md bg-gray-200" placeholder="Masukkan kembali kata sandi baru">
+                            <input id="confirm-password" type="password"
+                                class="w-full px-4 py-2 border rounded-md bg-gray-200"
+                                placeholder="Masukkan kembali kata sandi baru">
                         </div>
                         <div class="flex justify-center">
-                            <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600">
+                            <button type="submit"
+                                class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600">
                                 Simpan Kata Sandi
                             </button>
                         </div>
@@ -111,18 +119,19 @@
             margin-right: 10px;
             border-radius: 0;
             font-weight: bold;
-            color: #3B82F6
-            cursor: pointer;
+            color: #3B82F6 cursor: pointer;
         }
+
         .tab-button.active {
             background-color: transparent;
             color: #3B82F6;
             border-bottom: 2px solid #3B82F6;
         }
+
         .tab-button:hover {
             background-color: #93C5FD;
         }
     </style>
 </body>
-</html>
 
+</html>

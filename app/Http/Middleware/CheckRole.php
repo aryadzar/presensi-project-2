@@ -33,6 +33,6 @@ class CheckRole
             return $next($request);
         }
 
-        return redirect()->route('unauthorized')->withErrors('Anda tidak memiliki akses untuk fitur ini.');
+        return redirect()->route('role')->withErrors('Anda tidak memiliki akses untuk fitur ini.');
     }
 }

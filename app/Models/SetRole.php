@@ -38,4 +38,7 @@ class SetRole extends Model
         return $this->belongsTo(UnitKerja::class, 'id_unit_kerja');
     }
 
+    public function actor(){
+        return $this->belongsTo(User::class, 'id_actor');
+    }
 }

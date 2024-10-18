@@ -1,14 +1,13 @@
 @extends('dashboard_admin.dashboard-layout.index')
 
 @section('title', 'Admin Data Master')
-@section('nama_pegawai', 'Coba')
-@section('role', 'Pegawai')
+
 @section('content')
 
     <div class="mb-3">
         <h1 class="text-2xl font-semibold">
             <i class="fa-solid fa-rectangle-list mr-2 dark:text-white text-blue-500"></i>
-            <span class="dark:text-white text-blue-500">Daftar Karyawan Magang / PKL</span>
+            <span class="dark:text-white text-blue-500">Daftar Master Web Attendicus</span>
         </h1>
     </div>
 
@@ -57,7 +56,7 @@
                 </thead>
                 <tbody>
                     @foreach ($unit_kerja as $index => $item)
-                        <tr class="border-b hover:bg-gray-100">
+                        <tr class="border-b  hover:bg-gray-100">
                             <td class="p-2 text-gray-700">{{ $index + 1 }}</td>
                             <td class="p-2 text-gray-700">{{ $item->nama_unit }}</td>
                             <td class="p-2 text-gray-700">{{ $item->created_at->diffForHumans() }}</td>
@@ -151,6 +150,8 @@
                         <th class="p-2 text-left">Alamat</th>
                         <th class="p-2 text-left">No Telepon</th>
                         <th class="p-2 text-left">Asal Instansi</th>
+                        <th class="p-2 text-left">Terakhir Dibuat</th>
+                        <th class="p-2 text-left">Terakhir Diperbarui</th>
                         <th class="p-2 text-left">Role</th>
                         <th class="p-2 text-left">Detail</th>
                     </tr>
@@ -164,14 +165,16 @@
                             <td class="p-2 text-gray-700">{{ $item->alamat }}</td>
                             <td class="p-2 text-gray-700">{{ $item->no_telepon }}</td>
                             <td class="p-2 text-gray-700">{{ $item->asal_instansi }}</td>
-                            <td class="p-2 text-gray-700"><a href="{{ route('edit.role', $item->id) }}">Lihat Role </a></td>
-                            <td class="p-2 text-left">
+                            <td class="p-2 text-gray-700">{{ $item->created_at->diffForHumans() }}</td>
+                            <td class="p-2 text-gray-700">{{ $item->updated_at->diffForHumans() }}</td>
+                            <td class="p-2 text-blue-600 underline"><a href="{{ route('edit.role', $item->id) }}">Lihat Role </a></td>
+                            <td class="p-2 text-left grid grid-cols-1 gap-2 ">
                                 <a href="{{ route('show_user_info', $item->id) }}"
-                                    class="bg-yellow-400 rounded p-1 px-2 py-2">
+                                    class="bg-yellow-400 rounded  px-2 py-2 flex items-center justify-center">
                                     <i class="fa-solid fa-eye text-white"></i>
                                 </a>
                                 <label for="delete_unit_kerja_{{ $item->id }}"
-                                    class="bg-red-500 rounded p-2 cursor-pointer">
+                                    class="bg-red-500 rounded  px-2 py-2 flex items-center justify-center cursor-pointer">
                                     <i class="fa-solid fa-trash text-white"></i>
                                 </label>
                                 <input type="checkbox" id="delete_unit_kerja_{{ $item->id }}"

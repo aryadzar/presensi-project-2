@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>404 NOT FOUND</title>
+    <title>500 NOT FOUND</title>
 
     <script>
         var scene = document.getElementById('scene');
@@ -388,7 +388,7 @@
         .wrapper .container .two,
         .wrapper .container .three,
         .wrapper .container .circle,
-        .wrapper .container .p404 {
+        .wrapper .container .p500 {
             width: 60%;
             height: 60%;
             top: 20% !important;
@@ -401,7 +401,7 @@
         .wrapper .container .two .content,
         .wrapper .container .three .content,
         .wrapper .container .circle .content,
-        .wrapper .container .p404 .content {
+        .wrapper .container .p500 .content {
             width: 600px;
             height: 600px;
             display: flex;
@@ -424,7 +424,7 @@
         .wrapper .container .two .content .piece,
         .wrapper .container .three .content .piece,
         .wrapper .container .circle .content .piece,
-        .wrapper .container .p404 .content .piece {
+        .wrapper .container .p500 .content .piece {
             width: 200px;
             height: 80px;
             display: flex;
@@ -454,7 +454,7 @@
             .wrapper .container .two,
             .wrapper .container .three,
             .wrapper .container .circle,
-            .wrapper .container .p404 {
+            .wrapper .container .p500 {
                 width: 90%;
                 height: 90%;
                 top: 5% !important;
@@ -470,7 +470,7 @@
             .wrapper .container .two,
             .wrapper .container .three,
             .wrapper .container .circle,
-            .wrapper .container .p404 {
+            .wrapper .container .p500 {
                 min-width: 280px;
                 min-height: 280px;
                 width: 60%;
@@ -555,7 +555,7 @@
             color: white;
         }
 
-        .wrapper .container .p404 {
+        .wrapper .container .p500 {
             font-size: 200px;
             font-weight: 700;
             letter-spacing: 4px;
@@ -565,24 +565,24 @@
             align-items: center;
             position: absolute;
             z-index: 2;
-            animation: anime404 0.6s cubic-bezier(0.3, 0.8, 1, 1.05) both;
+            animation: anime500 0.6s cubic-bezier(0.3, 0.8, 1, 1.05) both;
             animation-delay: 1.2s;
         }
 
         @media screen and (max-width: 799px) {
-            .wrapper .container .p404 {
+            .wrapper .container .p500 {
                 font-size: 100px;
             }
         }
 
-        @keyframes anime404 {
+        @keyframes anime500 {
             0% {
                 opacity: 0;
                 transform: scale(10) skew(20deg, 20deg);
             }
         }
 
-        .wrapper .container .p404:nth-of-type(2) {
+        .wrapper .container .p500:nth-of-type(2) {
             color: #36184f;
             z-index: 1;
             animation-delay: 1s;
@@ -799,8 +799,8 @@
                     </div>
                 </div>
 
-                <p class="p404" data-depth="0.50">404</p>
-                <p class="p404" data-depth="0.10">404</p>
+                <p class="p500" data-depth="0.50">500</p>
+                <p class="p500" data-depth="0.10">500</p>
 
             </div>
 

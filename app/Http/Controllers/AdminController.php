@@ -8,6 +8,7 @@ use App\Models\SetRole;
 use App\Models\UnitKerja;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Support\Facades\Validator; // Add this line
 
@@ -21,7 +22,7 @@ class AdminController extends Controller
     public function read_daftar_pegawai(){
         $breadcrumbs = Breadcrumbs::generate('Daftar Pegawai');
         $unit_kerja = UnitKerja::all();
-        $users = User::all();
+        $users = User::orderBy('created_at', 'asc')->get();
         return view('dashboard_admin.daftarpegawai.index', compact('breadcrumbs', 'unit_kerja', 'users'));
     }
 
@@ -136,6 +137,7 @@ class AdminController extends Controller
 
     public function editRole(User $user)
     {
+
         $roles = Role::all();
         $units = UnitKerja::all();
 
@@ -145,13 +147,24 @@ class AdminController extends Controller
     public function addUserRole(Request $request, User $user)
     {
         $request->validate([
-            'role_id' => 'required|exists:roles,id',
-            'unit_kerja_id' => 'nullable|exists:unit_kerjas,id',
+            'id_role' => 'required|exists:role,id',
+            'id_unit_kerja' => 'nullable|exists:unit_kerja,id',
         ]);
 
-        $user->setRoles()->create([
-            'role_id' => $request->role_id,
-            'unit_kerja_id' => $request->unit_kerja_id
+
+
+        // $user->setRoles()->create([
+        //     'id_user' => $user->id,
+        //     'id_role' => $request->id_role,
+        //     'id_unit_kerja' => $request->id_unit_kerja,
+        //     "id_actor" => Auth::user()->id
+        // ]);
+
+        SetRole::create([
+            "id_role" => $request->id_role,
+            "id_user" => $user->id,
+            "id_unit_kerja" => $request->id_unit_kerja,
+            "id_actor" => Auth::user()->id
         ]);
 
         return redirect()->route('edit.role', $user->id)->with('success', 'Role berhasil ditambahkan.');

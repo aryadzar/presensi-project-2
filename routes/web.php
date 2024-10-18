@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:Admin']], function(){
 
     // Administratif Routes
     Route::prefix('admin/')->group(function () {
-        Route::get('/user', [AdminController::class, 'read_daftar_pegawai'])->name('administratif.daftarpegawai');
+        Route::get('/data_master', [AdminController::class, 'read_daftar_pegawai'])->name('administratif.daftarpegawai');
 
         Route::post('/add_unit_kerja', [AdminController::class, "add_unit_kerja"])->name("admin.add_unit_kerja");
         Route::put('/edit_unit_kerja/{id}', [AdminController::class, "update_unit_kerja"])->name('admin.update_unit_kerja');

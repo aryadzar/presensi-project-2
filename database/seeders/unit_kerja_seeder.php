@@ -15,7 +15,7 @@ class unit_kerja_seeder extends Seeder
     {
         $unit_kerja = [
             [
-                "nama_unit" => "UPT TIK Universitas Lampung"
+                "nama_unit" => "Humas Universitas Lampung"
             ]
         ];
 

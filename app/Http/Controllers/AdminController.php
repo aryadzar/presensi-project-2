@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
+use App\Models\SetRole;
 use App\Models\UnitKerja;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Validator; // Add this line
 use Diglactic\Breadcrumbs\Breadcrumbs;
+use Illuminate\Support\Facades\Validator; // Add this line
 
 class AdminController extends Controller
 {
@@ -130,6 +132,62 @@ class AdminController extends Controller
 
         return redirect()->route('administratif.daftarpegawai')->with('success', 'User Berhasil Dihapus');
 
+    }
+
+    public function editRole(User $user)
+    {
+        $roles = Role::all();
+        $units = UnitKerja::all();
+
+        return view('dashboard_admin.kelola_role.index', compact('user', 'roles', 'units'));
+    }
+
+    public function addUserRole(Request $request, User $user)
+    {
+        $request->validate([
+            'role_id' => 'required|exists:roles,id',
+            'unit_kerja_id' => 'nullable|exists:unit_kerjas,id',
+        ]);
+
+        $user->setRoles()->create([
+            'role_id' => $request->role_id,
+            'unit_kerja_id' => $request->unit_kerja_id
+        ]);
+
+        return redirect()->route('edit.role', $user->id)->with('success', 'Role berhasil ditambahkan.');
+    }
+
+    public function editUserRole(User $user, $setRoleId)
+    {
+        $setRole = SetRole::findOrFail($setRoleId);
+        $roles = Role::all();
+        $units = UnitKerja::all();
+
+        return view('edit_role.edit_role', compact('setRole', 'roles', 'units'));
+    }
+
+    public function updateUserRole(Request $request, User $user, $setRoleId)
+    {
+        $request->validate([
+            'role_id' => 'required|exists:roles,id',
+            'unit_kerja_id' => 'nullable|exists:unit_kerjas,id',
+        ]);
+
+        $setRole = SetRole::findOrFail($setRoleId);
+        $setRole->update([
+            'role_id' => $request->role_id,
+            'unit_kerja_id' => $request->unit_kerja_id
+        ]);
+
+        return redirect()->route('edit.role', $user->id)->with('success', 'Role berhasil diperbarui.');
+    }
+
+    public function deleteUserRole(User $user, $setRoleId)
+    {
+        $setRole = SetRole::findOrFail($setRoleId);
+        $setRole->delete();
+
+        return redirect()->route('edit.role', $user->id)->with('success', 'Role berhasil dihapus.');
     }
 
 }

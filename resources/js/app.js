@@ -25,7 +25,6 @@ async function updateBarcode() {
     try {
         const response = await fetch('/barcode_generate');
         const data = await response.json();
-        console.log(data); // Tambahkan ini untuk melihat apa yang diterima
         const barcodeCanvas = document.getElementById('barcode');
 
         // Generate QR code menggunakan qrcode dan canvas

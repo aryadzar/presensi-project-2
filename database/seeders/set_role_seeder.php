@@ -14,10 +14,10 @@ class set_role_seeder extends Seeder
     public function run(): void
     {
         SetRole::create([
-             "id_role" => "b8e039be-abd9-4d91-9e61-4f3752080a12",
-             "id_unit_kerja" => "c04bd838-a38d-4761-93f8-25f04a768b69",
-             "id_user" => "1bdf99aa-ff9c-4ae4-ab05-dd71943e0560",
-             "id_actor" => "7ec51d40-7e68-4592-ac34-7c53b44a76df"
+             "id_role" => "9dd9617e-622c-410f-ac19-4f1425a8c381",
+             "id_unit_kerja" => "30ba2d3c-5a5d-4748-9fe6-ae8941ca3b9f",
+             "id_user" => "7211330d-a591-4112-aeaa-9c36bfd8e4be",
+             "id_actor" => "7211330d-a591-4112-aeaa-9c36bfd8e4be"
         ]);
     }
 }

@@ -13,7 +13,7 @@ Breadcrumbs::for('Dashboard', function (BreadcrumbTrail $trail){
 
 Breadcrumbs::for('Home', function (BreadcrumbTrail $trail){
     $trail->parent("Dashboard");
-    $trail->push('Home', route('dashboard'));
+    $trail->push('Home');
 });
 
 Breadcrumbs::for('Presensi', function (BreadcrumbTrail $trail){

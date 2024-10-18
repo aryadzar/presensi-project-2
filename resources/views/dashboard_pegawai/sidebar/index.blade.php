@@ -24,8 +24,8 @@
 
                 <ul class="mb-6 flex flex-col gap-7">
                     <li>
-                        <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ Route::currentRouteName() == 'dashboard' ? ' bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
-                            href="{{ route('dashboard') }}">
+                        <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ Route::currentRouteName() == 'karyawan.dashboard' ? ' bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
+                            href="{{ route('karyawan.dashboard') }}">
                             <i class="fa-solid fa-house"></i>
                             Dashboard
                         </a>
@@ -33,7 +33,7 @@
                     </li>
                     <li x-data="{ selected: '{{ in_array(Route::currentRouteName(), ['presensi.barcode', 'presensi.surat_izin', 'presensi.set_cuti', 'presensi.log_book']) ? 'Presensi' : '' }}' }">
                         <!-- Trigger for dropdown -->
-                        <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ in_array(Route::currentRouteName(), ['presensi', 'presensi.barcode', 'presensi.surat_izin', 'presensi.set_cuti']) ? 'bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
+                        <a class="group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-blue-400 cursor-pointer h-[45px] dark:hover:bg-meta-4 {{ in_array(Route::currentRouteName(), ['presensi', 'presensi.barcode', 'presensi.surat_izin', 'presensi.log_book']) ? 'bg-white font-bold text-slate-950 hover:bg-whiten' : '' }}"
                             href="#" @click.prevent="selected = (selected === 'Presensi' ? '' : 'Presensi')">
                             <i class="fa-solid fa-fingerprint"></i>
                             Presensi

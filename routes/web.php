@@ -12,7 +12,7 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
-
+use App\Http\Controllers\PresensiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,14 +37,7 @@ Route::group(['middleware' => 'guest'], function(){
     Route::get('/login/sso', [LoginController::class, 'login_sso'])->name('login_sso');
 });
 
-Route::get('/barcode_generate', function (){
-    $barcode  = Str::uuid()->toString();
-    $lama_token = now()->addMinutes(10);
-
-    Cache::put("barcode_token_{$barcode}",true,  $lama_token);
-    return response()->json(['barcode' => $barcode]);
-
-})->name('barcode_generate');
+Route::get('/barcode_generate', [PresensiController::class, "barcode_generator"])->name('barcode_generate');
 
 
 Route::get('/logout', [LoginController::class, "logout"])->name("logout");
@@ -52,55 +45,7 @@ Route::get('/logout', [LoginController::class, "logout"])->name("logout");
 // , 'CheckRole:Admin'
 
 
-Route::group(['middleware' => ['auth']], function(){
-
-    Route::get('/scan_barcode', function () {
-        $breadcrumbs = Breadcrumbs::generate('Scan Barcode');
-        return view('dashboard_pegawai.scan_barcode.index', compact('breadcrumbs'));
-    })->name("presensi.barcode");
-
-    Route::post('/presensi/check-in', function (Request $request) {
-        $barcode = $request->input('barcode'); // Ambil barcode yang di-scan
-        $userId = Auth::user()->id; // Gunakan ID user yang sedang login
-
-        if(Cache::has("barcode_token_{$barcode}")){
-            // Cari presensi berdasarkan ID user dan barcode
-            $alreadyPresent = Presensi::where('id_user', $userId)
-                ->whereDate('tanggal', now()->toDateString())
-                ->exists();
-
-            if ($alreadyPresent) {
-                Cache::forget("barcode_token_{$barcode}"); // Hapus token setelah digunakan
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Anda sudah melakukan presensi hari ini.'
-                ]);
-            }
-
-            // Buat data presensi baru
-            $presensi = new Presensi();
-            $presensi->id_user = $userId;
-            $presensi->data_qr_code = $barcode; // Simpan kode random di barcode
-            $presensi->tanggal = now();
-            $presensi->save();
-            Cache::forget("barcode_token_{$barcode}"); // Hapus token setelah digunakan
-
-            return response()->json([
-                'success' => true,
-                'user_name' => Auth::user()->nama
-            ]);
-
-        }
-
-        return response()->json([
-            'success' => false,
-            'message' => 'Barcode tidak valid atau kadaluwarsa.'
-        ]);
-
-    });
-
-
-
+Route::group(['middleware' => ['auth', 'CheckRole:Admin']], function(){
 
     /* ADMIN SIDE BAR */
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
@@ -121,6 +66,11 @@ Route::group(['middleware' => ['auth']], function(){
         Route::delete('/user_delete/{id}', [AdminController::class, 'delete_user'])->name('delete_user');
 
 
+        Route::get('/edit-role/{user}', [AdminController::class, 'editRole'])->name('edit.role');
+        Route::post('/add-role/{user}', [AdminController::class, 'addUserRole'])->name('add.user.role');
+        Route::put('/update-role/{user}/{set_role}', [AdminController::class, 'updateUserRole'])->name('update.user.role');
+        Route::delete('/delete-role/{user}/{set_role}', [AdminController::class, 'deleteUserRole'])->name('delete.user.role');
+        Route::get('/edit-user-role/{user}/{set_role}', [AdminController::class, 'editUserRole'])->name('edit.user.role');
 
 
 
@@ -148,13 +98,32 @@ Route::group(['middleware' => ['auth']], function(){
 
 
 Route::group(['middleware' => ['auth', 'CheckRole:Karyawan']], function(){
+    Route::get('/scan_barcode', function () {
+        $breadcrumbs = Breadcrumbs::generate('Scan Barcode');
+        return view('dashboard_pegawai.scan_barcode.index', compact('breadcrumbs'));
+    })->name("presensi.barcode");
+
+    Route::post('/presensi/check-in', [PresensiController::class, 'set_presensi']);
 
 
-
-
-    Route::get('/pegawai', function () {
-        dd("Ini Halaman Karyawan");
+    Route::get('/dashboard_karyawan', function () {
+        $breadcrumbs = Breadcrumbs::generate('Home');
+        return view('dashboard_pegawai.index', compact('breadcrumbs'));
     })->name('karyawan.dashboard');
+
+    Route::get('/set_izin', function () {
+        $breadcrumbs = Breadcrumbs::generate('Surat Izin');
+        return view('dashboard_pegawai.surat_izin.index', compact("breadcrumbs"));
+    })->name("presensi.surat_izin");
+
+    Route::get('/history', function () {
+        $data = Auth::user()->presensi()->get();
+        return view('dashboard_pegawai.riwayat.index', compact('data'));
+    })->name("riwayat");
+
+    Route::get('/log_book', function () {
+        return view('dashboard_pegawai.logbook.index');
+    })->name("presensi.log_book");
 
 });
 
@@ -170,30 +139,14 @@ Route::group(['middleware' => ['auth', 'CheckRole:Karyawan']], function(){
 
 
 
-Route::get('/dashboard', function () {
-    $breadcrumbs = Breadcrumbs::generate('Home');
-    return view('dashboard_pegawai.index', compact('breadcrumbs'));
-})->name('dashboard');
 
 
 
-Route::get('dashboard/presensi/set_izin', function () {
-    $breadcrumbs = Breadcrumbs::generate('Surat Izin');
-    return view('dashboard_pegawai.surat_izin.index', compact("breadcrumbs"));
-})->name("presensi.surat_izin");
 
-Route::get('dashboard/presensi/set_cuti', function () {
-    return view('dashboard_pegawai.cuti.index');
-})->name("presensi.set_cuti");
 
-Route::get('dashboard/presensi/log_book', function () {
-    return view('dashboard_pegawai.logbook.index');
-})->name("presensi.log_book");
 
-Route::get('dashboard/history', function () {
-    $data = Auth::user()->presensi()->get();
-    return view('dashboard_pegawai.riwayat.index', compact('data'));
-})->name("riwayat");
+
+
 
 Route::get('barcode', function () {
     return view('barcode.index');

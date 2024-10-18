@@ -45,7 +45,7 @@
 
         <div class="col-span-3">
 
-            <table class="w-full bg-white rounded-md shadow-lg overflow-hidden" id="my-table-1">
+            <table class="w-full bg-white rounded-md shadow-lg overflow-hidden table">
                 <thead class="bg-blue-500 text-white">
                     <tr>
                         <th class="p-2 text-left">No</th>
@@ -142,7 +142,7 @@
                 User</a>
         </div>
         <div class="col-span-3">
-            <table class="w-full bg-white rounded-md shadow-lg overflow-hidden" id="my-table-2">
+            <table class="w-full bg-white rounded-md shadow-lg overflow-hidden table" >
                 <thead class="bg-blue-500 text-white">
                     <tr>
                         <th class="p-2 text-left">No</th>
@@ -151,6 +151,7 @@
                         <th class="p-2 text-left">Alamat</th>
                         <th class="p-2 text-left">No Telepon</th>
                         <th class="p-2 text-left">Asal Instansi</th>
+                        <th class="p-2 text-left">Role</th>
                         <th class="p-2 text-left">Detail</th>
                     </tr>
                 </thead>
@@ -163,6 +164,7 @@
                             <td class="p-2 text-gray-700">{{ $item->alamat }}</td>
                             <td class="p-2 text-gray-700">{{ $item->no_telepon }}</td>
                             <td class="p-2 text-gray-700">{{ $item->asal_instansi }}</td>
+                            <td class="p-2 text-gray-700"><a href="{{ route('edit.role', $item->id) }}">Lihat Role </a></td>
                             <td class="p-2 text-left">
                                 <a href="{{ route('show_user_info', $item->id) }}"
                                     class="bg-yellow-400 rounded p-1 px-2 py-2">
@@ -202,20 +204,5 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>
-    <script>
-        if (document.getElementById("my-table-1") && typeof simpleDatatables.DataTable !== 'undefined') {
-            const dataTable = new simpleDatatables.DataTable("#my-table-1", {
-                searchable: true,
-                sortable: false
-            });
-        }
-        if (document.getElementById("my-table-2") && typeof simpleDatatables.DataTable !== 'undefined') {
-            const dataTable = new simpleDatatables.DataTable("#my-table-2", {
-                searchable: true,
-                sortable: false
-            });
-        }
-    </script>
 
 @endsection

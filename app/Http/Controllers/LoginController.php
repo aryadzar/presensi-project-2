@@ -19,24 +19,23 @@ class LoginController extends Controller
             $check = User::where('NPM', SSO::getUser()->nip)->first(); //mengecek apakah pengguna SSO memiliki username yang sama dengan database aplikasi
             if(SSO::check()){
                 Auth::loginUsingId($check->id);
-                return redirect()->route('presensi.barcode');
-                // $user = Auth::user();
+                $user = Auth::user();
 
-                // $roles = $user->setRoles()->with('role')->get();
+                $roles = $user->setRoles()->with('role')->get();
 
-                // if ($roles->count() > 1) {
-                //     return redirect()->route('role');
-                // }
+                if ($roles->count() > 1) {
+                    return redirect()->route('role');
+                }
 
-                // $roleName = $roles->first()->role->nama_role;
+                $roleName = $roles->first()->role->nama_role;
 
-                // if ($roleName === 'Admin') {
-                //     return redirect()->route('admin.dashboard');
-                // } elseif ($roleName === 'Operator') {
-                //     return redirect()->route('operator.dashboard');
-                // } else {
-                //     return redirect()->route('karyawan.dashboard');
-                // }
+                if ($roleName === 'Admin') {
+                    return redirect()->route('admin.dashboard');
+                } elseif ($roleName === 'Operator') {
+                    return redirect()->route('operator.dashboard');
+                } else {
+                    return redirect()->route('karyawan.dashboard');
+                }
             }
         }
     }
@@ -77,25 +76,23 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->route('presensi.barcode');
+            $user = Auth::user();
 
-            // $user = Auth::user();
+            $roles = $user->setRoles()->with('role')->get();
 
-            // $roles = $user->setRoles()->with('role')->get();
+            if ($roles->count() > 1) {
+                return redirect()->route('role');
+            }
 
-            // if ($roles->count() > 1) {
-            //     return redirect()->route('role');
-            // }
+            $roleName = $roles->first()->role->nama_role;
 
-            // $roleName = $roles->first()->role->nama_role;
-
-            // if ($roleName === 'Admin') {
-            //     return redirect()->route('admin.dashboard');
-            // } elseif ($roleName === 'Operator') {
-            //     return redirect()->route('operator.dashboard');
-            // } else {
-            //     return redirect()->route('karyawan.dashboard');
-            // }
+            if ($roleName === 'Admin') {
+                return redirect()->route('admin.dashboard');
+            } elseif ($roleName === 'Operator') {
+                return redirect()->route('operator.dashboard');
+            } else {
+                return redirect()->route('karyawan.dashboard');
+            }
         }
 
         return back()->withErrors([

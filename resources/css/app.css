@@ -9,6 +9,10 @@
     background: red !important;
 }
 
+#nprogress .spinner-icon {
+    border-top-color: red !important;
+    border-left-color: red !important;
+}
 .animated-background {
     background-size: 400%;
 

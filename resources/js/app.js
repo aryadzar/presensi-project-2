@@ -8,6 +8,9 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
 
+NProgress.configure({ showSpinner: false });
+
+
 window.addEventListener('beforeunload', function () {
     NProgress.start(0.5);  // Mulai NProgress saat pengguna berpindah halaman
     NProgress.set(0.5);  // Mulai NProgress saat pengguna berpindah halaman

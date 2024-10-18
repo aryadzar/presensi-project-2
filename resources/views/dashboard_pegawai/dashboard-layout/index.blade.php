@@ -8,7 +8,6 @@
     <title>@yield('title')</title>
     <link rel="shortcut icon" href="{{ asset('/assets/logo_unila/unila.png') }}" type="image/x-icon">
     <script src="https://kit.fontawesome.com/d931a8b882.js" crossorigin="anonymous"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -16,7 +15,6 @@
 $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
     :class="{ 'dark text-bodydark bg-gradient-to-t from-blue-900 to-blue-950': darkMode === true }">
     <!-- ===== Preloader Start ===== -->
-    <include src="./partials/preloader.html"></include>
     <!-- ===== Preloader End ===== -->
 
     <!-- ===== Page Wrapper Start ===== -->
@@ -167,12 +165,12 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                 @click.prevent="dropdownOpen = ! dropdownOpen">
                                 <span class="hidden text-right lg:block">
                                     <span
-                                        class="block text-sm font-medium text-slate-900 dark:text-white">@yield('nama_pegawai')</span>
-                                    <span class="block  font-medium">@yield('role')</span>
+                                        class="block text-sm font-medium text-slate-900 dark:text-white">{{ Auth::user()->nama }}</span>
+                                    <span class="block text-black-2 dark:text-white  font-medium">Pegawai</span>
                                 </span>
 
-                                <span class="h-12 w-12 rounded-full">
-                                    <img src="./images/user/user-01.png" alt="User" />
+                                <span class=" rounded-full text-black-2 text-2xl dark:text-white ">
+                                    <i class="fa-solid fa-user-tie "></i>
                                 </span>
 
                                 <svg :class="dropdownOpen && 'rotate-180'" class="hidden fill-current sm:block"
@@ -207,7 +205,8 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                     <li>
                                         <a href="{{ route('role') }}"
                                             class="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
-                                            <i class="fa-solid fa-arrow-right-arrow-left fa-rotate-by" style="--fa-rotate-angle: 135deg;"></i>
+                                            <i class="fa-solid fa-arrow-right-arrow-left fa-rotate-by"
+                                                style="--fa-rotate-angle: 135deg;"></i>
                                             Ganti Role
                                         </a>
                                     </li>

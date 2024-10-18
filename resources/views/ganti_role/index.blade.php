@@ -8,7 +8,6 @@
     <title>Ganti Role</title>
     <link rel="shortcut icon" href="{{ asset('/assets/logo_unila/unila.png') }}" type="image/x-icon">
     <script src="https://kit.fontawesome.com/d931a8b882.js" crossorigin="anonymous"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -32,13 +31,13 @@
 
                 <div class="text-center space-y-5 ">
                     @foreach ($roles as $setRole)
-                            <form action="{{ route('set_role') }}" method="POST">
-                                @csrf
-                                <input type="hidden" name="role_id" value="{{ $setRole->role->id }}">
-                                <button type="submit"
-                                    class="block bg-whiten text-green-800 py-4 px-6 rounded-lg border border-green-800 hover:bg-green-200 transition w-full">{{ $setRole->role->nama_role  }}
-                                     {{ $setRole->role->nama_role === 'Admin' ? " " : "|| ".$setRole->unitKerja->nama_unit }}</button>
-                            </form>
+                        <form action="{{ route('set_role') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="role_id" value="{{ $setRole->role->id }}">
+                            <button type="submit"
+                                class="block bg-whiten text-green-800 py-4 px-6 rounded-lg border border-green-800 hover:bg-green-200 transition w-full">{{ $setRole->role->nama_role }}
+                                {{ $setRole->role->nama_role === 'Admin' ? ' ' : '|| ' . $setRole->unitKerja->nama_unit }}</button>
+                        </form>
                     @endforeach
                 </div>
 

@@ -15,7 +15,7 @@
     <div class="bg-blue-100 p-6 grid grid-cols-1 lg:grid-cols-2 mt-5 rounded-sm">
         <!-- Table -->
         <div class="col-span-3">
-            <table class="w-full bg-white rounded-md shadow-lg overflow-hidden" id="my-table">
+            <table class="w-full bg-white rounded-md shadow-lg overflow-hidden table">
                 <thead class="bg-blue-500 text-white">
                     <tr>
                         <th class="p-2 text-left">Tanggal Scan</th>
@@ -33,7 +33,6 @@
                             </td>
 
                         </tr>
-
                     @endforeach
                     <!-- Additional rows can be added here -->
                 </tbody>
@@ -100,13 +99,4 @@
         </div>
     </dialog>
 
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>
-    <script>
-        if (document.getElementById("my-table") && typeof simpleDatatables.DataTable !== 'undefined') {
-            const dataTable = new simpleDatatables.DataTable("#my-table", {
-                searchable: true,
-                sortable: false
-            });
-        }
-    </script>
 @endsection

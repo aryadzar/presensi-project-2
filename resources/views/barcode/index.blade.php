@@ -23,8 +23,8 @@
             <!-- Bagian kanan: Gambar barcode yang lebih besar -->
             <div class="bg-blue-300 p-4 rounded-lg shadow-inner flex flex-col items-center justify-center">
                 <h2 class="text-lg font-semibold mb-4">Scan Barcode:</h2>
-                <img src="" alt="Barcode"
-                    class="w-96 h-96 object-contain" id="barcode" />
+                <canvas id="barcode" class="w-96 h-96 object-contain"></canvas>
+
             </div>
 
             <!-- Bagian kiri: Daftar nama orang yang telah absen -->
@@ -46,27 +46,27 @@
         </div>
     </div>
 
-    <script>
+    {{-- <script>
         // Contoh script untuk mengganti barcode (bisa diintegrasikan dengan backend jika menggunakan Laravel)
         async function updateBarcode() {
-    try {
-        const response = await fetch('/barcode_generate');
-        const data = await response.json();
-        console.log(data); // Tambahkan ini untuk melihat apa yang diterima
-        const barcodeImg = document.getElementById('barcode');
-        barcodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?data=${data.barcode}&size=400x400`;
-        barcodeImg.alt = `Barcode ${data.barcode}`;
-    } catch (e) {
-        console.error("Error updating barcode", e);
-    }
-}
+            try {
+                const response = await fetch('/barcode_generate');
+                const data = await response.json();
+                console.log(data); // Tambahkan ini untuk melihat apa yang diterima
+                const barcodeImg = document.getElementById('barcode');
+                barcodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?data=${data.barcode}&size=400x400`;
+                barcodeImg.alt = `Barcode ${data.barcode}`;
+            } catch (e) {
+                console.error("Error updating barcode", e);
+            }
+        }
 
         // Simulasi pergantian barcode setiap 5 detik
         let barcodeCounter = 1;
         setInterval(() => {
             updateBarcode();
         }, 5000);
-    </script>
+    </script> --}}
 </body>
 
 </html>

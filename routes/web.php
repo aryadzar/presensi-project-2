@@ -73,6 +73,12 @@ Route::group(['middleware' => ['auth', 'CheckRole:Admin']], function(){
         Route::get('/edit-user-role/{user}/{set_role}', [AdminController::class, 'editUserRole'])->name('edit.user.role');
 
 
+        Route::get('/history', function () {
+            $breadcrumbs = Breadcrumbs::generate('Riwayat');
+            $data = Presensi::all();
+            return view('dashboard_admin.riwayat.index', compact('breadcrumbs', 'data'));
+        })->name('riwayatadmin');
+
 
         Route::get('/validasisurat', function () {
             $breadcrumbs = Breadcrumbs::generate('Validasi Surat');
@@ -157,10 +163,7 @@ Route::get('profile', function () {
 })->name("profile");
 
 
-Route::get('/dashboard/historyadmin', function () {
-    $breadcrumbs = Breadcrumbs::generate('Riwayat');
-    return view('dashboard_admin.riwayat.index', compact('breadcrumbs'));
-})->name('riwayatadmin');
+
 
 
 

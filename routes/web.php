@@ -199,6 +199,9 @@ Route::get('barcode', function () {
     return view('barcode.index');
 })->name("barcode");
 
+Route::get('profile', function () {
+    return view('profile.index');
+})->name("profile");
 
 
 Route::get('/dashboard/historyadmin', function () {

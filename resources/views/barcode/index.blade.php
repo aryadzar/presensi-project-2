@@ -52,20 +52,15 @@
                             axios.get('/list_user') // Your route here
                                 .then(response => {
                                     const data = response.data;
+                                    console.log(data);
                                     const tableBody = document.getElementById('pegawai-data');
-                                    tableBody.innerHTML = ''; // Clear previous table rows
+                                    tableBody.innerHTML = `                            <tr>
+                                <td>${data.NPM}</td>
+                                <td>${data.nama}</td>
+                                <td>${data.tanggal}</td>
+                            </tr>`; // Clear previous table rows
 
-                                    // Loop through the data and create new rows
-                                    data.forEach(item => {
-                                        const row = `
-                            <tr>
-                                <td>${item.NPM}</td>
-                                <td>${item.nama}</td>
-                                <td>${item.tanggal}</td>
-                            </tr>
-                        `;
-                                        tableBody.innerHTML += row;
-                                    });
+
                                 })
                                 .catch(error => {
                                     console.error('Error fetching pegawai data:', error);

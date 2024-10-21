@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Date;
 
 class PresensiController extends Controller
 {
@@ -61,9 +62,15 @@ class PresensiController extends Controller
     }
 
     public function read_daftar_pegawai()
-{
-    $users = User::orderBy('created_at', 'asc')->get();
-    return response()->json($users);
-}
+    {
+        // $user = Presensi::all();
+        $presensi = Presensi::orderBy('created_at', 'desc')->first();
+
+        return response()->json([
+            "NPM" => $presensi->user->NPM,
+            "nama" => $presensi->user->nama,
+            "tanggal" => $presensi->tanggal
+        ]);
+    }
 
 }

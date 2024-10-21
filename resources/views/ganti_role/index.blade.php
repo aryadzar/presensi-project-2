@@ -34,6 +34,7 @@
                         <form action="{{ route('set_role') }}" method="POST">
                             @csrf
                             <input type="hidden" name="role_id" value="{{ $setRole->role->id }}">
+                            <input type="hidden" name="unit_kerja_id" value="{{ $setRole->id_unit_kerja }}">
                             <button type="submit"
                                 class="block bg-whiten text-green-800 py-4 px-6 rounded-lg border border-green-800 hover:bg-green-200 transition w-full">{{ $setRole->role->nama_role }}
                                 {{ $setRole->role->nama_role === 'Admin' ? ' ' : '|| ' . $setRole->unitKerja->nama_unit }}</button>

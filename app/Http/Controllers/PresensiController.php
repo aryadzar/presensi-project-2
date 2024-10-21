@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Logbook;
 use App\Models\User;
 use App\Models\Presensi;
 use Illuminate\Support\Str;
@@ -44,6 +45,13 @@ class PresensiController extends Controller
             $presensi->data_qr_code = $barcode; // Simpan kode random di barcode
             $presensi->tanggal = now();
             $presensi->save();
+
+            $log_book = Logbook::create(
+                [
+                    "id_presensi" => $presensi->id
+                ]
+            );
+
             Cache::forget("barcode_token_{$barcode}"); // Hapus token setelah digunakan
 
             return response()->json([

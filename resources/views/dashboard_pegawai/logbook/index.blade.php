@@ -1,6 +1,6 @@
 @extends('dashboard_pegawai.dashboard-layout.index')
 
-@section('title', 'Dashboard Pegawai')
+@section('title', 'Isi Logbook')
 @section('nama_pegawai', 'Jauhari')
 @section('role', 'Pegawai')
 @section('content')
@@ -9,7 +9,11 @@
         <h1 class="text-2xl font-semibold"><i class="fa-solid fa-book text-blue-500 mr-2 dark:text-white"></i> <span
                 class="dark:text-white text-blue-500">Log Book</span></h1>
     </div>
-
+    @if (session()->has('success'))
+    <div role="alert" class="alert alert-success bg-green-300 mt-5 mb-5">
+        <span>{{ session('success') }}</span>
+    </div>
+    @endif
     <!-- Attendance Table -->
     <div class="bg-blue-100 dark:bg-slate-500 p-6 grid grid-cols-1 lg:grid-cols-2 mt-5 rounded-sm">
         <!-- Table -->
@@ -17,47 +21,56 @@
             <table class="w-full bg-white rounded-md shadow-lg overflow-hidden" id="my-table">
                 <thead class="bg-blue-500 text-white">
                     <tr>
-                        <th class="p-2 text-left">Tanggal</th>
+                        <th class="p-2 text-left">Tanggal dan Waktu</th>
                         <th class="p-2 text-left">Status</th>
-                        <th class="p-2 text-left">Waktu Kehadiran</th>
+                        <th class="p-2 text-left">Terakhir Isi Logbook</th>
                         <th class="p-2 text-left">Catatan Harian</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="border-b hover:bg-gray-100">
-                        <td class="p-2 text-gray-700">01-10-2024</td>
-                        <td class="p-2">
-                            <span
-                                class="bg-red-500 text-black text-[15px] font-bold me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Belum
-                                Mengisi</span>
+                    @foreach ($data as $item)
+                        <tr class="border-b hover:bg-gray-100">
+                            <td class="p-2 text-gray-700">{{ $item->created_at }}</td>
+                            <td class="p-2">
+                                @if (is_null($item->isi_logbook))
+                                <span
+                                    class="badge badge-error">Belum
+                                    Mengisi</span>
+                                @else
+                                <span
+                                    class="badge badge-success">Sudah
+                                    Mengisi</span>
+                                @endif
+                            </td>
+                            <td class="p-2 text-gray-700">
+                                <div class="">
+                                    @if (is_null($item->isi_logbook))
+                                    <span
+                                    class="badge badge-error">Belum
+                                    Mengisi</span>
+                                    @else
+                                    {{ $item->updated_at }}
+                                    @endif
 
-                        </td>
-                        <td class="p-2 text-gray-700">07.40 WIB</td>
-                        <td class="p-2 text-gray-700">
-                            <div class="flex justify mb-5">
-                                <!-- Add Button with modal trigger -->
-                                <button class="btn bg-blue-500 rounded p-1 px-5" onclick="toggleModal('my_modal_tambah')">
-                                    <i class="fa-solid fa-plus text-white"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="border-b hover:bg-gray-100">
-                        <td class="p-2 text-gray-700">01-10-2024</td>
-                        <td class="p-2">
-                            <span class="badge badge-success font-bold">Sudah Mengisi</span>
-                        </td>
-                        <td class="p-2 text-gray-700">07.40 WIB</td>
-                        <td class="p-2 text-gray-700">
-                            <div class="flex justify mb-5">
-                                <!-- Eye Button with modal trigger -->
-                                <button class="btn bg-blue-500 rounded p-1 px-5"
-                                    onclick="document.getElementById('my_modal_8').showModal()">
-                                    <i class="fa-solid fa-eye text-white"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
+                                </div>
+                            </td>
+                            <td class="p-2 text-gray-700">
+                                <div class="">
+                                    @if (is_null($item->isi_logbook))
+                                    <a class="btn bg-blue-500 rounded p-1 px-5" href="{{ route('presensi.isi_logbook', $item->id) }}">
+                                        <i class="fa-solid fa-plus text-white"></i>
+                                    </a>
+                                    @else
+                                    <a class="btn bg-blue-500 rounded p-1 px-5" href="{{ route('presensi.isi_logbook', $item->id) }}">
+                                        <i class="fa-solid fa-eye text-white"></i>
+                                    </a>
+                                    @endif
+
+                                </div>
+                            </td>
+                        </tr>
+
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -2,6 +2,7 @@
 
 use SSO\SSO;
 use App\Models\User;
+use App\Models\Logbook;
 use App\Models\Presensi;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PresensiController;
 
 /*
@@ -91,7 +93,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:Operator']], function(){
 
 
     Route::get('/operator', function () {
-        dd("Ini Halaman Operator", "Nama User : ". Auth::user()->nama, "Role saat ini" );
+        dd("Ini Halaman Operator", "Nama User : ". Auth::user()->nama, "Unit Kerja saat ini". session("id_unit_kerja") );
     })->name('operator.dashboard');
 
 });
@@ -112,10 +114,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:Karyawan']], function(){
     Route::post('/presensi/check-in', [PresensiController::class, 'set_presensi']);
 
 
-    Route::get('/dashboard_karyawan', function () {
-        $breadcrumbs = Breadcrumbs::generate('Home');
-        return view('dashboard_pegawai.index', compact('breadcrumbs'));
-    })->name('karyawan.dashboard');
+    Route::get('/karyawan', [PegawaiController::class, 'home'])->name('karyawan.dashboard');
 
     Route::get('/set_izin', function () {
         $breadcrumbs = Breadcrumbs::generate('Surat Izin');
@@ -128,8 +127,14 @@ Route::group(['middleware' => ['auth', 'CheckRole:Karyawan']], function(){
     })->name("riwayat");
 
     Route::get('/log_book', function () {
-        return view('dashboard_pegawai.logbook.index');
+        $user = Auth::user();
+        $data = Logbook::whereHas('presensi', function($query) use ($user) {
+            $query->where('id_user', $user->id);
+        })->get();        return view('dashboard_pegawai.logbook.index', compact('data'));
     })->name("presensi.log_book");
+
+    Route::get('/log_book/{id}', [PegawaiController::class, 'show_logbook'])->name('presensi.isi_logbook');
+    Route::post('/log_book/{id}', [PegawaiController::class, 'store_logbook'])->name('presensi.store_logbook');
 
 });
 

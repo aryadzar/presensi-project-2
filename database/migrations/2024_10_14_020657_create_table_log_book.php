@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('logbook', function (Blueprint $table) {
             $table->uuid("id")->unique()->primary();
             $table->uuid('id_presensi');
-            $table->longText('isi_logbook');
+            $table->longText('isi_logbook')->nullable();
             $table->foreign('id_presensi')->references('id')->on('presensi');
             $table->timestamps();
         });

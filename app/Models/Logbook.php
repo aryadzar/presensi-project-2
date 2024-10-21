@@ -6,16 +6,13 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Presensi extends Model
+class Logbook extends Model
 {
     use HasFactory;
-    public $incrementing = false;
-    protected $table = 'presensi';
 
-    // Set primary key type ke string
+    protected $table = 'logbook';
+    protected $guarded = [];
     protected $keyType = 'string';
-
-    // Override boot function untuk men-generate UUID secara otomatis
     protected static function boot()
     {
         parent::boot();
@@ -27,11 +24,7 @@ class Presensi extends Model
         });
     }
 
-    public function user(){
-        return $this->belongsTo(User::class, "id_user");
-    }
-
-    public function logbook(){
-        return $this->hasOne(Logbook::class, "id_presensi");
+    public function presensi(){
+        return $this->belongsTo(Presensi::class, "id_presensi");
     }
 }

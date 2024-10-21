@@ -166,7 +166,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
                                 <span class="hidden text-right lg:block">
                                     <span
                                         class="block text-sm font-medium text-slate-900 dark:text-white">{{ Auth::user()->nama }}</span>
-                                    <span class="block text-black-2 dark:text-white  font-medium">Pegawai</span>
+                                    <span class="block text-black-2 dark:text-white  font-medium">Pegawai - {{ \App\Models\UnitKerja::find(Session::get('id_unit_kerja'))->nama_unit ?? "N/A" }}</span>
                                 </span>
 
                                 <span class=" rounded-full text-black-2 text-2xl dark:text-white ">

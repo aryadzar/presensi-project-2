@@ -90,6 +90,7 @@ class AdminController extends Controller
         return redirect()->route('administratif.daftarpegawai')->with('success', 'User Berhasil Ditambah');
     }
 
+
     public function show_user_info($id){
         $data = User::find($id);
 
@@ -134,6 +135,7 @@ class AdminController extends Controller
         return redirect()->route('administratif.daftarpegawai')->with('success', 'User Berhasil Dihapus');
 
     }
+    
 
     public function editRole(User $user)
     {

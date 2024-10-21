@@ -165,6 +165,7 @@ Route::get('profile', function () {
 
 
 
+Route::get('/list_user', [PresensiController::class, 'read_daftar_pegawai']);
 
 
 

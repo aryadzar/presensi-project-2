@@ -141,7 +141,7 @@
                 User</a>
         </div>
         <div class="col-span-3">
-            <table class="w-full bg-white rounded-md shadow-lg overflow-hidden table" >
+            <table class="w-full bg-white rounded-md shadow-lg overflow-hidden table">
                 <thead class="bg-blue-500 text-white">
                     <tr>
                         <th class="p-2 text-left">No</th>
@@ -167,7 +167,8 @@
                             <td class="p-2 text-gray-700">{{ $item->asal_instansi }}</td>
                             <td class="p-2 text-gray-700">{{ $item->created_at->diffForHumans() }}</td>
                             <td class="p-2 text-gray-700">{{ $item->updated_at->diffForHumans() }}</td>
-                            <td class="p-2 text-blue-600 underline"><a href="{{ route('edit.role', $item->id) }}">Lihat Role </a></td>
+                            <td class="p-2 text-blue-600 underline"><a href="{{ route('edit.role', $item->id) }}">Lihat
+                                    Role </a></td>
                             <td class="p-2 text-left grid grid-cols-1 gap-2 ">
                                 <a href="{{ route('show_user_info', $item->id) }}"
                                     class="bg-yellow-400 rounded  px-2 py-2 flex items-center justify-center">
@@ -206,6 +207,5 @@
             </table>
         </div>
     </div>
-
 
 @endsection

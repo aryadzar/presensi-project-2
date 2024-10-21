@@ -9,6 +9,8 @@
     <link rel="shortcut icon" href="{{ asset('/assets/logo_unila/unila.png') }}" type="image/x-icon">
     <script src="https://kit.fontawesome.com/d931a8b882.js" crossorigin="anonymous"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -29,19 +31,55 @@
 
             <!-- Bagian kiri: Daftar nama orang yang telah absen -->
             <div class="bg-blue-100 p-4 rounded-lg shadow-inner overflow-y-auto max-h-[70vh]">
-                <h2 class="text-lg font-semibold mb-4">Daftar Kehadiran:</h2>
-                <ul class="space-y-2">
-                    <!-- Contoh item nama, ulangi blok ini untuk setiap orang -->
-                    <li class="p-2 bg-white rounded-lg shadow-sm flex justify-between">
-                        <span>John Doe</span>
-                        <span class="text-sm text-gray-500">10:00 AM</span>
-                    </li>
-                    <li class="p-2 bg-white rounded-lg shadow-sm flex justify-between">
-                        <span>Jane Doe</span>
-                        <span class="text-sm text-gray-500">10:05 AM</span>
-                    </li>
-                    <!-- Tambahkan lebih banyak item di sini -->
-                </ul>
+                <div class="col-span-3">
+                    <h1>Daftar Pegawai</h1>
+                    <table id="daftarPegawaiTable" class="w-full bg-white rounded-md shadow-lg overflow-hidden">
+                        <thead>
+                            <tr>
+                                <th>NPM</th>
+                                <th>Nama</th>
+                                <th>Tanggal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pegawai-data">
+                            <!-- Data will be dynamically injected here -->
+                        </tbody>
+                    </table>
+
+                    <script>
+                        // Function to fetch and update the table data
+                        function fetchPegawaiData() {
+                            axios.get('/list_user') // Your route here
+                                .then(response => {
+                                    const data = response.data;
+                                    const tableBody = document.getElementById('pegawai-data');
+                                    tableBody.innerHTML = ''; // Clear previous table rows
+
+                                    // Loop through the data and create new rows
+                                    data.forEach(item => {
+                                        const row = `
+                            <tr>
+                                <td>${item.NPM}</td>
+                                <td>${item.nama}</td>
+                                <td>${item.tanggal}</td>
+                            </tr>
+                        `;
+                                        tableBody.innerHTML += row;
+                                    });
+                                })
+                                .catch(error => {
+                                    console.error('Error fetching pegawai data:', error);
+                                });
+                        }
+
+                        // Call the function on page load
+                        fetchPegawaiData();
+
+                        // Optionally, refresh the data every 5 seconds
+                        setInterval(fetchPegawaiData, 5000); // Fetch new data every 5 seconds
+                    </script>
+
+                </div>
             </div>
         </div>
     </div>

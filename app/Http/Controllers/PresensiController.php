@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Presensi;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -51,9 +52,18 @@ class PresensiController extends Controller
 
         }
 
+
+
         return response()->json([
             'success' => false,
             'message' => 'Barcode tidak valid atau kadaluwarsa.'
         ]);
     }
+
+    public function read_daftar_pegawai()
+{
+    $users = User::orderBy('created_at', 'asc')->get();
+    return response()->json($users);
+}
+
 }

@@ -49,8 +49,8 @@
                     <tr>
                         <th class="p-2 text-left">No</th>
                         <th class="p-2 text-left">Nama Unit Kerja</th>
-                        <th class="p-2 text-left">Terakhir Dibuat</th>
-                        <th class="p-2 text-left">Terakhir Diperbarui</th>
+                        {{-- <th class="p-2 text-left">Terakhir Dibuat</th>
+                        <th class="p-2 text-left">Terakhir Diperbarui</th> --}}
                         <th class="p-2 text-left">Action</th>
                     </tr>
                 </thead>
@@ -59,8 +59,8 @@
                         <tr class="border-b  hover:bg-gray-100">
                             <td class="p-2 text-gray-700">{{ $index + 1 }}</td>
                             <td class="p-2 text-gray-700">{{ $item->nama_unit }}</td>
-                            <td class="p-2 text-gray-700">{{ $item->created_at->diffForHumans() }}</td>
-                            <td class="p-2 text-gray-700">{{ $item->updated_at->diffForHumans() }}</td>
+                            {{-- <td class="p-2 text-gray-700">{{ $item->created_at->diffForHumans() ?? "N/A" }}</td>
+                            <td class="p-2 text-gray-700">{{ $item->updated_at->diffForHumans() ?? "N/A" }}</td> --}}
                             <td class="p-2">
                                 <label for="edit_unit_kerja_{{ $item->id }}"
                                     class="bg-yellow-400 rounded p-2 mr-2 cursor-pointer">

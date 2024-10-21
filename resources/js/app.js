@@ -2,7 +2,6 @@ import './bootstrap';
 import 'flowbite';
 import { DataTable } from "simple-datatables";
 import Alpine from 'alpinejs';
-import { Html5QrcodeScanner } from 'html5-qrcode';
 import QRCode from 'qrcode';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
